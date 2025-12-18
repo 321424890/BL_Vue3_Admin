@@ -1,0 +1,76 @@
+@import "@/styles/mixin.scss";
+.vx-menu {
+  border-right: 1px solid var(--left-menu-bg-color);
+  :deep(.el-menu) {
+    width: 100% !important;
+    .is-active {
+      & > .el-sub-menu__title {
+        color: var(--left-menu-text-active-color) !important;
+      }
+    }
+
+    // 设置子菜单悬停的高亮和背景色
+    .el-sub-menu__title,
+    .el-menu-item {
+      &:hover {
+        color: var(--left-menu-text-active-color) !important;
+        background-color: var(--left-menu-bg-color) !important;
+      }
+    }
+
+    // 设置选中时的高亮背景和高亮颜色
+    .el-menu-item.is-active {
+      color: var(--left-menu-text-active-color) !important;
+      background: var(--left-menu-bg-active-color) !important;
+      &:hover {
+        background: var(--left-menu-bg-active-color) !important;
+      }
+    }
+
+    // 设置子菜单的背景颜色
+    .el-menu {
+      .el-sub-menu__title,
+      .el-menu-item:not(.is-active) {
+        background-color: var(--left-menu-bg-light-color) !important;
+      }
+    }
+  }
+
+  // 设置没有子目录的菜单选中样式
+  :deep(.el-menu-item.is-active) {
+    color: var(--left-menu-text-active-color) !important;
+    background: var(--left-menu-bg-active-color) !important;
+  }
+
+  // 设置仅有二级菜单的未选中的子样式
+  :deep(.el-sub-menu .el-menu-item) {
+    background-color: var(--left-menu-bg-light-color) !important;
+  }
+  :deep(.el-sub-menu .el-menu-item:hover) {
+    background-color: var(--left-menu-bg-light-color) !important;
+  }
+  :deep(.el-menu .el-sub-menu__title:hover) {
+    background-color: var(--el-menu-hover-bg-color) !important;
+  }
+  :deep(.el-menu .is-active .el-sub-menu__title) {
+    color: var(--left-menu-text-active-color) !important;
+  }
+  :deep(.el-menu-item-group__title) {
+    height: 50px;
+
+    @include flex(flex-start, center, nowrap);
+    @include cursor(default);
+  }
+
+  // 重置padding
+  :deep(.el-sub-menu__title) {
+    padding: 0 16px;
+  }
+  &--horizontal {
+    width: calc(100vw - 465px) !important;
+    height: var(--header-global-height);
+  }
+}
+.vx-scrollbar {
+  height: calc(100vh - var(--header-global-height)) !important;
+}

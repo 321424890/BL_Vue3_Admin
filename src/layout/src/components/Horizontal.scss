@@ -1,0 +1,46 @@
+@import "@/styles/mixin.scss";
+.vx-container {
+  height: 100%;
+  :deep(.el-header) {
+    padding: 0 !important;
+  }
+  :deep(.el-main) {
+    padding: unset;
+  }
+  .vx-header {
+    width: 100%;
+    height: var(--header-global-height);
+    overflow: hidden;
+    background-color: var(--theme-div-color);
+    border-bottom: 1px solid var(--divider-color);
+    &__logo {
+      width: 210px;
+      height: inherit;
+    }
+    &__menu {
+      width: calc(100vw - 465px);
+      height: inherit;
+      overflow: hidden;
+      :deep(.el-menu .el-sub-menu) {
+        width: 180px;
+      }
+      :deep(.el-menu) {
+        max-width: calc(100vw - 465px);
+      }
+    }
+    &__domain {
+      width: 250px;
+      height: inherit;
+
+      @include flex(flex-end, center, nowrap);
+    }
+
+    @include flex(space-between, center, nowrap);
+  }
+}
+.vx-main {
+  &__container {
+    height: calc(100vh - var(--header-global-height) - var(--tags-view-global-height) - 1px);
+    padding: 10px;
+  }
+}

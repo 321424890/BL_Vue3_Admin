@@ -1,0 +1,38 @@
+@import "@/styles/mixin.scss";
+.vx-logo {
+  height: var(--header-global-height);
+  background-color: var(--logo-bg-color);
+  transition-timing-function: ease-in;
+  &:hover {
+    background-color: var(--logo-bg-active-color);
+  }
+  &__image {
+    width: 50px;
+    height: 50px;
+
+    @include flex(center, center, nowrap);
+    & img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+  &__title {
+    padding-left: 4px;
+
+    @include transition(all);
+    & span {
+      font-size: var(--text-middle-size);
+      font-weight: bold;
+      color: var(--logo-text-color);
+
+      @include transition(color);
+      &:hover {
+        color: var(--logo-active-color);
+      }
+    }
+  }
+
+  @include transition(all);
+  @include cursor(default);
+  @include flex(start, center, nowrap);
+}

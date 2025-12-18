@@ -1,0 +1,48 @@
+@import "@/styles/mixin.scss";
+.vx-table-setting-style {
+  width: 100%;
+
+  @include flex(space-between, center, unset);
+  .setting-slot {
+    flex: 1;
+  }
+  .setting-option {
+    min-width: 150px;
+    min-height: 30px;
+
+    @include flex(flex-end, center, unset);
+  }
+  .vx-icon {
+    margin-right: 5px;
+    outline: 0 !important;
+
+    @include cursor;
+  }
+}
+.column-selection {
+  &__header {
+    height: 30px;
+    .header-total {
+      height: inherit;
+      &-sum {
+        margin-left: 5px;
+      }
+
+      @include flex(flex-start, center, nowrap);
+    }
+
+    @include flex(space-between, center, nowrap);
+  }
+}
+.treenode-group {
+  width: 100%;
+
+  @include flex(space-between, center, unset);
+  .icon-group {
+    .icon-left {
+      margin-right: 5px;
+    }
+
+    @include flex(flex-start, center, nowrap);
+  }
+}

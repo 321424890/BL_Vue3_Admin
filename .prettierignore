@@ -1,0 +1,12 @@
+/dist/*
+.local
+/node_modules/**
+
+**/*.svg
+**/*.sh
+
+/public/*
+index.html
+.prettierrc.js
+.stylelintrc.json
+.eslintrc.json

@@ -1,0 +1,6 @@
+/dist/*
+/public/*
+public/*
+stats.html
+# 忽略对element样式修改的地方
+/src/styles/element

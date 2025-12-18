@@ -1,0 +1,102 @@
+@import "@/styles/mixin.scss";
+.vx-tags {
+  width: 100%;
+  background-color: var(--theme-div-color);
+  border-bottom: 1px solid var(--divider-color);
+
+  @include transition(background-color);
+  &-list-pre {
+    height: 32px;
+    padding: 0 8px;
+    background-color: var(--theme-div-color);
+    border-right: 1px solid var(--divider-color);
+    border-left: 1px solid var(--divider-color);
+
+    @include flex(center, center, nowrap);
+    @include transition(background-color);
+  }
+  & .first-pre {
+    border-left: unset;
+  }
+  &-list-suf {
+    height: 32px;
+    padding: 0 8px;
+    background-color: var(--theme-div-color);
+    border-right: 1px solid var(--divider-color);
+
+    @include transition(background-color);
+    @include flex(center, center, nowrap);
+  }
+  :deep(.el-scrollbar) {
+    flex: 1;
+  }
+  &-list {
+    width: 100%;
+    padding: 2px 0;
+
+    @include flex(start, center, nowrap);
+    &__item {
+      height: 28px;
+      margin: 0 3px;
+      font-size: var(--text-small-size);
+      color: var(--theme-text-color);
+      border-radius: 2px;
+      &--current {
+        color: #ffffff;
+        white-space: nowrap;
+        background-color: var(--el-color-primary);
+
+        @include flex(start, center, nowrap);
+        &__left {
+          height: inherit;
+          padding-top: 2px;
+          padding-left: 10px;
+
+          @include flex(space-between, center, nowrap);
+        }
+        &__right {
+          height: inherit;
+          padding: 0 4px;
+          color: #ffffff;
+          & > .seat {
+            width: 10px;
+          }
+
+          @include flex(center, center, nowrap);
+        }
+      }
+      &--normal {
+        white-space: nowrap;
+        background-color: var(--theme-div-color);
+        border: 1px solid var(--divider-color);
+
+        @include flex(start, center, nowrap);
+        &:hover {
+          color: var(--el-color-primary);
+        }
+        &__left {
+          padding-left: 10px;
+
+          @include flex(start, center, nowrap);
+        }
+        &__right {
+          height: inherit;
+          padding: 0 4px;
+          & > .seat {
+            width: 10px;
+          }
+
+          @include flex(center, center, nowrap);
+        }
+      }
+
+      @include cursor;
+      @include flex;
+    }
+  }
+
+  @include flex(start, center, nowrap);
+}
+.dropItem__span {
+  margin-left: 5px;
+}
