@@ -19,8 +19,8 @@ const pathResolve = (dir: string): string => {
 const alias: Record<string, string> = {
   "@": pathResolve("src"),
   "@build": pathResolve("build"),
-  // 指向monorepo项目中的@zjl_npm/basicui包
-  "@zjl_npm/basicui": pathResolve("../mypnpmui/packages/package-basicui/src")
+  // 使用用户指定的crystal-ui路径配置
+  "crystal-ui": pathResolve("../element-plus-wrapper/packages/crystal-ui/src/index.ts")
 }
 
 export default ({ mode }: ConfigEnv): UserConfig => {
@@ -31,7 +31,13 @@ export default ({ mode }: ConfigEnv): UserConfig => {
     plugins: getPluginsList(VITE_CDN, VITE_REPORT, VITE_COMPRESSION),
     // 解决路径
     resolve: {
-      alias
+      alias,
+      // 确保依赖从主项目的 node_modules 解析，而不是外部包的 node_modules
+      dedupe: ["vue", "element-plus", "@element-plus/icons-vue", "echarts"],
+      // 确保从主项目的 node_modules 解析模块
+      preserveSymlinks: false,
+      // 确保能够解析外部包的依赖
+      conditions: ["import", "module", "browser", "default"]
     },
     // vue 3.4去除控制台warning
     define: {
@@ -72,7 +78,11 @@ export default ({ mode }: ConfigEnv): UserConfig => {
       hmr: {
         overlay: false
       },
-      host: "0.0.0.0"
+      host: "0.0.0.0",
+      // 允许访问外部包目录
+      fs: {
+        allow: [root, "../element-plus-wrapper"]
+      }
     },
     // 预构建 include构建 exclude排除
     optimizeDeps: {
@@ -85,13 +95,21 @@ export default ({ mode }: ConfigEnv): UserConfig => {
         "element-plus",
         "element-plus/es/locale/lang/zh-cn",
         "element-plus/es/locale/lang/en",
+        "@element-plus/icons-vue",
         "axios",
         "echarts",
+        "echarts/core",
+        "echarts/charts",
+        "echarts/components",
+        "echarts/renderers",
         "vxe-table",
         "xe-utils",
-        "lodash-es"
+        "lodash-es",
+        "crystal-ui"
       ],
-      exclude: ["@iconify-icons/ep", "@iconify-icons/ri", "@iconify/vue"]
+      exclude: ["@iconify-icons/ep", "@iconify-icons/ri", "@iconify/vue"],
+      // 强制重新预构建（开发时如果遇到模块解析问题，可以临时启用）
+      force: true
     }
   }
 }

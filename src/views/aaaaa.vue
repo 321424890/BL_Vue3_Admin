@@ -3,7 +3,7 @@
     <!-- 页面头部 -->
     <div class="page-header">
       <div class="header-content">
-        <h1 class="page-title">BLInputTag 组件</h1>
+        <h1 class="page-title">CrystalInput 组件</h1>
         <p class="page-description">基于 Element Plus ElInputTag 封装的增强型标签输入组件，支持所有 ElInputTag 属性和扩展功能</p>
       </div>
     </div>
@@ -11,44 +11,44 @@
     <div class="input-container">
       <div class="input-group">
         <h4>基本用法</h4>
-        <BLInputTag v-model="tags1" placeholder="请输入标签" />
+        <CrystalInput v-model="tags1" placeholder="请输入标签" />
       </div>
 
       <div class="input-group">
         <h4>禁用状态</h4>
-        <BLInputTag v-model="tags2" placeholder="请输入标签" disabled />
+        <CrystalInput v-model="tags2" placeholder="请输入标签" disabled />
       </div>
 
       <div class="input-group">
         <h4>只读状态</h4>
-        <BLInputTag v-model="tags3" placeholder="请输入标签" readonly />
+        <CrystalInput v-model="tags3" placeholder="请输入标签" readonly />
       </div>
 
       <div class="input-group">
         <h4>可清空</h4>
-        <BLInputTag v-model="tags4" placeholder="请输入标签" clearable />
+        <CrystalInput v-model="tags4" placeholder="请输入标签" clearable />
       </div>
 
       <div class="input-group">
         <h4>限制标签数量</h4>
-        <BLInputTag v-model="tags5" placeholder="最多3个标签" :max-tags="3" @tag-limit-exceed="handleTagLimitExceed" />
+        <CrystalInput v-model="tags5" placeholder="最多3个标签" :max-tags="3" @tag-limit-exceed="handleTagLimitExceed" />
       </div>
 
       <div class="input-group">
         <h4>自定义验证</h4>
-        <BLInputTag v-model="tags6" placeholder="标签长度至少2个字符" :tag-validator="validateTag" />
+        <CrystalInput v-model="tags6" placeholder="标签长度至少2个字符" :tag-validator="validateTag" />
       </div>
 
       <div class="input-group">
         <h4>不同尺寸</h4>
-        <BLInputTag v-model="tags7" placeholder="小尺寸" size="small" style="margin-right: 20px" />
-        <BLInputTag v-model="tags8" placeholder="默认尺寸" size="default" style="margin-right: 20px" />
-        <BLInputTag v-model="tags9" placeholder="大尺寸" size="large" />
+        <CrystalInput v-model="tags7" placeholder="小尺寸" size="small" style="margin-right: 20px" />
+        <CrystalInput v-model="tags8" placeholder="默认尺寸" size="default" style="margin-right: 20px" />
+        <CrystalInput v-model="tags9" placeholder="大尺寸" size="large" />
       </div>
 
       <div class="input-group">
         <h4>绑定所有事件</h4>
-        <BLInputTag
+        <CrystalInput
           v-model="tags10"
           placeholder="绑定所有事件"
           @input="handleAllEvents('input', $event)"
@@ -65,24 +65,27 @@
 
     <!-- 组件文档 -->
     <div class="component-docs">
-      <h3>BLInputTag 组件文档</h3>
+      <h3>CrystalInput 组件文档</h3>
 
       <div class="doc-section">
         <h4>支持的属性</h4>
-        <p>BLInputTag 组件支持 Element Plus ElInputTag 的所有属性：</p>
+        <p>CrystalInput 组件支持 Element Plus ElInputTag 的所有属性：</p>
         <BasicTable
           :table-data="propsTableData"
           :columns="propsColumns"
-          basic-height="400px"
           :border="true"
           :stripe="true"
-          :show-pagination="false"
+          :show-selection="true"
+          :selection-type="'selection'"
+          :show-pagination="true"
+          :overflowhidden="false"
+          height="688"
         />
       </div>
 
-      <div class="doc-section">
+      <!-- <div class="doc-section">
         <h4>支持的事件</h4>
-        <p>BLInputTag 组件支持 Element Plus ElInputTag 的所有事件：</p>
+        <p>CrystalInputTag 组件支持 Element Plus ElInputTag 的所有事件：</p>
         <BasicTable
           :table-data="eventsTableData"
           :columns="eventsColumns"
@@ -91,6 +94,36 @@
           :stripe="true"
           :show-pagination="false"
         />
+      </div> -->
+
+      <!-- CrystalButton 组件示例 -->
+      <div class="input-group">
+        <h4>CrystalButton 组件测试</h4>
+        <CrystalButton type="primary" @click="handleCrystalButtonClick">主要按钮</CrystalButton>
+        <CrystalButton type="success" @click="handleCrystalButtonClick">成功按钮</CrystalButton>
+        <CrystalButton type="warning" @click="handleCrystalButtonClick">警告按钮</CrystalButton>
+        <CrystalButton type="danger" @click="handleCrystalButtonClick">危险按钮</CrystalButton>
+      </div>
+
+      <!-- CrystalInput 组件示例 -->
+      <div class="input-group">
+        <h4>CrystalInput 组件测试</h4>
+        <CrystalInput v-model="inputValue" placeholder="请输入内容" clearable />
+        <p>输入的值: {{ inputValue }}</p>
+      </div>
+
+      <!-- CrystalInputNumber 组件示例 -->
+      <div class="input-group">
+        <h4>CrystalInputNumber 组件测试</h4>
+        <CrystalInputNumber v-model="numberValue" :min="1" :max="10" :step="1" />
+        <p>输入的数字: {{ numberValue }}</p>
+      </div>
+
+      <!-- CrystalInputTag 组件示例 -->
+      <div class="input-group">
+        <h4>CrystalInputTag 组件测试</h4>
+        <CrystalInputTag v-model="tagValues" placeholder="输入标签后按回车或逗号分隔" />
+        <p>标签列表: {{ tagValues }}</p>
       </div>
     </div>
   </div>
@@ -98,26 +131,108 @@
 
 <script setup lang="ts">
 import { ref } from "vue"
-import BLInputTag from "@/components/BasicInput/inputTag/index.vue"
+
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 
+import { CrystalButton, CrystalInput, CrystalInputNumber, CrystalInputTag } from "crystal-ui"
+
+// 导入样式文件
+import "crystal-ui/index.css"
+// import CrystalSelect from "@/components/CrystalSelect/index.vue"
+// // import { CrystalSelect, CrystalButton } from "crystal-ui"
+// import "crystal-ui/index.css"
+// CrystalButton 点击事件处理
+const handleCrystalButtonClick = () => {
+  console.log("CrystalButton 被点击了")
+}
+
+// CrystalInput 绑定值
+const inputValue = ref("")
+
+// CrystalInputNumber 绑定值
+const numberValue = ref(1)
+
+// CrystalInputTag 绑定值
+const tagValues = ref(["标签1", "标签2"])
 // 属性表格数据
-const propsTableData = ref([
-  { prop: "modelValue / v-model", type: "string[]", default: "[]", description: "绑定值" },
-  { prop: "placeholder", type: "string", default: "-", description: "输入框占位符" },
-  { prop: "disabled", type: "boolean", default: "false", description: "是否禁用" },
-  { prop: "readonly", type: "boolean", default: "false", description: "是否只读" },
-  { prop: "clearable", type: "boolean", default: "false", description: "是否可清空" },
-  { prop: "size", type: "string", default: "default", description: "尺寸，可选值为 large, default, small" },
-  { prop: "validate-event", type: "boolean", default: "true", description: "输入时是否触发表单验证" },
-  { prop: "maxTags", type: "number", default: "-", description: "限制最多可以添加的标签数量" },
+const propsTableData = [
   {
-    prop: "tagValidator",
-    type: "function",
-    default: "-",
-    description: "标签验证函数，返回 true 表示验证通过，返回 false 表示验证失败"
+    orderNo: "PO20240601001",
+    supplierNo: "SUP1001",
+    contractType: "框架合同",
+    purchaseGroup: "采购组A",
+    currency: "CNY",
+    purchaseOrg: "采购组织1",
+    creator: "张三",
+    voucherDate: "2024-06-01",
+    contractName: "办公用品采购合同",
+
+    // 新增订单明细字段示例值
+    orderLineNo: "0001",
+    subject: "办公用品",
+    project: "项目A",
+    taxCode: "TAX01",
+    taxRate: "13%",
+    materialNo: "MAT1001",
+    shortText: "笔记本",
+    quantity: 100,
+    unit: "个",
+    netPrice: 10.5,
+
+    glAccount: "4001",
+    costCenter: "CC1001"
+  },
+  {
+    orderNo: "PO20240601002",
+    supplierNo: "SUP1002",
+    contractType: "采购合同",
+    purchaseGroup: "采购组B",
+    currency: "USD",
+    purchaseOrg: "采购组织2",
+    creator: "李四",
+    voucherDate: "2024-06-02",
+    contractName: "电脑设备采购合同",
+
+    orderLineNo: "0002",
+    subject: "电脑设备",
+    project: "项目B",
+    taxCode: "TAX02",
+    taxRate: "17%",
+    materialNo: "MAT2002",
+    shortText: "笔记本电脑",
+    quantity: 50,
+    unit: "台",
+    netPrice: 5000,
+
+    glAccount: "4002",
+    costCenter: "CC2002"
+  },
+  {
+    orderNo: "PO20240601003",
+    supplierNo: "SUP1003",
+    contractType: "服务合同",
+    purchaseGroup: "采购组C",
+    currency: "EUR",
+    purchaseOrg: "采购组织3",
+    creator: "王五",
+    voucherDate: "2024-06-03",
+    contractName: "IT维护服务合同",
+
+    orderLineNo: "0003",
+    subject: "IT服务",
+    project: "项目C",
+    taxCode: "TAX03",
+    taxRate: "0%",
+    materialNo: "MAT3003",
+    shortText: "维护服务",
+    quantity: 1,
+    unit: "项",
+    netPrice: 20000,
+
+    glAccount: "4003",
+    costCenter: "CC3003"
   }
-])
+]
 
 // 属性表格列配置
 const propsColumns = ref([
@@ -127,25 +242,25 @@ const propsColumns = ref([
   { prop: "description", label: "说明", minWidth: 300 }
 ])
 
-// 事件表格数据
-const eventsTableData = ref([
-  { event: "input", description: "输入时触发", params: "value: string" },
-  { event: "change", description: "值改变时触发", params: "value: string[]" },
-  { event: "focus", description: "获得焦点时触发", params: "event: FocusEvent" },
-  { event: "blur", description: "失去焦点时触发", params: "event: FocusEvent" },
-  { event: "clear", description: "点击清空按钮时触发", params: "event: FocusEvent" },
-  { event: "remove-tag", description: "移除标签时触发", params: "tag: string" },
-  { event: "close", description: "点击标签关闭按钮时触发", params: "event: FocusEvent" },
-  { event: "tag-limit-exceed", description: "标签数量超出限制时触发", params: "value: string[]" },
-  { event: "tag-validate-fail", description: "标签验证失败时触发", params: "tag: string" }
-])
+// // 事件表格数据
+// const eventsTableData = ref([
+//   { event: "input", description: "输入时触发", params: "value: string" },
+//   { event: "change", description: "值改变时触发", params: "value: string[]" },
+//   { event: "focus", description: "获得焦点时触发", params: "event: FocusEvent" },
+//   { event: "blur", description: "失去焦点时触发", params: "event: FocusEvent" },
+//   { event: "clear", description: "点击清空按钮时触发", params: "event: FocusEvent" },
+//   { event: "remove-tag", description: "移除标签时触发", params: "tag: string" },
+//   { event: "close", description: "点击标签关闭按钮时触发", params: "event: FocusEvent" },
+//   { event: "tag-limit-exceed", description: "标签数量超出限制时触发", params: "value: string[]" },
+//   { event: "tag-validate-fail", description: "标签验证失败时触发", params: "tag: string" }
+// ])
 
-// 事件表格列配置
-const eventsColumns = ref([
-  { prop: "event", label: "事件名", width: 150 },
-  { prop: "description", label: "说明", minWidth: 300 },
-  { prop: "params", label: "回调参数", width: 200 }
-])
+// // 事件表格列配置
+// const eventsColumns = ref([
+//   { prop: "event", label: "事件名", width: 150 },
+//   { prop: "description", label: "说明", minWidth: 300 },
+//   { prop: "params", label: "回调参数", width: 200 }
+// ])
 
 // 不同类型的输入值
 const tags1 = ref<string[]>([])

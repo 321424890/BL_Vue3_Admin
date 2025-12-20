@@ -248,7 +248,7 @@ const arr: any = [
     redirect: "/zlinput/input",
     component: "layout",
     meta: {
-      title: "routes.zlinputall",
+      title: "cl_input示例",
       icon: "mdi:workflow"
     },
     children: [
@@ -257,7 +257,7 @@ const arr: any = [
         name: "bl_input",
         component: "/views/zlinput/input",
         meta: {
-          title: "routes.zlinput"
+          title: "cl_input示例"
         }
       },
       {
@@ -265,7 +265,7 @@ const arr: any = [
         name: "bl_input_number",
         component: "/views/zlinput/inputnumber",
         meta: {
-          title: "routes.zlinputnumber"
+          title: "cl_input_number示例"
         }
       },
       {
@@ -273,7 +273,7 @@ const arr: any = [
         name: "bl_input_tag",
         component: "/views/zlinput/inputtag",
         meta: {
-          title: "routes.inputtag"
+          title: "cl_input_tag示例"
         }
       },
       {
@@ -285,6 +285,63 @@ const arr: any = [
         }
       }
     ]
+  },
+  {
+    path: "/cl-Select",
+    name: "cl-Select",
+    redirect: "/ClSelect/select",
+    component: "layout",
+    meta: {
+      title: "cl_Select示例",
+      icon: "mdi:workflow"
+    },
+    children: [
+      {
+        path: "bl_select",
+        name: "bl_select",
+        component: "/views/ClSelect/select",
+        meta: {
+          title: "cl_select示例"
+        }
+      },
+      {
+        path: "bl_select_zdy",
+        name: "bl_select自定义用法",
+        component: "/views/ClSelect/selectzdy",
+        meta: {
+          title: "cl_select自定义用法"
+        }
+      }
+    ]
+  },
+  {
+    path: "/cl-ClDatePickerPane",
+    name: "cl-ClDatePickerPane",
+    redirect: "/ClDatePickerPane/datepickerpane",
+    component: "layout",
+    meta: {
+      title: "cl_ClDatePickerPane示例",
+      icon: "mdi:workflow"
+    },
+    children: [
+      {
+        path: "bl_datepickerpane",
+        name: "bl_datepickerpane",
+        component: "/views/ClDatePickerPane/datepickerpane",
+        meta: {
+          title: "cl_datepickerpane示例"
+        }
+      }
+      // {
+      //   path: "bl_select_zdy",
+      //   name: "bl_select自定义用法",
+      //   component: "/views/ClSelect/selectzdy",
+      //   meta: {
+      //     title: "cl_select自定义用法"
+      //   }
+      // }
+    ]
+    // ClDatePickerPane
   }
 ]
 

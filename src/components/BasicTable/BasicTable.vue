@@ -56,9 +56,9 @@
 					<el-table-column v-if="huhao" type="index" label="序号" width="55" align="center" />
 					<!-- 表格列渲染 -->
 					<TableColumn :columns="columns" :dict-converters="dictConverters">
-						<template v-for="(column, index) in columns" :key="column.prop || index" #[column.prop]="{ row, rowIndex }">
-							<slot :name="column.prop" :row="row" :row-index="rowIndex">
-								{{ row[column.prop] }}
+						<template v-for="(column, index) in columns" :key="column.prop || index" #[column.prop]="scope">
+							<slot :name="column.prop" :row="scope?.row" :row-index="scope?.rowIndex">
+								{{ scope?.row?.[column.prop] }}
 							</slot>
 						</template>
 					</TableColumn>

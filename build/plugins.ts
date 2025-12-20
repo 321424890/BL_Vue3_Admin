@@ -14,7 +14,14 @@ import legacy from "@vitejs/plugin-legacy"
 
 export const getPluginsList = (VITE_CDN: boolean, VITE_REPORT: boolean, VITE_COMPRESSION: ViteCompression) => {
   return [
-    vue(),
+    vue({
+      // 配置类型解析选项
+      script: {
+        // 允许解析外部包的类型导入
+        propsDestructure: true,
+        defineModel: true
+      }
+    }),
     // jsx、tsx语法支持
     vueJsx(),
     // ES语法兼容

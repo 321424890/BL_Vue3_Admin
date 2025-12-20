@@ -26,7 +26,7 @@ import { watch, computed } from 'vue'
 
 // 设置组件名称和属性继承选项
 defineOptions({
-	name: 'BLInputNumber',
+	name: 'CrystalInputNumber',
 	inheritAttrs: false // 不自动绑定 $attrs 到根元素
 })
 

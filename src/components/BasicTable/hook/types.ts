@@ -6,6 +6,7 @@ export interface Column {
 	isEditing?: boolean
 	sortable?: boolean
 	width?: string | number
+	minWidth?: string | number
 	headerAlign?: string
 	align?: string
 	fixed?: string

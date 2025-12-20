@@ -5,7 +5,7 @@ import { setupStore } from "@/store"
 import { setupI18n } from "@/plugins/vueI18n"
 import { setupVxeTable } from "./plugins/vxeTable"
 import { setupAuthDirective } from "./directives/auth"
-import BasicTable from '@/components/BasicTable/BasicTable.vue'
+import BasicTable from "@/components/BasicTable/BasicTable.vue"
 import "@/router/asyncRouterHelper"
 
 import "animate.css"
@@ -26,6 +26,6 @@ const setupApp = async () => {
   setupVxeTable(app)
   setupAuthDirective(app)
   app.mount("#app")
-  app.component('BasicTable', BasicTable)
+  app.component("BasicTable", BasicTable)
 }
 setupApp()

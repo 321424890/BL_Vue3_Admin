@@ -3,89 +3,89 @@
     <!-- 页面头部 -->
     <div class="page-header">
       <div class="header-content">
-        <h1 class="page-title">BLInput 组件</h1>
-        <p class="page-description">基于 Element Plus ElInput 封装的增强型输入组件，支持所有 ElInput 属性和扩展功能</p>
+        <h1 class="page-title">CrystalInput 组件</h1>
+        <p class="page-description">基于 Element Plus CrystalInput 封装的增强型输入组件，支持所有 CrystalInput 属性和扩展功能</p>
       </div>
     </div>
 
     <div class="input-container">
       <div class="input-group">
         <h4>基本用法</h4>
-        <BLInput v-model="text1" placeholder="请输入内容" @input="handleInput" />
+        <CrystalInput v-model="text1" placeholder="请输入内容" @input="handleInput" />
       </div>
 
       <div class="input-group">
         <h4>带前缀图标</h4>
-        <BLInput v-model="text2" placeholder="搜索" clearable @focus="handleFocus">
+        <CrystalInput v-model="text2" placeholder="搜索" border-theme-color="red" clearable @focus="handleFocus">
           <template #prefix>
             <i class="el-icon-search"></i>
           </template>
-        </BLInput>
+        </CrystalInput>
       </div>
 
       <div class="input-group">
         <h4>带后缀图标</h4>
-        <BLInput v-model="text3" placeholder="请输入内容">
+        <CrystalInput v-model="text3" border-theme-color="#52c41a" placeholder="请输入内容">
           <template #suffix>
             <i class="el-icon-date"></i>
           </template>
-        </BLInput>
+        </CrystalInput>
       </div>
 
       <div class="input-group">
         <h4>不同尺寸</h4>
-        <BLInput v-model="text4" placeholder="小尺寸" size="small" style="margin-right: 20px" />
-        <BLInput v-model="text5" placeholder="中尺寸" size="default" style="margin-right: 20px" />
-        <BLInput v-model="text6" placeholder="大尺寸" size="large" />
+        <CrystalInput v-model="text4" placeholder="小尺寸" border-theme-color="pink" size="small" style="margin-right: 20px" />
+        <CrystalInput v-model="text5" placeholder="中尺寸" size="default" style="margin-right: 20px" />
+        <BLInpCrystalInputut v-model="text6" placeholder="大尺寸" size="large" />
       </div>
 
       <div class="input-group">
         <h4>禁用状态</h4>
-        <BLInput v-model="text7" placeholder="禁用输入" disabled />
+        <CrystalInput v-model="text7" placeholder="禁用输入" disabled />
       </div>
 
       <div class="input-group">
         <h4>只读状态</h4>
-        <BLInput v-model="text8" placeholder="只读输入" readonly value="这是只读内容" />
+        <CrystalInput v-model="text8" placeholder="只读输入" readonly value="这是只读内容" />
       </div>
 
       <div class="input-group">
         <h4>带清空按钮</h4>
-        <BLInput v-model="text9" placeholder="可清空内容" clearable />
+        <CrystalInput v-model="text9" placeholder="可清空内容" clearable />
       </div>
 
       <div class="input-group">
         <h4>显示字数统计</h4>
-        <BLInput v-model="text10" placeholder="请输入内容" show-word-limit maxlength="50" type="textarea" rows="3" />
+        <CrystalInput v-model="text10" placeholder="请输入内容" show-word-limit maxlength="50" type="textarea" rows="3" />
       </div>
 
       <div class="input-group">
         <h4>密码框</h4>
-        <BLInput v-model="text11" placeholder="请输入密码" show-password />
+        <CrystalInput v-model="text11" placeholder="请输入密码" show-password />
       </div>
 
       <div class="input-group">
         <h4>带前置内容</h4>
-        <BLInput v-model="text12" placeholder="请输入内容">
+        <CrystalInput v-model="text12" placeholder="请输入内容">
           <template #prepend>https://</template>
-        </BLInput>
+        </CrystalInput>
       </div>
 
       <div class="input-group">
         <h4>带后置内容</h4>
-        <BLInput v-model="text13" placeholder="请输入端口号">
+        <CrystalInput v-model="text13" placeholder="请输入端口号">
           <template #append>端口</template>
-        </BLInput>
+        </CrystalInput>
       </div>
 
       <div class="input-group">
         <h4>数字输入</h4>
-        <BLInput v-model="text14" placeholder="请输入数字" type="number" />
+        <CrystalInput v-model="text14" placeholder="请输入数字" type="number" />
       </div>
 
       <div class="input-group">
         <h4>绑定所有事件</h4>
-        <BLInput
+        <CrystalInput
           v-model="eventText"
           placeholder="请输入内容"
           @input="handleAllEvents('input', $event)"
@@ -101,11 +101,11 @@
 
     <!-- 组件文档 -->
     <div class="component-docs">
-      <h3>BLInput 组件文档</h3>
+      <h3>CrystalInput 组件文档</h3>
 
       <div class="doc-section">
         <h4>支持的属性</h4>
-        <p>BLInput 组件支持 Element Plus ElInput 的所有属性：</p>
+        <p>CrystalInput 组件支持 Element Plus ElInput 的所有属性：</p>
         <BasicTable
           :table-data="propsTableData"
           :columns="propsColumns"
@@ -118,7 +118,7 @@
 
       <div class="doc-section">
         <h4>支持的事件</h4>
-        <p>BLInput 组件支持 Element Plus ElInput 的所有事件：</p>
+        <p>CrystalInput 组件支持 Element Plus ElInput 的所有事件：</p>
         <BasicTable
           :table-data="eventsTableData"
           :columns="eventsColumns"
@@ -146,7 +146,8 @@
 
 <script setup lang="ts">
 import { ref } from "vue"
-import BLInput from "@/components/BasicInput/input/index.vue"
+// import CrystalInput from "@/components/BasicInput/input/index.vue"
+import { CrystalInput } from "crystal-ui"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 
 // 属性表格数据

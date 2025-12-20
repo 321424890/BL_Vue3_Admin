@@ -7,18 +7,20 @@
 	  :sortable="column.sortable"
 	  :isEditing="column.isEditing"
 	  :width="column.width"
+	  :min-width="column.minWidth"
 	  :fixed="column.fixed"
 	  :header-align="column.headerAlign"
 	  :align="column.align"
 	  :show-overflow-tooltip="true"
 	>
-	  <template #default="{ row, $index }">
+	  <template #default="scope">
 		<el-tooltip
-		  :content="getTooltipContent(row, column.prop, column)"
+		  v-if="scope?.row"
+		  :content="getTooltipContent(scope.row, column.prop, column)"
 		  placement="top"
 		  :show-after="200"
 		  :hide-after="0"
-		  :disabled="!isContentOverflow(row, column.prop)"
+		  :disabled="!isContentOverflow(scope.row, column.prop)"
 		>
 		  <div
 			class="cell-content"
@@ -30,16 +32,20 @@
 			"
 			ref="cellRef"
 		  >
-			<slot :name="column.prop" :row="row" :rowIndex="$index">
-			  {{ row[column.prop] }}
+			<slot :name="column.prop" :row="scope.row" :rowIndex="scope.$index">
+			  {{ scope.row[column.prop] }}
 			</slot>
 		  </div>
 		</el-tooltip>
+		<div v-else class="cell-content">
+		  <slot :name="column.prop" :row="null" :rowIndex="-1">
+			--
+		  </slot>
+		</div>
     </template>
   </el-table-column>
 </template>
 <script setup lang="ts">
-import { defineProps, defineSlots } from 'vue'
 import type { Column } from '../hook/types'
 interface Props {
 	columns: Column[]
