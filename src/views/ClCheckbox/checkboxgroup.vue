@@ -284,7 +284,7 @@ const handleComboChange = (values: string[]) => {
   console.log("Combo selection changed:", values)
 }
 
-// 属性表格配置
+// 表格配置
 const propsColumns = [
   {
     prop: "prop",
