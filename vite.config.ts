@@ -109,7 +109,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
       ],
       exclude: ["@iconify-icons/ep", "@iconify-icons/ri", "@iconify/vue"],
       // 强制重新预构建（开发时如果遇到模块解析问题，可以临时启用）
-      force: true
+      force: false
     }
   }
 }

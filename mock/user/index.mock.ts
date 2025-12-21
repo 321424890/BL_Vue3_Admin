@@ -342,6 +342,64 @@ const arr: any = [
       // }
     ]
     // ClDatePickerPane
+  },
+  {
+    path: "/cl-Cascade",
+    name: "cl-Cascade",
+    redirect: "/ClCascade/cascade",
+    component: "layout",
+    meta: {
+      title: "cl_Cascade示例",
+      icon: "mdi:workflow"
+    },
+    children: [
+      {
+        path: "bl_cascade",
+        name: "bl_cascade",
+        component: "/views/ClCascade/cascade",
+        meta: {
+          title: "cl_cascade示例"
+        }
+      }
+      // {
+      //   path: "bl_select_zdy",
+      //   name: "bl_select自定义用法",
+      //   component: "/views/ClSelect/selectzdy",
+      //   meta: {
+      //     title: "cl_select自定义用法"
+      //   }
+      // }
+    ]
+    // ClDatePickerPane
+  },
+  {
+    path: "/cl-Checkbox",
+    name: "cl-Checkbox",
+    redirect: "/ClCheckbox/checkbox",
+    component: "layout",
+    meta: {
+      title: "cl_Checkbox示例",
+      icon: "mdi:workflow"
+    },
+    children: [
+      {
+        path: "bl_checkbox",
+        name: "bl_checkbox",
+        component: "/views/ClCheckbox/checkbox",
+        meta: {
+          title: "cl_checkbox示例"
+        }
+      },
+      {
+        path: "bl_CrystalCheckboxGroup",
+        name: "bl_CrystalCheckboxGroup",
+        component: "/views/ClCheckbox/checkboxgroup",
+        meta: {
+          title: "cl_CrystalCheckboxGroup示例"
+        }
+      }
+    ]
+    // ClDatePickerPane
   }
 ]
 
