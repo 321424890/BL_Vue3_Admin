@@ -8,100 +8,114 @@
       </div>
     </div>
 
-    <div class="input-container">
-      <div class="input-group">
-        <h4>基础单选</h4>
-        <CrystalSelect
-          v-model="basicValue"
-          :options="basicOptions"
-          placeholder="请选择"
-          clearable
-          style="width: 100%"
-        ></CrystalSelect>
-      </div>
-
-      <div class="input-group">
-        <h4>多选功能</h4>
-        <CrystalSelect
-          v-model="multipleValue"
-          :options="basicOptions"
-          placeholder="可多选"
-          multiple
-          collapse-tags
-          style="width: 100%"
-        ></CrystalSelect>
-      </div>
-
-      <div class="input-group">
-        <h4>图标支持</h4>
-        <CrystalSelect
-          v-model="iconValue"
-          :options="iconOptions"
-          placeholder="选择带图标的选项"
-          style="width: 100%"
-        ></CrystalSelect>
-      </div>
-
-      <div class="input-group">
-        <h4>带描述文本</h4>
-        <CrystalSelect
-          v-model="descValue"
-          :options="descOptions"
-          placeholder="选择带描述的选项"
-          style="width: 100%"
-        ></CrystalSelect>
-      </div>
-
-      <div class="input-group">
-        <h4>禁用状态</h4>
-        <CrystalSelect
-          v-model="disabledValue"
-          :options="basicOptions"
-          placeholder="禁用状态"
-          disabled
-          style="width: 100%"
-        ></CrystalSelect>
-      </div>
-
-      <div class="input-group">
-        <h4>加载状态</h4>
-        <CrystalSelect
-          v-model="loadingValue"
-          :options="[]"
-          :loading="true"
-          loading-text="正在加载..."
-          placeholder="加载中"
-          style="width: 100%"
-        ></CrystalSelect>
-      </div>
-
-      <div class="input-group">
-        <h4>自定义选项渲染</h4>
-        <CrystalSelect v-model="customValue" :options="customOptions" placeholder="选择用户" style="width: 100%">
-          <template #option="{ option }">
-            <div class="custom-option-content">
-              <div class="custom-avatar">{{ option?.name?.charAt(0) || "?" }}</div>
-              <div class="custom-info">
-                <div class="custom-name">{{ option?.name || "" }}</div>
-                <div class="custom-meta">{{ option?.role || "" }}</div>
+    <el-row :gutter="24">
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>基础单选</h4>
+          <CrystalSelect
+            v-model="basicValue"
+            :options="basicOptions"
+            placeholder="请选择"
+            clearable
+            style="width: 100%"
+          ></CrystalSelect>
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>多选功能</h4>
+          <CrystalSelect
+            v-model="multipleValue"
+            :options="basicOptions"
+            placeholder="可多选"
+            multiple
+            collapse-tags
+            style="width: 100%"
+          ></CrystalSelect>
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>图标支持</h4>
+          <CrystalSelect
+            v-model="iconValue"
+            :options="iconOptions"
+            placeholder="选择带图标的选项"
+            style="width: 100%"
+          ></CrystalSelect>
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>带描述文本</h4>
+          <CrystalSelect
+            v-model="descValue"
+            :options="descOptions"
+            placeholder="选择带描述的选项"
+            style="width: 100%"
+          ></CrystalSelect>
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>禁用状态</h4>
+          <CrystalSelect
+            v-model="disabledValue"
+            :options="basicOptions"
+            placeholder="禁用状态"
+            disabled
+            style="width: 100%"
+          ></CrystalSelect>
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>加载状态</h4>
+          <CrystalSelect
+            v-model="loadingValue"
+            :options="[]"
+            :loading="true"
+            loading-text="正在加载..."
+            placeholder="加载中"
+            style="width: 100%"
+          ></CrystalSelect>
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>自定义选项渲染</h4>
+          <CrystalSelect v-model="customValue" :options="customOptions" placeholder="选择用户" style="width: 100%">
+            <template #option="{ option }">
+              <div class="custom-option-content">
+                <div class="custom-avatar">{{ option?.name?.charAt(0) || "?" }}</div>
+                <div class="custom-info">
+                  <div class="custom-name">{{ option?.name || "" }}</div>
+                  <div class="custom-meta">{{ option?.role || "" }}</div>
+                </div>
               </div>
-            </div>
-          </template>
-        </CrystalSelect>
-      </div>
-
-      <div class="input-group">
-        <h4>颜色小圆标记</h4>
-        <CrystalSelect v-model="colorDotValue" :options="colorDotOptions" placeholder="选择带颜色小圆的选项" style="width: 100%">
-          <template #option="{ option }">
-            <div class="color-dot-option" display="flex">
-              <div class="color-dot" :style="{ backgroundColor: option.color }"></div>
-              <span>{{ option.label }}</span>
-            </div>
-          </template>
-        </CrystalSelect>
-      </div>
-    </div>
+            </template>
+          </CrystalSelect>
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>颜色小圆标记</h4>
+          <CrystalSelect
+            v-model="colorDotValue"
+            :options="colorDotOptions"
+            placeholder="选择带颜色小圆的选项"
+            style="width: 100%"
+          >
+            <template #option="{ option }">
+              <div class="color-dot-option" display="flex">
+                <div class="color-dot" :style="{ backgroundColor: option.color }"></div>
+                <span>{{ option.label }}</span>
+              </div>
+            </template>
+          </CrystalSelect>
+        </div>
+      </el-col>
+    </el-row>
 
     <!-- 组件文档 -->
     <div class="component-docs">
@@ -320,19 +334,9 @@ h3 {
   margin: 0;
 }
 
-/* 示例容器 */
-.input-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  margin: 40px 0;
-  width: 100%;
-  padding: 0;
-}
-
 /* 示例组样式 */
 .input-group {
-  width: calc(50% - 12px);
+  width: 100%;
   margin-bottom: 0;
   background-color: white;
   padding: 24px;

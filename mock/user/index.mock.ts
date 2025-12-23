@@ -325,7 +325,7 @@ const arr: any = [
     },
     children: [
       {
-        path: "bl_datepickerpane",
+        path: "datepickerpane",
         name: "bl_datepickerpane",
         component: "/views/ClDatePickerPane/datepickerpane",
         meta: {
@@ -399,7 +399,62 @@ const arr: any = [
         }
       }
     ]
-    // ClDatePickerPane
+  },
+  {
+    path: "/cl-CrystalRadio",
+    name: "cl-CrystalRadio",
+    redirect: "/ClRadio/radio",
+    component: "layout",
+    meta: {
+      title: "cl_CrystalRadio示例",
+      icon: "mdi:workflow"
+    },
+    children: [
+      {
+        path: "radio",
+        name: "radio",
+        component: "/views/ClRadio/radio",
+        meta: {
+          title: "cl_radio示例"
+        }
+      },
+      {
+        path: "radioGroup",
+        name: "radioGroup",
+        component: "/views/ClRadio/radioGroup",
+        meta: {
+          title: "cl_CrystalRadioGroup示例"
+        }
+      }
+    ]
+  },
+  {
+    path: "/cl-CrystalTree",
+    name: "cl-CrystalTree",
+    redirect: "/ClTree/tree",
+    component: "layout",
+    meta: {
+      title: "cl_CrystalTree示例",
+      icon: "mdi:workflow"
+    },
+    children: [
+      {
+        path: "tree",
+        name: "tree",
+        component: "/views/ClTree/tree",
+        meta: {
+          title: "cl_tree示例"
+        }
+      },
+      {
+        path: "treeGroup",
+        name: "treeGroup",
+        component: "/views/ClTree/treeGroup",
+        meta: {
+          title: "cl_CrystalTree复杂示例"
+        }
+      }
+    ]
   }
 ]
 

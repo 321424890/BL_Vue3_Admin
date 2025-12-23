@@ -10,76 +10,87 @@
       </div>
     </div>
 
-    <div class="input-container">
-      <div class="input-group">
-        <h4>基本用法</h4>
-        <CrystalInputNumber v-model="number1" :controls="false" placeholder="请输入数字" @change="handleChange" />
-      </div>
-
-      <div class="input-group">
-        <h4>带范围限制</h4>
-        <CrystalInputNumber v-model="number2" :min="1" :max="10" placeholder="1-10之间的数字" />
-      </div>
-
-      <div class="input-group">
-        <h4>带步长</h4>
-        <CrystalInputNumber v-model="number3" :step="0.5" placeholder="步长为0.5" />
-      </div>
-
-      <div class="input-group">
-        <h4>不同尺寸</h4>
-        <CrystalInputNumber v-model="number4" :min="0" :max="100" size="small" style="margin-right: 20px" />
-        <CrystalInputNumber v-model="number5" :min="0" :max="100" size="default" style="margin-right: 20px" />
-        <CrystalInputNumber v-model="number6" :min="0" :max="100" size="large" />
-      </div>
-
-      <div class="input-group">
-        <h4>禁用状态</h4>
-        <CrystalInputNumber v-model="number7" :min="0" :max="100" disabled />
-      </div>
-
-      <div class="input-group">
-        <h4>只读状态</h4>
-        <CrystalInputNumber v-model="number8" :min="0" :max="100" readonly />
-      </div>
-
-      <div class="input-group">
-        <h4>无控制按钮</h4>
-        <CrystalInputNumber v-model="number9" :min="0" :max="100" :controls="false" placeholder="只能手动输入" />
-      </div>
-
-      <div class="input-group">
-        <h4>自定义范围提示</h4>
-        <CrystalInputNumber
-          v-model="number10"
-          :min="0"
-          :max="100"
-          range-tip="数值必须在0-100之间"
-          @range-exceed="handleRangeExceed"
-        />
-      </div>
-
-      <div class="input-group">
-        <h4>千分位分隔符</h4>
-        <CrystalInputNumber v-model="number11" :min="0" :max="1000000" :precision="2" thousands />
-      </div>
-
-      <div class="input-group">
-        <h4>绑定所有事件</h4>
-        <CrystalInputNumber
-          v-model="eventNumber"
-          :min="0"
-          :max="100"
-          @input="handleAllEvents('input', $event)"
-          @change="handleAllEvents('change', $event)"
-          @focus="handleAllEvents('focus', $event)"
-          @blur="handleAllEvents('blur', $event)"
-          @increase="handleAllEvents('increase', $event)"
-          @decrease="handleAllEvents('decrease', $event)"
-          @range-exceed="handleAllEvents('range-exceed', $event)"
-        />
-      </div>
-    </div>
+    <el-row :gutter="24">
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>基本用法</h4>
+          <CrystalInputNumber v-model="number1" :controls="false" placeholder="请输入数字" @change="handleChange" />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>带范围限制</h4>
+          <CrystalInputNumber v-model="number2" :min="1" :max="10" placeholder="1-10之间的数字" />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>带步长</h4>
+          <CrystalInputNumber v-model="number3" :step="0.5" placeholder="步长为0.5" />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>不同尺寸</h4>
+          <CrystalInputNumber v-model="number4" :min="0" :max="100" size="small" style="margin-right: 20px" />
+          <CrystalInputNumber v-model="number5" :min="0" :max="100" size="default" style="margin-right: 20px" />
+          <CrystalInputNumber v-model="number6" :min="0" :max="100" size="large" />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>禁用状态</h4>
+          <CrystalInputNumber v-model="number7" :min="0" :max="100" disabled />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>只读状态</h4>
+          <CrystalInputNumber v-model="number8" :min="0" :max="100" readonly />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>无控制按钮</h4>
+          <CrystalInputNumber v-model="number9" :min="0" :max="100" :controls="false" placeholder="只能手动输入" />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>自定义范围提示</h4>
+          <CrystalInputNumber
+            v-model="number10"
+            :min="0"
+            :max="100"
+            range-tip="数值必须在0-100之间"
+            @range-exceed="handleRangeExceed"
+          />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>千分位分隔符</h4>
+          <CrystalInputNumber v-model="number11" :min="0" :max="1000000" :precision="2" thousands />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>绑定所有事件</h4>
+          <CrystalInputNumber
+            v-model="eventNumber"
+            :min="0"
+            :max="100"
+            @input="handleAllEvents('input', $event)"
+            @change="handleAllEvents('change', $event)"
+            @focus="handleAllEvents('focus', $event)"
+            @blur="handleAllEvents('blur', $event)"
+            @increase="handleAllEvents('increase', $event)"
+            @decrease="handleAllEvents('decrease', $event)"
+            @range-exceed="handleAllEvents('range-exceed', $event)"
+          />
+        </div>
+      </el-col>
+    </el-row>
 
     <!-- 组件文档 -->
     <div class="component-docs">
@@ -218,17 +229,8 @@ h3 {
 }
 
 /* 调整为每行显示两个输入组，自然排列 */
-.input-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  margin: 40px 0;
-  width: 100%;
-  padding: 0;
-}
-
 .input-group {
-  width: calc(50% - 12px); /* 调整宽度以适应更好的间距 */
+  width: 100%;
   margin-bottom: 0;
   background-color: white;
   padding: 24px;
@@ -305,7 +307,11 @@ h3 {
   margin-bottom: 15px;
   line-height: 1.6;
 }
-
+/* 现代row布局实现 */
+.el-row {
+  margin: 40px 0;
+  width: 100%;
+}
 /* BasicTable 组件样式调整 */
 .doc-section :deep(.table-container) {
   margin-bottom: 20px;
@@ -337,10 +343,6 @@ h3 {
 
 /* 响应式调整 */
 @media (max-width: 768px) {
-  .input-group {
-    width: 100%;
-  }
-
   .doc-table {
     display: block;
     overflow-x: auto;

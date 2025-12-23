@@ -8,96 +8,110 @@
       </div>
     </div>
 
-    <div class="input-container">
-      <div class="input-group">
-        <h4>基本用法</h4>
-        <CrystalInput v-model="text1" placeholder="请输入内容" @input="handleInput" />
-      </div>
-
-      <div class="input-group">
-        <h4>带前缀图标</h4>
-        <CrystalInput v-model="text2" placeholder="搜索" border-theme-color="red" clearable @focus="handleFocus">
-          <template #prefix>
-            <i class="el-icon-search"></i>
-          </template>
-        </CrystalInput>
-      </div>
-
-      <div class="input-group">
-        <h4>带后缀图标</h4>
-        <CrystalInput v-model="text3" border-theme-color="#52c41a" placeholder="请输入内容">
-          <template #suffix>
-            <i class="el-icon-date"></i>
-          </template>
-        </CrystalInput>
-      </div>
-
-      <div class="input-group">
-        <h4>不同尺寸</h4>
-        <CrystalInput v-model="text4" placeholder="小尺寸" border-theme-color="pink" size="small" style="margin-right: 20px" />
-        <CrystalInput v-model="text5" placeholder="中尺寸" size="default" style="margin-right: 20px" />
-        <BLInpCrystalInputut v-model="text6" placeholder="大尺寸" size="large" />
-      </div>
-
-      <div class="input-group">
-        <h4>禁用状态</h4>
-        <CrystalInput v-model="text7" placeholder="禁用输入" disabled />
-      </div>
-
-      <div class="input-group">
-        <h4>只读状态</h4>
-        <CrystalInput v-model="text8" placeholder="只读输入" readonly value="这是只读内容" />
-      </div>
-
-      <div class="input-group">
-        <h4>带清空按钮</h4>
-        <CrystalInput v-model="text9" placeholder="可清空内容" clearable />
-      </div>
-
-      <div class="input-group">
-        <h4>显示字数统计</h4>
-        <CrystalInput v-model="text10" placeholder="请输入内容" show-word-limit maxlength="50" type="textarea" rows="3" />
-      </div>
-
-      <div class="input-group">
-        <h4>密码框</h4>
-        <CrystalInput v-model="text11" placeholder="请输入密码" show-password />
-      </div>
-
-      <div class="input-group">
-        <h4>带前置内容</h4>
-        <CrystalInput v-model="text12" placeholder="请输入内容">
-          <template #prepend>https://</template>
-        </CrystalInput>
-      </div>
-
-      <div class="input-group">
-        <h4>带后置内容</h4>
-        <CrystalInput v-model="text13" placeholder="请输入端口号">
-          <template #append>端口</template>
-        </CrystalInput>
-      </div>
-
-      <div class="input-group">
-        <h4>数字输入</h4>
-        <CrystalInput v-model="text14" placeholder="请输入数字" type="number" />
-      </div>
-
-      <div class="input-group">
-        <h4>绑定所有事件</h4>
-        <CrystalInput
-          v-model="eventText"
-          placeholder="请输入内容"
-          @input="handleAllEvents('input', $event)"
-          @change="handleAllEvents('change', $event)"
-          @focus="handleAllEvents('focus', $event)"
-          @blur="handleAllEvents('blur', $event)"
-          @clear="handleAllEvents('clear', $event)"
-          @keyup.enter="handleAllEvents('keyup.enter', $event)"
-          @click="handleClick"
-        />
-      </div>
-    </div>
+    <el-row :gutter="24">
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>基本用法</h4>
+          <CrystalInput v-model="text1" placeholder="请输入内容" @input="handleInput" />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>带前缀图标</h4>
+          <CrystalInput v-model="text2" placeholder="搜索" border-theme-color="red" clearable @focus="handleFocus">
+            <template #prefix>
+              <i class="el-icon-search"></i>
+            </template>
+          </CrystalInput>
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>带后缀图标</h4>
+          <CrystalInput v-model="text3" border-theme-color="#52c41a" placeholder="请输入内容">
+            <template #suffix>
+              <i class="el-icon-date"></i>
+            </template>
+          </CrystalInput>
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>不同尺寸</h4>
+          <CrystalInput v-model="text4" placeholder="小尺寸" border-theme-color="pink" size="small" style="margin-right: 20px" />
+          <CrystalInput v-model="text5" placeholder="中尺寸" size="default" style="margin-right: 20px" />
+          <BLInpCrystalInputut v-model="text6" placeholder="大尺寸" size="large" />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>禁用状态</h4>
+          <CrystalInput v-model="text7" placeholder="禁用输入" disabled />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>只读状态</h4>
+          <CrystalInput v-model="text8" placeholder="只读输入" readonly value="这是只读内容" />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>带清空按钮</h4>
+          <CrystalInput v-model="text9" placeholder="可清空内容" clearable />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>显示字数统计</h4>
+          <CrystalInput v-model="text10" placeholder="请输入内容" show-word-limit maxlength="50" type="textarea" rows="3" />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>密码框</h4>
+          <CrystalInput v-model="text11" placeholder="请输入密码" show-password />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>带前置内容</h4>
+          <CrystalInput v-model="text12" placeholder="请输入内容">
+            <template #prepend>https://</template>
+          </CrystalInput>
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>带后置内容</h4>
+          <CrystalInput v-model="text13" placeholder="请输入端口号">
+            <template #append>端口</template>
+          </CrystalInput>
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>数字输入</h4>
+          <CrystalInput v-model="text14" placeholder="请输入数字" type="number" />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>绑定所有事件</h4>
+          <CrystalInput
+            v-model="eventText"
+            placeholder="请输入内容"
+            @input="handleAllEvents('input', $event)"
+            @change="handleAllEvents('change', $event)"
+            @focus="handleAllEvents('focus', $event)"
+            @blur="handleAllEvents('blur', $event)"
+            @clear="handleAllEvents('clear', $event)"
+            @keyup.enter="handleAllEvents('keyup.enter', $event)"
+            @click="handleClick"
+          />
+        </div>
+      </el-col>
+    </el-row>
 
     <!-- 组件文档 -->
     <div class="component-docs">
@@ -265,19 +279,14 @@ h3 {
   font-weight: 600;
 }
 
-/* 调整为每行显示两个输入组，自然排列 */
-.input-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
+/* 现代row布局实现 */
+.el-row {
   margin: 40px 0;
   width: 100%;
-  padding: 0;
 }
 
 .input-group {
-  width: calc(50% - 12px); /* 调整宽度以适应更好的间距 */
-  margin-bottom: 0;
+  margin-bottom: 24px;
   background-color: white;
   padding: 24px;
   border-radius: 12px;

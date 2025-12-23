@@ -10,60 +10,69 @@
       </div>
     </div>
 
-    <div class="input-container">
-      <div class="input-group">
-        <h4>基本用法</h4>
-        <CrystalInputTag v-model="tags1" placeholder="请输入标签" />
-      </div>
-
-      <div class="input-group">
-        <h4>禁用状态</h4>
-        <CrystalInputTag v-model="tags2" placeholder="请输入标签" disabled />
-      </div>
-
-      <div class="input-group">
-        <h4>只读状态</h4>
-        <BLInpuCrystalInputTagtTag v-model="tags3" placeholder="请输入标签" readonly />
-      </div>
-
-      <div class="input-group">
-        <h4>可清空</h4>
-        <CrystalInputTag v-model="tags4" placeholder="请输入标签" clearable />
-      </div>
-
-      <div class="input-group">
-        <h4>限制标签数量</h4>
-        <CrystalInputTag v-model="tags5" placeholder="最多3个标签" :max-tags="3" @tag-limit-exceed="handleTagLimitExceed" />
-      </div>
-
-      <div class="input-group">
-        <h4>自定义验证</h4>
-        <CrystalInputTag v-model="tags6" placeholder="标签长度至少2个字符" :tag-validator="validateTag" />
-      </div>
-
-      <div class="input-group">
-        <h4>不同尺寸</h4>
-        <CrystalInputTag v-model="tags7" placeholder="小尺寸" size="small" style="margin-right: 20px" />
-        <CrystalInputTag v-model="tags8" placeholder="默认尺寸" size="default" style="margin-right: 20px" />
-        <CrystalInputTag v-model="tags9" placeholder="大尺寸" size="large" />
-      </div>
-
-      <div class="input-group">
-        <h4>绑定所有事件</h4>
-        <CrystalInputTag
-          v-model="tags10"
-          placeholder="绑定所有事件"
-          @input="handleAllEvents('input', $event)"
-          @change="handleAllEvents('change', $event)"
-          @focus="handleAllEvents('focus', $event)"
-          @blur="handleAllEvents('blur', $event)"
-          @clear="handleAllEvents('clear', $event)"
-          @remove-tag="handleAllEvents('remove-tag', $event)"
-          @close="handleAllEvents('close', $event)"
-          @tag-limit-exceed="handleAllEvents('tag-limit-exceed', $event)"
-        />
-      </div>
-    </div>
+    <el-row :gutter="24">
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>基本用法</h4>
+          <CrystalInputTag v-model="tags1" placeholder="请输入标签" />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>禁用状态</h4>
+          <CrystalInputTag v-model="tags2" placeholder="请输入标签" disabled />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>只读状态</h4>
+          <CrystalInputTag v-model="tags3" placeholder="请输入标签" readonly />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>可清空</h4>
+          <CrystalInputTag v-model="tags4" placeholder="请输入标签" clearable />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>限制标签数量</h4>
+          <CrystalInputTag v-model="tags5" placeholder="最多3个标签" :max-tags="3" @tag-limit-exceed="handleTagLimitExceed" />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>自定义验证</h4>
+          <CrystalInputTag v-model="tags6" placeholder="标签长度至少2个字符" :tag-validator="validateTag" />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>不同尺寸</h4>
+          <CrystalInputTag v-model="tags7" placeholder="小尺寸" size="small" style="margin-right: 20px" />
+          <CrystalInputTag v-model="tags8" placeholder="默认尺寸" size="default" style="margin-right: 20px" />
+          <CrystalInputTag v-model="tags9" placeholder="大尺寸" size="large" />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>绑定所有事件</h4>
+          <CrystalInputTag
+            v-model="tags10"
+            placeholder="绑定所有事件"
+            @input="handleAllEvents('input', $event)"
+            @change="handleAllEvents('change', $event)"
+            @focus="handleAllEvents('focus', $event)"
+            @blur="handleAllEvents('blur', $event)"
+            @clear="handleAllEvents('clear', $event)"
+            @remove-tag="handleAllEvents('remove-tag', $event)"
+            @close="handleAllEvents('close', $event)"
+            @tag-limit-exceed="handleAllEvents('tag-limit-exceed', $event)"
+          />
+        </div>
+      </el-col>
+    </el-row>
 
     <!-- 组件文档 -->
     <div class="component-docs">
@@ -206,19 +215,13 @@ h3 {
   text-align: center;
   font-weight: 600;
 }
-
-/* 调整为每行显示两个输入组，自然排列 */
-.input-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
+.el-row {
   margin: 40px 0;
   width: 100%;
-  padding: 0;
 }
-
+/* 调整为每行显示两个输入组，自然排列 */
 .input-group {
-  width: calc(50% - 12px); /* 调整宽度以适应更好的间距 */
+  width: 100%;
   margin-bottom: 0;
   background-color: white;
   padding: 24px;
@@ -327,10 +330,6 @@ h3 {
 
 /* 响应式调整 */
 @media (max-width: 768px) {
-  .input-group {
-    width: 100%;
-  }
-
   .doc-table {
     display: block;
     overflow-x: auto;
