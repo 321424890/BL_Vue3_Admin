@@ -428,30 +428,87 @@ const arr: any = [
       }
     ]
   },
+
   {
-    path: "/cl-CrystalTree",
-    name: "cl-CrystalTree",
-    redirect: "/ClTree/tree",
+    path: "/cl-ClTreeSelect",
+    name: "cl-ClTreeSelect",
+    redirect: "/cl-ClTreeSelect/treeSelect",
     component: "layout",
     meta: {
-      title: "cl_CrystalTree示例",
+      title: "cl_ClTreeSelect示例",
       icon: "mdi:workflow"
     },
     children: [
       {
         path: "tree",
         name: "tree",
-        component: "/views/ClTree/tree",
+        component: "/views/ClTreeSelect/tree",
         meta: {
           title: "cl_tree示例"
         }
       },
       {
-        path: "treeGroup",
-        name: "treeGroup",
-        component: "/views/ClTree/treeGroup",
+        path: "treeSelect",
+        name: "treeSelect",
+        component: "/views/ClTreeSelect/treeSelect",
         meta: {
-          title: "cl_CrystalTree复杂示例"
+          title: "cl_treeSelect示例"
+        }
+      },
+      {
+        path: "treeSelectGroup",
+        name: "treeSelectGroup",
+        component: "/views/ClTreeSelect/treeSelectGroup",
+        meta: {
+          title: "cl_ClTreeSelect复杂示例"
+        }
+      }
+    ]
+  },
+  {
+    path: "/cl-CrystalCalendar",
+    name: "cl-CrystalCalendar",
+    redirect: "/cl-CrystalCalendar/calendar",
+    component: "layout",
+    meta: {
+      title: "cl_CrystalCalendar示例",
+      icon: "mdi:workflow"
+    },
+    children: [
+      {
+        path: "calendar",
+        name: "calendar",
+        component: "/views/ClCalendar/calendar",
+        meta: {
+          title: "cl_calendar示例"
+        }
+      },
+      {
+        path: "calendarGroup",
+        name: "calendarGroup",
+        component: "/views/ClCalendar/calendarGroup",
+        meta: {
+          title: "cl_CrystalCalendar复杂示例"
+        }
+      }
+    ]
+  },
+  {
+    path: "/cl-CrystalSwitch",
+    name: "cl-CrystalSwitch",
+    redirect: "/cl-CrystalSwitch/switch",
+    component: "layout",
+    meta: {
+      title: "cl_CrystalSwitch示例",
+      icon: "mdi:workflow"
+    },
+    children: [
+      {
+        path: "switch",
+        name: "switch",
+        component: "/views/ClSwitch/switch",
+        meta: {
+          title: "cl_switch示例"
         }
       }
     ]

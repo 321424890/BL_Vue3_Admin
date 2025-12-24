@@ -3,7 +3,7 @@
     <!-- 页面头部 -->
     <div class="page-header">
       <div class="header-content">
-        <h1 class="page-title">CrystalTree 组件</h1>
+        <h1 class="page-title">CrystalTreeSelect 组件</h1>
         <p class="page-description">基于 Element Plus 封装的增强型树组件，提供丰富的自定义样式能力</p>
       </div>
     </div>
@@ -13,21 +13,21 @@
       <el-col :xs="24" :sm="12" :md="8" :lg="12">
         <div class="input-group">
           <h4>基础树结构</h4>
-          <CrystalTree :data="treeData" v-model="baseValue"></CrystalTree>
+          <CrystalTreeSelect :data="treeData" v-model="baseValue"></CrystalTreeSelect>
           <p>选中的值: {{ baseValue }}</p>
         </div>
       </el-col>
       <el-col :xs="24" :sm="12" :md="8" :lg="12">
         <div class="input-group">
           <h4>基础鼠标聚焦自定义边框颜</h4>
-          <CrystalTree :data="treeData" :border-color="'#F56C6C'" v-model="baseValue"></CrystalTree>
+          <CrystalTreeSelect :data="treeData" :border-color="'#F56C6C'" v-model="baseValue"></CrystalTreeSelect>
           <p>选中的值: {{ baseValue }}</p>
         </div>
       </el-col>
       <el-col :xs="24" :sm="12" :md="8" :lg="12">
         <div class="input-group">
           <h4>自定义颜色</h4>
-          <CrystalTree
+          <CrystalTreeSelect
             :data="treeData"
             v-model="colorValue"
             :color="'yellow'"
@@ -35,7 +35,7 @@
             :hover-color="'pink'"
             :text-color="'909399'"
             :line-color="'red'"
-          ></CrystalTree>
+          ></CrystalTreeSelect>
           <p>选中的值: {{ colorValue }}</p>
         </div>
       </el-col>
@@ -45,7 +45,7 @@
       <el-col :xs="24" :sm="12" :md="8" :lg="12">
         <div class="input-group">
           <h4>自定义背景色</h4>
-          <CrystalTree :data="treeData" v-model="bgValue" :background-color="'red'"></CrystalTree>
+          <CrystalTreeSelect :data="treeData" v-model="bgValue" :background-color="'red'"></CrystalTreeSelect>
           <p>选中的值: {{ bgValue }}</p>
         </div>
       </el-col>
@@ -53,7 +53,7 @@
       <el-col :xs="24" :sm="12" :md="8" :lg="12">
         <div class="input-group">
           <h4>自定义连接线颜色</h4>
-          <CrystalTree :data="treeData" v-model="lineValue" :line-color="'#909399'"></CrystalTree>
+          <CrystalTreeSelect :data="treeData" v-model="lineValue" :line-color="'#909399'"></CrystalTreeSelect>
           <p>选中的值: {{ lineValue }}</p>
         </div>
       </el-col>
@@ -63,7 +63,12 @@
       <el-col :xs="24" :sm="12" :md="8" :lg="12">
         <div class="input-group">
           <h4>带复选框的树</h4>
-          <CrystalTree :data="treeData" v-model="checkboxValue" show-checkbox @check-change="handleCheckChange"></CrystalTree>
+          <CrystalTreeSelect
+            :data="treeData"
+            v-model="checkboxValue"
+            show-checkbox
+            @check-change="handleCheckChange"
+          ></CrystalTreeSelect>
           <p>选中的值: {{ checkboxValue }}</p>
         </div>
       </el-col>
@@ -71,7 +76,7 @@
       <el-col :xs="24" :sm="12" :md="8" :lg="12">
         <div class="input-group">
           <h4>可展开/折叠的树</h4>
-          <CrystalTree :data="treeData" v-model="expandValue" default-expand-all></CrystalTree>
+          <CrystalTreeSelect :data="treeData" v-model="expandValue" default-expand-all></CrystalTreeSelect>
           <p>选中的值: {{ expandValue }}</p>
         </div>
       </el-col>
@@ -81,13 +86,13 @@
       <el-col :xs="24" :sm="12" :md="8" :lg="12">
         <div class="input-group">
           <h4>自定义节点图标</h4>
-          <CrystalTree
+          <CrystalTreeSelect
             :data="treeDataWithIcons"
             v-model="iconValue"
             node-key="label"
             :selected-color="'#409eff'"
             :hover-color="'#f5f7fa'"
-          ></CrystalTree>
+          ></CrystalTreeSelect>
           <p>选中的值: {{ iconValue }}</p>
         </div>
       </el-col>
@@ -95,7 +100,7 @@
       <el-col :xs="24" :sm="12" :md="8" :lg="12">
         <div class="input-group">
           <h4>禁用节点</h4>
-          <CrystalTree :data="treeDataWithDisabled" v-model="disabledValue" node-key="label"></CrystalTree>
+          <CrystalTreeSelect :data="treeDataWithDisabled" v-model="disabledValue" node-key="label"></CrystalTreeSelect>
           <p>选中的值: {{ disabledValue }}</p>
         </div>
       </el-col>
@@ -105,14 +110,14 @@
       <el-col :xs="24" :sm="12" :md="8" :lg="12">
         <div class="input-group">
           <h4>自定义节点内容</h4>
-          <CrystalTree :data="treeDataWithTags" v-model="customValue" node-key="label">
+          <CrystalTreeSelect :data="treeDataWithTags" v-model="customValue" node-key="label">
             <template #node="{ data }">
               <span class="custom-node-content">
                 <el-tag v-if="data.tag" :type="data.tag.type" size="small">{{ data.tag.text }}</el-tag>
                 {{ data.label }}
               </span>
             </template>
-          </CrystalTree>
+          </CrystalTreeSelect>
           <p>选中的值: {{ customValue }}</p>
         </div>
       </el-col>
@@ -120,13 +125,13 @@
       <el-col :xs="24" :sm="12" :md="8" :lg="12">
         <div class="input-group">
           <h4>事件处理</h4>
-          <CrystalTree
+          <CrystalTreeSelect
             :data="treeData"
             v-model="eventValue"
             @node-expand="handleNodeExpand"
             @node-collapse="handleNodeCollapse"
             @node-click="handleNodeClick"
-          ></CrystalTree>
+          ></CrystalTreeSelect>
           <p>选中的值: {{ eventValue }}</p>
         </div>
       </el-col>
@@ -134,7 +139,7 @@
 
     <!-- 组件文档 -->
     <div class="component-docs">
-      <h3>CrystalTree 组件文档</h3>
+      <h3>CrystalTreeSelect 组件文档</h3>
 
       <div class="doc-section">
         <h4>支持的属性</h4>
@@ -165,7 +170,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue"
-import { CrystalTree } from "crystal-ui"
+import { CrystalTreeSelect } from "crystal-ui"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 
 // 树数据

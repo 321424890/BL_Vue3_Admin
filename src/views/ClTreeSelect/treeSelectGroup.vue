@@ -1,151 +1,170 @@
 <template>
-  <div id="printArea" class="flex-column-page-wrap pageWrap">
-    <!-- 页面头部 -->
-    <div class="page-header">
-      <div class="header-content">
-        <h1 class="page-title">CrystalTree 高级案例</h1>
-        <p class="page-description">基于 Element Plus 封装的增强型树组件，提供丰富的自定义样式能力</p>
+  <div>
+    <div id="printArea" class="flex-column-page-wrap pageWrap">
+      <!-- 页面头部 -->
+      <div class="page-header">
+        <div class="header-content">
+          <h1 class="page-title">CrystalTreeSelect 高级案例</h1>
+          <p class="page-description">基于 Element Plus 封装的增强型树组件，提供丰富的自定义样式能力</p>
+        </div>
       </div>
-    </div>
 
-    <!-- 高级使用案例 -->
-    <el-row :gutter="24">
-      <el-col :xs="24" :sm="12" :md="8" :lg="12">
-        <div class="input-group">
-          <h4>自定义节点插槽</h4>
-          <CrystalTree :data="treeData" :props="defaultProps" node-key="id" v-model="slotValue" @node-click="handleNodeClick">
-            <template #default="{ node, data }">
-              <span class="custom-tree-node">
-                <el-icon>
-                  <Document />
-                </el-icon>
-                <span>{{ node.label }}</span>
-                <div class="node-actions">
-                  <el-button type="primary" size="small" @click.stop="() => handleEdit(data)"> 编辑 </el-button>
-                  <el-button type="danger" size="small" @click.stop="() => handleDelete(data)"> 删除 </el-button>
-                </div>
-              </span>
-            </template>
-          </CrystalTree>
-          <p>选中的值: {{ slotValue }}</p>
-        </div>
-      </el-col>
-
-      <el-col :xs="24" :sm="12" :md="8" :lg="12">
-        <div class="input-group">
-          <h4>懒加载树</h4>
-          <CrystalTree
-            :data="treeData"
-            :props="defaultProps"
-            node-key="id"
-            :lazy="true"
-            :load="loadNode"
-            default-expand-all
-            v-model="lazyValue"
-          ></CrystalTree>
-          <p>选中的值: {{ lazyValue }}</p>
-        </div>
-      </el-col>
-    </el-row>
-
-    <el-row :gutter="24" style="margin-top: 24px">
-      <el-col :xs="24" :sm="12" :md="8" :lg="12">
-        <div class="input-group">
-          <h4>可拖拽树</h4>
-          <CrystalTreeSelect
-            :data="treeData"
-            :props="defaultProps"
-            node-key="id"
-            :draggable="true"
-            @node-drag-start="handleDragStart"
-            @node-drag-enter="handleDragEnter"
-            @node-drag-leave="handleDragLeave"
-            @node-drag-over="handleDragOver"
-            @node-drag-end="handleDragEnd"
-            @node-drop="handleDrop"
-            v-model="dragValue"
-          ></CrystalTreeSelect>
-          <p>选中的值: {{ dragValue }}</p>
-        </div>
-      </el-col>
-
-      <el-col :xs="24" :sm="12" :md="8" :lg="12">
-        <div class="input-group">
-          <h4>自定义连接线样式</h4>
-          <CrystalTree
-            :data="treeData"
-            :props="defaultProps"
-            node-key="id"
-            :line-style="{ 'border-width': '2px', 'border-color': '#67c23a', 'border-style': 'dashed' }"
-            v-model="lineStyleValue"
-          ></CrystalTree>
-          <p>选中的值: {{ lineStyleValue }}</p>
-        </div>
-      </el-col>
-    </el-row>
-
-    <el-row :gutter="24" style="margin-top: 24px">
-      <el-col :xs="24" :sm="12" :md="8" :lg="12">
-        <div class="input-group">
-          <h4>异步加载数据</h4>
-          <CrystalTree
-            :data="asyncTreeData"
-            :props="defaultProps"
-            node-key="id"
-            v-model="asyncValue"
-            @node-click="handleNodeClick"
-          ></CrystalTree>
-          <p>选中的值: {{ asyncValue }}</p>
-        </div>
-      </el-col>
-
-      <el-col :xs="24" :sm="12" :md="8" :lg="12">
-        <div class="input-group">
-          <h4>自定义节点高度</h4>
-          <CrystalTree :data="treeData" :props="defaultProps" node-key="id" :node-height="50" v-model="heightValue"></CrystalTree>
-          <p>选中的值: {{ heightValue }}</p>
-        </div>
-      </el-col>
-    </el-row>
-
-    <el-row :gutter="24" style="margin-top: 24px">
-      <el-col :xs="24" :sm="12" :md="8" :lg="12">
-        <div class="input-group">
-          <h4>带搜索功能的树</h4>
-          <div style="margin-bottom: 12px">
-            <el-input v-model="searchText" placeholder="输入关键词搜索" prefix-icon="Search" size="small" @input="handleSearch" />
+      <!-- 高级使用案例 -->
+      <el-row :gutter="24">
+        <el-col :xs="24" :sm="12" :md="8" :lg="12">
+          <div class="input-group">
+            <h4>自定义节点插槽</h4>
+            <CrystalTreeSelect
+              :data="treeData"
+              :props="defaultProps"
+              node-key="id"
+              v-model="slotValue"
+              @node-click="handleNodeClick"
+            >
+              <template #default="{ node, data }">
+                <span class="custom-tree-node">
+                  <el-icon>
+                    <Document />
+                  </el-icon>
+                  <span>{{ node.label }}</span>
+                  <div class="node-actions">
+                    <el-button type="primary" size="small" @click.stop="() => handleEdit(data)"> 编辑 </el-button>
+                    <el-button type="danger" size="small" @click.stop="() => handleDelete(data)"> 删除 </el-button>
+                  </div>
+                </span>
+              </template>
+            </CrystalTreeSelect>
+            <p>选中的值: {{ slotValue }}</p>
           </div>
-          <CrystalTree
-            :data="filteredTreeData"
-            :props="defaultProps"
-            node-key="id"
-            v-model="searchValue"
-            @node-click="handleNodeClick"
-          ></CrystalTree>
-          <p>选中的值: {{ searchValue }}</p>
-        </div>
-      </el-col>
+        </el-col>
 
-      <el-col :xs="24" :sm="12" :md="8" :lg="12">
-        <div class="input-group">
-          <h4>自定义节点展开/折叠图标</h4>
-          <CrystalTree
-            :data="treeData"
-            :props="defaultProps"
-            node-key="id"
-            :expand-icon="'Plus'"
-            :collapse-icon="'Minus'"
-            v-model="iconValue"
-          ></CrystalTree>
-          <p>选中的值: {{ iconValue }}</p>
-        </div>
-      </el-col>
-    </el-row>
-  </div>
+        <el-col :xs="24" :sm="12" :md="8" :lg="12">
+          <div class="input-group">
+            <h4>懒加载树</h4>
+            <CrystalTreeSelect
+              :data="treeData"
+              :props="defaultProps"
+              node-key="id"
+              :lazy="true"
+              :load="loadNode"
+              default-expand-all
+              v-model="lazyValue"
+            ></CrystalTreeSelect>
+            <p>选中的值: {{ lazyValue }}</p>
+          </div>
+        </el-col>
+      </el-row>
+
+      <el-row :gutter="24" style="margin-top: 24px">
+        <el-col :xs="24" :sm="12" :md="8" :lg="12">
+          <div class="input-group">
+            <h4>可拖拽树</h4>
+            <CrystalTreeSelectSelect
+              :data="treeData"
+              :props="defaultProps"
+              node-key="id"
+              :draggable="true"
+              @node-drag-start="handleDragStart"
+              @node-drag-enter="handleDragEnter"
+              @node-drag-leave="handleDragLeave"
+              @node-drag-over="handleDragOver"
+              @node-drag-end="handleDragEnd"
+              @node-drop="handleDrop"
+              v-model="dragValue"
+            ></CrystalTreeSelectSelect>
+            <p>选中的值: {{ dragValue }}</p>
+          </div>
+        </el-col>
+
+        <el-col :xs="24" :sm="12" :md="8" :lg="12">
+          <div class="input-group">
+            <h4>自定义连接线样式</h4>
+            <CrystalTreeSelect
+              :data="treeData"
+              :props="defaultProps"
+              node-key="id"
+              :line-style="{ 'border-width': '2px', 'border-color': '#67c23a', 'border-style': 'dashed' }"
+              v-model="lineStyleValue"
+            ></CrystalTreeSelect>
+            <p>选中的值: {{ lineStyleValue }}</p>
+          </div>
+        </el-col>
+      </el-row>
+
+      <el-row :gutter="24" style="margin-top: 24px">
+        <el-col :xs="24" :sm="12" :md="8" :lg="12">
+          <div class="input-group">
+            <h4>异步加载数据</h4>
+            <CrystalTreeSelect
+              :data="asyncTreeData"
+              :props="defaultProps"
+              node-key="id"
+              v-model="asyncValue"
+              @node-click="handleNodeClick"
+            ></CrystalTreeSelect>
+            <p>选中的值: {{ asyncValue }}</p>
+          </div>
+        </el-col>
+
+        <el-col :xs="24" :sm="12" :md="8" :lg="12">
+          <div class="input-group">
+            <h4>自定义节点高度</h4>
+            <CrystalTreeSelect
+              :data="treeData"
+              :props="defaultProps"
+              node-key="id"
+              :node-height="50"
+              v-model="heightValue"
+            ></CrystalTreeSelect>
+            <p>选中的值: {{ heightValue }}</p>
+          </div>
+        </el-col>
+      </el-row>
+
+      <el-row :gutter="24" style="margin-top: 24px">
+        <el-col :xs="24" :sm="12" :md="8" :lg="12">
+          <div class="input-group">
+            <h4>带搜索功能的树</h4>
+            <div style="margin-bottom: 12px">
+              <el-input
+                v-model="searchText"
+                placeholder="输入关键词搜索"
+                prefix-icon="Search"
+                size="small"
+                @input="handleSearch"
+              />
+            </div>
+            <CrystalTreeSelect
+              :data="filteredTreeData"
+              :props="defaultProps"
+              node-key="id"
+              v-model="searchValue"
+              @node-click="handleNodeClick"
+            ></CrystalTreeSelect>
+            <p>选中的值: {{ searchValue }}</p>
+          </div>
+        </el-col>
+
+        <el-col :xs="24" :sm="12" :md="8" :lg="12">
+          <div class="input-group">
+            <h4>自定义节点展开/折叠图标</h4>
+            <CrystalTreeSelect
+              :data="treeData"
+              :props="defaultProps"
+              node-key="id"
+              :expand-icon="'Plus'"
+              :collapse-icon="'Minus'"
+              v-model="iconValue"
+            ></CrystalTreeSelect>
+            <p>选中的值: {{ iconValue }}</p>
+          </div>
+        </el-col>
+      </el-row>
+    </div>
 
     <!-- 组件文档 -->
     <div class="component-docs">
-      <h3>CrystalTree 高级属性文档</h3>
+      <h3>CrystalTreeSelect 高级属性文档</h3>
 
       <div class="doc-section">
         <h4>高级属性</h4>
@@ -176,7 +195,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from "vue"
-import { CrystalTree } from "crystal-ui"
+import { CrystalTreeSelect } from "crystal-ui"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 import { Document, Plus, Minus } from "@element-plus/icons-vue"
 
@@ -376,11 +395,31 @@ const advancedPropsTableData = ref([
 // 高级事件表格数据
 const advancedEventsTableData = ref([
   { event: "node-drag-start", description: "节点开始拖拽时触发", parameters: "node: 节点数据, ev: 事件对象" },
-  { event: "node-drag-enter", description: "拖拽进入其他节点时触发", parameters: "draggingNode: 拖拽节点, dropNode: 目标节点, ev: 事件对象" },
-  { event: "node-drag-leave", description: "拖拽离开其他节点时触发", parameters: "draggingNode: 拖拽节点, dropNode: 目标节点, ev: 事件对象" },
-  { event: "node-drag-over", description: "拖拽经过其他节点时触发", parameters: "draggingNode: 拖拽节点, dropNode: 目标节点, ev: 事件对象" },
-  { event: "node-drag-end", description: "拖拽结束时触发", parameters: "draggingNode: 拖拽节点, dropNode: 目标节点, dropType: 放置类型, ev: 事件对象" },
-  { event: "node-drop", description: "拖拽放置时触发", parameters: "draggingNode: 拖拽节点, dropNode: 目标节点, dropType: 放置类型, ev: 事件对象" },
+  {
+    event: "node-drag-enter",
+    description: "拖拽进入其他节点时触发",
+    parameters: "draggingNode: 拖拽节点, dropNode: 目标节点, ev: 事件对象"
+  },
+  {
+    event: "node-drag-leave",
+    description: "拖拽离开其他节点时触发",
+    parameters: "draggingNode: 拖拽节点, dropNode: 目标节点, ev: 事件对象"
+  },
+  {
+    event: "node-drag-over",
+    description: "拖拽经过其他节点时触发",
+    parameters: "draggingNode: 拖拽节点, dropNode: 目标节点, ev: 事件对象"
+  },
+  {
+    event: "node-drag-end",
+    description: "拖拽结束时触发",
+    parameters: "draggingNode: 拖拽节点, dropNode: 目标节点, dropType: 放置类型, ev: 事件对象"
+  },
+  {
+    event: "node-drop",
+    description: "拖拽放置时触发",
+    parameters: "draggingNode: 拖拽节点, dropNode: 目标节点, dropType: 放置类型, ev: 事件对象"
+  },
   { event: "load", description: "懒加载时触发", parameters: "node: 节点数据, resolve: 加载完成回调" }
 ])
 
