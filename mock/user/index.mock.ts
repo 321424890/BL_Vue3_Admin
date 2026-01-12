@@ -512,6 +512,54 @@ const arr: any = [
         }
       }
     ]
+  },
+  {
+    path: "/cl-CrystalIcon",
+    name: "cl-CrystalIcon",
+    redirect: "/cl-CrystalIcon/icon",
+    component: "layout",
+    meta: {
+      title: "cl_CrystalIcon图标示例",
+      icon: "mdi:workflow"
+    },
+    children: [
+      {
+        path: "icon",
+        name: "icon",
+        component: "/views/ClIcon/icon",
+        meta: {
+          title: "cl_icon图标示例"
+        }
+      }
+    ]
+  },
+  {
+    path: "/cl-CrystalImage",
+    name: "cl-CrystalImage",
+    redirect: "/cl-CrystalImage/image",
+    component: "layout",
+    meta: {
+      title: "cl_CrystalImage图片示例",
+      icon: "mdi:workflow"
+    },
+    children: [
+      {
+        path: "image",
+        name: "image",
+        component: "/views/ClImage/image",
+        meta: {
+          title: "cl_image单图片示例"
+        }
+      },
+      {
+        path: "images",
+        name: "images",
+        component: "/views/ClImage/images",
+        meta: {
+          title: "cl_image多图片示例"
+        }
+      }
+    ]
   }
 ]
 

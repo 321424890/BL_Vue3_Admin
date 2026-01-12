@@ -2,6 +2,9 @@
 export const setCssVar = (prop: string, val: any, dom = document.documentElement) => {
   dom.style.setProperty(prop, val)
 }
+export const generateId = (): string => {
+  return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
+}
 // 将驼峰css变量转换为普通格式css变量 例如：elPrimaryColor --> --el-primary-color
 export const toCssVariable = (variable: string): string => {
   return `--${variable.replace(/[A-Z]/g, "-$&").toLowerCase()}`
