@@ -2,63 +2,96 @@
   <el-button
     :type="type"
     :size="size"
-    :disabled="disabled"
-    :loading="loading"
     :plain="plain"
     :round="round"
     :circle="circle"
-    :icon="icon"
+    :loading="loading"
+    :disabled="disabled"
+    :icon="iconComponent"
     :autofocus="autofocus"
     :native-type="nativeType"
-    @click="handleClick"
+    :auto-insert-space="autoInsertSpace"
+    :tag="tag"
+    :style="buttonStyle"
+    @click="$emit('click', $event)"
+    @mousedown="$emit('mousedown', $event)"
+    @mouseup="$emit('mouseup', $event)"
+    @mouseenter="$emit('mouseenter', $event)"
+    @mouseleave="$emit('mouseleave', $event)"
   >
-    <slot />
+    <slot></slot>
   </el-button>
 </template>
 
 <script setup lang="ts">
-import { ElButton } from 'element-plus'
-import { computed } from 'vue'
+import { ElButton } from "element-plus"
+import type { ButtonProps } from "element-plus"
+import { computed, h } from "vue"
+import * as ElementPlusIconsVue from "@element-plus/icons-vue"
 
-interface Props {
-  type?: 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'text' | 'default'
-  size?: 'large' | 'default' | 'small'
-  disabled?: boolean
-  loading?: boolean
-  plain?: boolean
-  round?: boolean
-  circle?: boolean
-  icon?: string
-  autofocus?: boolean
-  nativeType?: 'button' | 'submit' | 'reset'
-}
+// 明确定义属性接口，确保类型支持
+const props = withDefaults(
+  defineProps<
+    Omit<ButtonProps, "icon"> & {
+      icon?: string | any
+      gradient?: boolean
+      gradientFrom?: string
+      gradientTo?: string
+      borderRadius?: string
+    }
+  >(),
+  {
+    // 保持与Element Plus默认值一致
+    type: "default",
+    size: "default",
+    plain: false,
+    round: false,
+    circle: false,
+    loading: false,
+    disabled: false,
+    icon: undefined,
+    autofocus: false,
+    nativeType: "button",
+    autoInsertSpace: false,
+    tag: "button",
+    gradient: false,
+    gradientFrom: "#1890ff",
+    gradientTo: "#52c41a",
+    borderRadius: ""
+  }
+)
 
-const props = withDefaults(defineProps<Props>(), {
-  type: 'default',
-  size: 'default',
-  disabled: false,
-  loading: false,
-  plain: false,
-  round: false,
-  circle: false,
-  autofocus: false,
-  nativeType: 'button'
+// 处理图标
+const iconComponent = computed(() => {
+  if (!props.icon) return undefined
+
+  // 如果是组件直接返回
+  if (typeof props.icon !== "string") return props.icon
+
+  // 如果是字符串，从Element Plus图标中查找
+  const Icon = ElementPlusIconsVue[props.icon as keyof typeof ElementPlusIconsVue]
+  return Icon ? h(Icon) : undefined
 })
 
-const emit = defineEmits<{
-  click: [event: MouseEvent]
-}>()
+// 计算按钮样式
+const buttonStyle = computed(() => {
+  const style: any = {}
 
-const handleClick = (event: MouseEvent) => {
-  emit('click', event)
-}
+  // 渐变效果
+  if (props.gradient) {
+    style.background = `linear-gradient(135deg, ${props.gradientFrom}, ${props.gradientTo})`
+    style.border = "none"
+    style.color = "#fff"
+  }
 
-// Add name for the component
-defineOptions({
-  name: 'CrystalButton'
+  // 圆角
+  if (props.borderRadius) {
+    style.borderRadius = props.borderRadius
+  }
+
+  return style
 })
+
+// 透传所有事件
+const emit = defineEmits(["click", "mousedown", "mouseup", "mouseenter", "mouseleave"])
 </script>
-
-<style scoped>
-/* Add custom styles here if needed */
-</style>

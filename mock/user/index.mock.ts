@@ -242,13 +242,51 @@ const arr: any = [
       }
     ]
   },
+
   {
-    path: "/bl-input",
-    name: "bl-input",
-    redirect: "/zlinput/input",
+    path: "/cl-Crystal",
+    name: "cl-Crystal",
+    redirect: "/cl-Crystal",
     component: "layout",
     meta: {
-      title: "cl_input示例",
+      title: "基础",
+      icon: "mdi:workflow"
+    },
+    children: [
+      {
+        path: "text",
+        name: "text",
+        component: "/views/ClText/text",
+        meta: {
+          title: "text示例"
+        }
+      },
+      {
+        path: "icon",
+        name: "icon",
+        component: "/views/ClIcon/icon",
+        meta: {
+          title: "cl_icon图标示例"
+        }
+      },
+      {
+        path: "button",
+        name: "button",
+        component: "/views/ClButton/button",
+        meta: {
+          title: "cl_button按钮示例"
+        }
+      }
+    ]
+  },
+
+  {
+    path: "/cl-CrystalFrom",
+    name: "cl-CrystalFrom",
+    redirect: "/cl-CrystalFrom",
+    component: "layout",
+    meta: {
+      title: "From表单",
       icon: "mdi:workflow"
     },
     children: [
@@ -257,7 +295,7 @@ const arr: any = [
         name: "bl_input",
         component: "/views/zlinput/input",
         meta: {
-          title: "cl_input示例"
+          title: "cl_input输入框示例"
         }
       },
       {
@@ -265,7 +303,7 @@ const arr: any = [
         name: "bl_input_number",
         component: "/views/zlinput/inputnumber",
         meta: {
-          title: "cl_input_number示例"
+          title: "cl_input_number输入框示例"
         }
       },
       {
@@ -273,35 +311,15 @@ const arr: any = [
         name: "bl_input_tag",
         component: "/views/zlinput/inputtag",
         meta: {
-          title: "cl_input_tag示例"
+          title: "cl_input_tag输入框示例"
         }
       },
-      {
-        path: "222",
-        name: "1212",
-        component: "/views/aaaaa",
-        meta: {
-          title: "额外撒绕弯儿2"
-        }
-      }
-    ]
-  },
-  {
-    path: "/cl-Select",
-    name: "cl-Select",
-    redirect: "/ClSelect/select",
-    component: "layout",
-    meta: {
-      title: "cl_Select示例",
-      icon: "mdi:workflow"
-    },
-    children: [
       {
         path: "bl_select",
         name: "bl_select",
         component: "/views/ClSelect/select",
         meta: {
-          title: "cl_select示例"
+          title: "cl_select下拉框示例"
         }
       },
       {
@@ -309,85 +327,47 @@ const arr: any = [
         name: "bl_select自定义用法",
         component: "/views/ClSelect/selectzdy",
         meta: {
-          title: "cl_select自定义用法"
+          title: "cl_select下拉框自定义用法"
         }
-      }
-    ]
-  },
-  {
-    path: "/cl-ClDatePickerPane",
-    name: "cl-ClDatePickerPane",
-    redirect: "/ClDatePickerPane/datepickerpane",
-    component: "layout",
-    meta: {
-      title: "cl_ClDatePickerPane示例",
-      icon: "mdi:workflow"
-    },
-    children: [
+      },
       {
         path: "datepickerpane",
         name: "bl_datepickerpane",
         component: "/views/ClDatePickerPane/datepickerpane",
         meta: {
-          title: "cl_datepickerpane示例"
+          title: "cl_datepickerpane日期示例"
         }
-      }
-      // {
-      //   path: "bl_select_zdy",
-      //   name: "bl_select自定义用法",
-      //   component: "/views/ClSelect/selectzdy",
-      //   meta: {
-      //     title: "cl_select自定义用法"
-      //   }
-      // }
-    ]
-    // ClDatePickerPane
-  },
-  {
-    path: "/cl-Cascade",
-    name: "cl-Cascade",
-    redirect: "/ClCascade/cascade",
-    component: "layout",
-    meta: {
-      title: "cl_Cascade示例",
-      icon: "mdi:workflow"
-    },
-    children: [
+      },
+      {
+        path: "TimePicker",
+        name: "TimePicker",
+        component: "/views/ClTimePicker/TimePicker",
+        meta: {
+          title: "cl_time_picker时间选择示例"
+        }
+      },
+      {
+        path: "time_select",
+        name: "bl_time_select",
+        component: "/views/ClTimeSelect/TimeSelect",
+        meta: {
+          title: "cl_time_select时间示例"
+        }
+      },
       {
         path: "bl_cascade",
         name: "bl_cascade",
         component: "/views/ClCascade/cascade",
         meta: {
-          title: "cl_cascade示例"
+          title: "cl_cascade下拉树示例"
         }
-      }
-      // {
-      //   path: "bl_select_zdy",
-      //   name: "bl_select自定义用法",
-      //   component: "/views/ClSelect/selectzdy",
-      //   meta: {
-      //     title: "cl_select自定义用法"
-      //   }
-      // }
-    ]
-    // ClDatePickerPane
-  },
-  {
-    path: "/cl-Checkbox",
-    name: "cl-Checkbox",
-    redirect: "/ClCheckbox/checkbox",
-    component: "layout",
-    meta: {
-      title: "cl_Checkbox示例",
-      icon: "mdi:workflow"
-    },
-    children: [
+      },
       {
         path: "bl_checkbox",
         name: "bl_checkbox",
         component: "/views/ClCheckbox/checkbox",
         meta: {
-          title: "cl_checkbox示例"
+          title: "cl_checkbox单选示例"
         }
       },
       {
@@ -395,21 +375,9 @@ const arr: any = [
         name: "bl_CrystalCheckboxGroup",
         component: "/views/ClCheckbox/checkboxgroup",
         meta: {
-          title: "cl_CrystalCheckboxGroup示例"
+          title: "cl_CrystalCheckboxGroup复选示例"
         }
-      }
-    ]
-  },
-  {
-    path: "/cl-CrystalRadio",
-    name: "cl-CrystalRadio",
-    redirect: "/ClRadio/radio",
-    component: "layout",
-    meta: {
-      title: "cl_CrystalRadio示例",
-      icon: "mdi:workflow"
-    },
-    children: [
+      },
       {
         path: "radio",
         name: "radio",
@@ -425,20 +393,7 @@ const arr: any = [
         meta: {
           title: "cl_CrystalRadioGroup示例"
         }
-      }
-    ]
-  },
-
-  {
-    path: "/cl-ClTreeSelect",
-    name: "cl-ClTreeSelect",
-    redirect: "/cl-ClTreeSelect/treeSelect",
-    component: "layout",
-    meta: {
-      title: "cl_ClTreeSelect示例",
-      icon: "mdi:workflow"
-    },
-    children: [
+      },
       {
         path: "tree",
         name: "tree",
@@ -462,19 +417,7 @@ const arr: any = [
         meta: {
           title: "cl_ClTreeSelect复杂示例"
         }
-      }
-    ]
-  },
-  {
-    path: "/cl-CrystalCalendar",
-    name: "cl-CrystalCalendar",
-    redirect: "/cl-CrystalCalendar/calendar",
-    component: "layout",
-    meta: {
-      title: "cl_CrystalCalendar示例",
-      icon: "mdi:workflow"
-    },
-    children: [
+      },
       {
         path: "calendar",
         name: "calendar",
@@ -490,19 +433,7 @@ const arr: any = [
         meta: {
           title: "cl_CrystalCalendar复杂示例"
         }
-      }
-    ]
-  },
-  {
-    path: "/cl-CrystalSwitch",
-    name: "cl-CrystalSwitch",
-    redirect: "/cl-CrystalSwitch/switch",
-    component: "layout",
-    meta: {
-      title: "cl_CrystalSwitch示例",
-      icon: "mdi:workflow"
-    },
-    children: [
+      },
       {
         path: "switch",
         name: "switch",
@@ -510,39 +441,7 @@ const arr: any = [
         meta: {
           title: "cl_switch示例"
         }
-      }
-    ]
-  },
-  {
-    path: "/cl-CrystalIcon",
-    name: "cl-CrystalIcon",
-    redirect: "/cl-CrystalIcon/icon",
-    component: "layout",
-    meta: {
-      title: "cl_CrystalIcon图标示例",
-      icon: "mdi:workflow"
-    },
-    children: [
-      {
-        path: "icon",
-        name: "icon",
-        component: "/views/ClIcon/icon",
-        meta: {
-          title: "cl_icon图标示例"
-        }
-      }
-    ]
-  },
-  {
-    path: "/cl-CrystalImage",
-    name: "cl-CrystalImage",
-    redirect: "/cl-CrystalImage/image",
-    component: "layout",
-    meta: {
-      title: "cl_CrystalImage图片示例",
-      icon: "mdi:workflow"
-    },
-    children: [
+      },
       {
         path: "image",
         name: "image",
