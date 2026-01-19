@@ -3,9 +3,7 @@
     <!-- 页面头部 -->
     <div class="demo-header">
       <h1 class="demo-title">CrystalTimePicker 组件</h1>
-      <p class="demo-description">
-        基于 Element Plus 封装的增强型时间选择器组件，支持更多配置和优化功能
-      </p>
+      <p class="demo-description">基于 Element Plus 封装的增强型时间选择器组件，支持更多配置和优化功能</p>
     </div>
 
     <!-- 示例区域 -->
@@ -54,21 +52,11 @@
               <h4 class="card-title">不同尺寸</h4>
               <p class="card-desc">支持大、中、小三种尺寸</p>
               <div class="size-demo">
-                <CrystalTimePicker
-                  v-model="time4"
-                  size="large"
-                  style="margin-right: 10px"
-                />
-                <CrystalTimePicker
-                  v-model="time5"
-                  size="default"
-                  style="margin-right: 10px"
-                />
+                <CrystalTimePicker v-model="time4" size="large" style="margin-right: 10px" />
+                <CrystalTimePicker v-model="time5" size="default" style="margin-right: 10px" />
                 <CrystalTimePicker v-model="time6" size="small" />
               </div>
-              <div class="value-display">
-                选择的值: {{ time4 }} / {{ time5 }} / {{ time6 }}
-              </div>
+              <div class="value-display">选择的值: {{ time4 }} / {{ time5 }} / {{ time6 }}</div>
             </div>
           </el-col>
 
@@ -87,12 +75,7 @@
             <div class="demo-card">
               <h4 class="card-title">自定义清除图标</h4>
               <p class="card-desc">自定义时间选择器的清除图标</p>
-              <CrystalTimePicker
-                v-model="time8"
-                clearable
-                prefix-icon="Clock"
-                clear-icon="Delete"
-              />
+              <CrystalTimePicker v-model="time8" clearable prefix-icon="Clock" clear-icon="Delete" />
               <div class="value-display">选择的值: {{ time8 }}</div>
             </div>
           </el-col>
@@ -107,11 +90,7 @@
             <div class="demo-card">
               <h4 class="card-title">禁用清除和编辑</h4>
               <p class="card-desc">禁用清除按钮和输入框编辑</p>
-              <CrystalTimePicker
-                v-model="time9"
-                :clearable="false"
-                :editable="false"
-              />
+              <CrystalTimePicker v-model="time9" :clearable="false" :editable="false" />
               <div class="value-display">选择的值: {{ time9 }}</div>
             </div>
           </el-col>
@@ -164,11 +143,7 @@
               <div class="value-display">选择的值: {{ time11 }}</div>
               <div class="event-log">
                 <h5>事件日志</h5>
-                <div
-                  v-for="(log, index) in eventLogs"
-                  :key="index"
-                  class="log-item"
-                >
+                <div v-for="(log, index) in eventLogs" :key="index" class="log-item">
                   {{ log }}
                 </div>
               </div>
@@ -210,68 +185,60 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from "vue";
-import { ElMessage } from "element-plus";
-import { CrystalTimePicker } from "crystal-ui";
-import BasicTable from "@/components/BasicTable/BasicTable.vue";
-const value7777 = ref<[Date, Date]>([
-  new Date(2016, 9, 10, 8, 40),
-  new Date(2016, 9, 10, 9, 40),
-]);
-// 时间绑定值
-const time1 = ref("");
-const time2 = ref("");
-const time3 = ref("");
-const time4 = ref("");
-const time5 = ref("");
-const time6 = ref("");
-const time7 = ref("");
-const time8 =  ref(new Date(2016, 9, 10, 18, 30))
-const time9 = ref("");
-const time10 = ref("");
-const time11 = ref("");
-const time12 = ref("");
-const time13 = ref("");
-const time14 = ref("");
-const timeRange = ref(["09:00:00", "18:00:00"]);
+import { ref, reactive } from "vue"
+import { ElMessage } from "element-plus"
+import { CrystalTimePicker } from "crystal-ui"
+import BasicTable from "@/components/BasicTable/BasicTable.vue"
+const value7777 = ref<[Date, Date]>([new Date(2016, 9, 10, 8, 40), new Date(2016, 9, 10, 9, 40)])
 
-// 事件日志
-const eventLogs = ref<string[]>([]);
+const time1 = ref("")
+const time2 = ref("")
+const time3 = ref("")
+const time4 = ref("")
+const time5 = ref("")
+const time6 = ref("")
+const time7 = ref("")
+const time8 = ref(new Date(2016, 9, 10, 18, 30))
+const time9 = ref("")
+const time10 = ref("")
+const time11 = ref("")
+
+const eventLogs = ref<string[]>([])
 
 // 事件处理
 const handleChange = (value: any) => {
-  eventLogs.value.push(`change: ${value}`);
-  ElMessage.success(`选择时间：${value}`);
-};
+  eventLogs.value.push(`change: ${value}`)
+  ElMessage.success(`选择时间：${value}`)
+}
 
 const handleFocus = (event: FocusEvent) => {
-  eventLogs.value.push("focus: 获得焦点");
-};
+  eventLogs.value.push("focus: 获得焦点")
+}
 
 const handleBlur = (event: FocusEvent) => {
-  eventLogs.value.push("blur: 失去焦点");
-};
+  eventLogs.value.push("blur: 失去焦点")
+}
 
 const handleClear = () => {
-  eventLogs.value.push("clear: 清除时间");
-  ElMessage.info("清除时间");
-};
+  eventLogs.value.push("clear: 清除时间")
+  ElMessage.info("清除时间")
+}
 
 const handleVisibleChange = (visible: boolean) => {
-  eventLogs.value.push(`visible-change: ${visible ? "显示" : "隐藏"}`);
-};
+  eventLogs.value.push(`visible-change: ${visible ? "显示" : "隐藏"}`)
+}
 
 const handleInput = (value: string) => {
-  eventLogs.value.push(`input: ${value}`);
-};
+  eventLogs.value.push(`input: ${value}`)
+}
 
 // 属性表格列配置
 const attributeColumns = [
   { prop: "name", label: "属性名", width: "200" },
   { prop: "description", label: "说明" },
   { prop: "type", label: "类型", width: "150" },
-  { prop: "default", label: "默认值", width: "150" },
-];
+  { prop: "default", label: "默认值", width: "150" }
+]
 
 // 属性表格数据
 const attributeData = [
@@ -279,161 +246,161 @@ const attributeData = [
     name: "modelValue / v-model",
     description: "绑定值",
     type: "string / number / [string / number, string / number]",
-    default: "undefined",
+    default: "undefined"
   },
   {
     name: "placeholder",
     description: "占位符",
     type: "string",
-    default: "请选择时间",
+    default: "请选择时间"
   },
   {
     name: "disabled",
     description: "是否禁用",
     type: "boolean / string",
-    default: "false",
+    default: "false"
   },
   {
     name: "editable",
     description: "是否可编辑",
     type: "boolean / string",
-    default: "true",
+    default: "true"
   },
   {
     name: "clearable",
     description: "是否可清除",
     type: "boolean / string",
-    default: "true",
+    default: "true"
   },
   {
     name: "size",
     description: "尺寸",
     type: '"large" / "default" / "small"',
-    default: '"default"',
+    default: '"default"'
   },
   {
     name: "prefix-icon",
     description: "前缀图标",
     type: "any",
-    default: "undefined",
+    default: "undefined"
   },
   {
     name: "suffix-icon",
     description: "后缀图标",
     type: "any",
-    default: "undefined",
+    default: "undefined"
   },
   {
     name: "clear-icon",
     description: "清除图标",
     type: "any",
-    default: "undefined",
+    default: "undefined"
   },
   {
     name: "validate-event",
     description: "校验事件",
     type: "boolean",
-    default: "true",
+    default: "true"
   },
   {
     name: "popper-class",
     description: "弹出层类名",
     type: "string",
-    default: '""',
+    default: '""'
   },
   {
     name: "teleported",
     description: "是否使用 teleport",
     type: "boolean",
-    default: "true",
+    default: "true"
   },
   {
     name: "id",
     description: "原生属性",
     type: "string",
-    default: "undefined",
+    default: "undefined"
   },
   {
     name: "name",
     description: "原生属性",
     type: "string",
-    default: "undefined",
+    default: "undefined"
   },
   {
     name: "readonly",
     description: "是否只读",
     type: "boolean",
-    default: "false",
+    default: "false"
   },
   {
     name: "validate-trigger",
     description: "校验触发方式",
     type: "string / array",
-    default: "undefined",
+    default: "undefined"
   },
   {
     name: "is-range",
     description: "是否为时间范围选择器",
     type: "boolean",
-    default: "false",
+    default: "false"
   },
   {
     name: "arrow-control",
     description: "是否使用箭头控制时间",
     type: "boolean",
-    default: "false",
+    default: "false"
   },
   {
     name: "range-separator",
     description: "范围分隔符",
     type: "string",
-    default: '"-"',
+    default: '"-"'
   },
   {
     name: "start-placeholder",
     description: "范围选择器开始时间占位符",
     type: "string",
-    default: "undefined",
+    default: "undefined"
   },
   {
     name: "end-placeholder",
     description: "范围选择器结束时间占位符",
     type: "string",
-    default: "undefined",
+    default: "undefined"
   },
   {
     name: "tabindex",
     description: "原生 tabindex 属性",
     type: "number",
-    default: "undefined",
+    default: "undefined"
   },
   {
     name: "autocomplete",
     description: "原生 autocomplete 属性",
     type: "string",
-    default: '"off"',
+    default: '"off"'
   },
   {
     name: "autofocus",
     description: "自动聚焦",
     type: "boolean",
-    default: "false",
-  },
-];
+    default: "false"
+  }
+]
 
 // 事件表格列配置
 const eventColumns = [
   { prop: "name", label: "事件名", width: "200" },
   { prop: "description", label: "说明" },
-  { prop: "parameters", label: "回调参数", width: "200" },
-];
+  { prop: "parameters", label: "回调参数", width: "200" }
+]
 
 // 事件表格数据
 const eventData = [
   {
     name: "update:modelValue",
     description: "绑定值变化时触发",
-    parameters: "新值",
+    parameters: "新值"
   },
   { name: "change", description: "选择时间时触发", parameters: "新值" },
   { name: "blur", description: "失去焦点时触发", parameters: "事件对象" },
@@ -442,7 +409,7 @@ const eventData = [
   {
     name: "visible-change",
     description: "下拉框显示/隐藏时触发",
-    parameters: "显示状态",
+    parameters: "显示状态"
   },
   { name: "input", description: "输入时触发", parameters: "输入值" },
   { name: "keydown", description: "按键按下时触发", parameters: "键盘事件" },
@@ -450,7 +417,7 @@ const eventData = [
   {
     name: "keypress",
     description: "按键按下并释放时触发",
-    parameters: "键盘事件",
+    parameters: "键盘事件"
   },
   { name: "paste", description: "粘贴时触发", parameters: "粘贴事件" },
   { name: "copy", description: "复制时触发", parameters: "复制事件" },
@@ -458,19 +425,19 @@ const eventData = [
   {
     name: "compositionstart",
     description: "开始输入中文时触发",
-    parameters: "事件对象",
+    parameters: "事件对象"
   },
   {
     name: "compositionupdate",
     description: "中文输入过程中触发",
-    parameters: "事件对象",
+    parameters: "事件对象"
   },
   {
     name: "compositionend",
     description: "中文输入结束时触发",
-    parameters: "事件对象",
-  },
-];
+    parameters: "事件对象"
+  }
+]
 </script>
 
 <style scoped>
