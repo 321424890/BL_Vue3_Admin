@@ -459,6 +459,42 @@ const arr: any = [
         }
       }
     ]
+  },
+  {
+    path: "/cl-CrystalAllFrom",
+    name: "cl-CrystalAllFrom",
+    redirect: "/cl-CrystalAllFrom",
+    component: "layout",
+    meta: {
+      title: "From表单案例",
+      icon: "mdi:workflow"
+    },
+    children: [
+      {
+        path: "elFrom",
+        name: "elFrom",
+        component: "/views/ElForm/ElForm",
+        meta: {
+          title: "el基础表单示例"
+        }
+      },
+      {
+        path: "elFrom1",
+        name: "elFrom1",
+        component: "/views/ElForm/ElForm1",
+        meta: {
+          title: "el输入框只读事件示例"
+        }
+      },
+      {
+        path: "clFrom",
+        name: "clFrom",
+        component: "/views/ClForm/ClForm",
+        meta: {
+          title: "cl基础表单示例"
+        }
+      }
+    ]
   }
 ]
 
