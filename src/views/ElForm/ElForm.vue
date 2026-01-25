@@ -29,7 +29,6 @@
                 <template #operation="{ validate, reset }">
                   <el-button type="primary" @click="handleSubmit(validate)">提交</el-button>
                   <el-button @click="reset">重置</el-button>
-                  <el-button @click="handleClear">清除验证</el-button>
                 </template>
               </ElFormWrapper>
 
@@ -137,17 +136,35 @@ const formSchema = [
     label: "性别",
     type: "radio",
     required: true,
+    placeholder: "请选择性别",
     options: [
       { label: "男", value: "male" },
       { label: "女", value: "female" }
     ]
   },
   {
+    field: "gender1",
+    label: "学历",
+    type: "select",
+    required: true,
+    placeholder: "请选择学历",
+    filterable: true, // 可搜索
+    clearable: true, // 可清空
+    options: [
+      { label: "高中", value: "highschool" },
+      { label: "大专", value: "vocational" },
+      { label: "本科", value: "undergraduate" },
+      { label: "硕士", value: "master" },
+      { label: "博士", value: "doctor" }
+    ]
+  },
+
+  {
     field: "birthday",
     label: "生日",
     type: "date",
     required: true,
-    placeholder: "请选择生日",
+    placeholder: "请选择生日1",
     format: "YYYY-MM-DD",
     valueFormat: "YYYY-MM-DD"
   },
@@ -186,6 +203,7 @@ const formRules = {
     { type: "number", message: "请输入数字", trigger: "blur" }
   ],
   gender: [{ required: true, message: "请选择性别", trigger: "change" }],
+  gender1: [{ required: true, message: "请选择学历", trigger: "change" }],
   birthday: [{ required: true, message: "请选择生日", trigger: "change" }],
   hobby: [{ required: true, message: "请选择爱好", trigger: "change" }]
 }

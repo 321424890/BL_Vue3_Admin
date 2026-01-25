@@ -2,8 +2,8 @@
   <div class="formwrapper-demo-container">
     <!-- 页面头部 -->
     <div class="demo-header">
-      <h1 class="demo-title">ElFormWrapper 组件</h1>
-      <p class="demo-description">基于 Element Plus 封装的动态表单组件，用于快速构建复杂的表单</p>
+      <h1 class="demo-title">ClFormWrapper 组件 - 表单只读属性设置</h1>
+      <p class="demo-description">基于 Crystal UI 封装的动态表单组件，用于快速构建复杂的表单，支持表单字段只读属性设置</p>
     </div>
 
     <!-- 示例区域 -->
@@ -16,7 +16,7 @@
             <div class="demo-card">
               <h4 class="card-title">基础表单</h4>
               <p class="card-desc">一个包含常见表单控件的基础表单示例</p>
-              <ElFormWrapper
+              <ClFormWrapper
                 ref="formRef"
                 :schema="formSchema"
                 v-model="formData"
@@ -25,14 +25,12 @@
                 show-operation-slot
                 @field-click="handleFieldClick"
                 @field-change="handleFieldChange"
-                @update:model-value="handleModelUpdate"
               >
                 <template #operation="{ validate, reset }">
                   <el-button type="primary" @click="handleSubmit(validate)">提交</el-button>
                   <el-button @click="reset">重置</el-button>
-                  <el-button @click="handleClear">清除验证</el-button>
                 </template>
-              </ElFormWrapper>
+              </ClFormWrapper>
 
               <div class="form-result">
                 <h5>表单数据：</h5>
@@ -46,7 +44,7 @@
 
     <!-- 组件文档 -->
     <div class="component-docs">
-      <h2>ElFormWrapper 组件文档</h2>
+      <h2>ClFormWrapper 组件文档 - 表单只读属性设置</h2>
 
       <div class="doc-section">
         <h3>支持的属性</h3>
@@ -90,15 +88,14 @@
 <script setup lang="ts">
 import { ref, reactive } from "vue"
 import { ElMessage } from "element-plus"
-import { ElFormWrapper } from "crystal-ui"
+import { ClFormWrapper } from "crystal-ui"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 
 const formRef = ref(null)
 
 const formData = ref<Record<string, any>>({
-  name: "",
-  gender: "",
-  readonlyField: ""
+  name: "张三",
+  readonlyInput: "这是只读文本"
 })
 
 const formSchema = [
@@ -107,27 +104,16 @@ const formSchema = [
     label: "姓名",
     type: "input",
     required: true,
-
-    // width: "500px",
     placeholder: "请输入姓名",
     maxlength: 20
   },
   {
-    field: "gender",
-    label: "性别",
-    type: "select",
-    required: true,
-    options: [
-      { label: "男", value: "male" },
-      { label: "女", value: "female" }
-    ]
-  },
-  {
-    field: "readonlyField",
-    label: "只读字段",
+    field: "readonlyInput",
+    label: "只读输入框",
     type: "input",
     readonly: true,
-    placeholder: "点击我触发事件"
+    placeholder: "这是只读输入框",
+    value: "这是只读文本"
   }
 ]
 const formRules = {
@@ -239,21 +225,24 @@ const fieldTypeColumns = [
 
 // 字段类型表格数据
 const fieldTypeData = [
-  { type: "input", description: "文本输入框", component: "el-input" },
-  { type: "textarea", description: "文本域", component: "el-input" },
-  { type: "number", description: "数字输入框", component: "el-input-number" },
-  { type: "select", description: "下拉选择器", component: "el-select" },
-  { type: "radio", description: "单选框组", component: "el-radio-group" },
-  { type: "checkbox", description: "复选框组", component: "el-checkbox-group" },
-  { type: "switch", description: "开关", component: "el-switch" },
-  { type: "date", description: "日期选择器", component: "el-date-picker" },
-  { type: "time", description: "时间选择器", component: "el-time-picker" },
-  { type: "timeSelect", description: "时间选择", component: "el-time-select" },
-  { type: "inputTag", description: "标签输入", component: "el-input" },
-  { type: "treeSelect", description: "树形选择器", component: "el-select" },
-  { type: "cascader", description: "级联选择器", component: "el-cascader" },
-  { type: "tree", description: "树形控件", component: "el-tree" },
-  { type: "calendar", description: "日历", component: "el-calendar" },
+  { type: "input", description: "文本输入框", component: "CrystalInput" },
+  { type: "textarea", description: "文本域", component: "CrystalInput" },
+  { type: "number", description: "数字输入框", component: "CrystalInputNumber" },
+  { type: "select", description: "下拉选择器", component: "CrystalSelect" },
+  { type: "radio", description: "单选框组", component: "CrystalRadioGroup" },
+  { type: "checkbox", description: "复选框组", component: "CrystalCheckboxGroup" },
+  { type: "switch", description: "开关", component: "CrystalSwitch" },
+  { type: "date", description: "日期选择器", component: "CrystalDatePickerPane" },
+  { type: "time", description: "时间选择器", component: "CrystalTimePicker" },
+  { type: "timeSelect", description: "时间选择", component: "CrystalTimeSelect" },
+  { type: "inputTag", description: "标签输入", component: "CrystalInput" },
+  { type: "treeSelect", description: "树形选择器", component: "CrystalSelect" },
+  { type: "cascader", description: "级联选择器", component: "CrystalCascader" },
+  { type: "tree", description: "树形控件", component: "CrystalTree" },
+  { type: "calendar", description: "日历", component: "CrystalCalendar" },
+  { type: "button", description: "按钮", component: "CrystalButton" },
+  { type: "image", description: "图片", component: "CrystalImage" },
+  { type: "text", description: "文本", component: "CrystalText" },
   { type: "slot", description: "自定义插槽", component: "-" }
 ]
 </script>

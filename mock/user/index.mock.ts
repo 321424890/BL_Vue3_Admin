@@ -487,11 +487,51 @@ const arr: any = [
         }
       },
       {
+        path: "ElSearchForm",
+        name: "ElSearchForm",
+        component: "/views/ElSearchForm/index",
+        meta: {
+          title: "el搜索表单示例"
+        }
+      },
+      {
+        path: "ElSearchForm1",
+        name: "ElSearchForm1",
+        component: "/views/ElSearchForm/index1",
+        meta: {
+          title: "el动态搜索表单示例"
+        }
+      },
+      {
         path: "clFrom",
         name: "clFrom",
         component: "/views/ClForm/ClForm",
         meta: {
           title: "cl基础表单示例"
+        }
+      },
+      {
+        path: "clFrom1",
+        name: "clFrom1",
+        component: "/views/ClForm/ClForm1",
+        meta: {
+          title: "cl输入框只读事件示例"
+        }
+      },
+      {
+        path: "clSearchForm",
+        name: "clSearchForm",
+        component: "/views/clSearchForm/index",
+        meta: {
+          title: "cl搜索表单示例"
+        }
+      },
+      {
+        path: "clSearchForm1",
+        name: "clSearchForm1",
+        component: "/views/clSearchForm/index1",
+        meta: {
+          title: "cl动态搜索表单示例"
         }
       }
     ]

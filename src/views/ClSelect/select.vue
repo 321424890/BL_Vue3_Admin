@@ -11,12 +11,13 @@
     <el-row :gutter="24">
       <el-col :xs="24" :sm="12" :md="8" :lg="12">
         <div class="input-group">
-          <h4>基础单选</h4>
+          <h4>基础单选带搜索</h4>
           <CrystalSelect
             v-model="basicValue"
             :options="basicOptions"
             placeholder="请选择"
             clearable
+            filterable
             style="width: 100%"
           ></CrystalSelect>
         </div>
