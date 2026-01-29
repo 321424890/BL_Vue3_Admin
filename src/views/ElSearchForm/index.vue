@@ -14,11 +14,7 @@
         <div class="demo-card">
           <h4 class="card-title">基本搜索表单</h4>
           <p class="card-desc">一个包含常见搜索控件的基础搜索表单示例</p>
-          <ElSearchForm
-            :query-config="basicQueryConfig"
-            @search="handleBasicSearch"
-            @reset="handleBasicReset"
-          />
+          <ElSearchForm :query-config="basicQueryConfig" @search="handleBasicSearch" @reset="handleBasicReset" />
           <div class="form-result">
             <h5>搜索结果：</h5>
             <pre>{{ JSON.stringify(basicSearchResult, null, 2) }}</pre>
@@ -52,11 +48,7 @@
         <div class="demo-card">
           <h4 class="card-title">远程搜索示例</h4>
           <p class="card-desc">演示如何使用远程搜索功能</p>
-          <ElSearchForm
-            :query-config="remoteQueryConfig"
-            @search="handleRemoteSearch"
-            @reset="handleRemoteReset"
-          />
+          <ElSearchForm :query-config="remoteQueryConfig" @search="handleRemoteSearch" @reset="handleRemoteReset" />
           <div class="form-result">
             <h5>搜索结果：</h5>
             <pre>{{ JSON.stringify(remoteSearchResult, null, 2) }}</pre>
@@ -104,7 +96,7 @@
           :border="true"
           :stripe="true"
           :show-pagination="false"
-           basic-height="250px"
+          basic-height="250px"
         />
       </div>
 
@@ -117,7 +109,7 @@
           :border="true"
           :stripe="true"
           :show-pagination="false"
- basic-height="250px"
+          basic-height="250px"
         />
       </div>
     </div>
@@ -142,15 +134,17 @@ const basicQueryConfig = ref([
     readonly: false, // 是否只读
     placeholder: "请输入姓名", // 占位符
     props: {
-      placeholder: '请输入姓名',
+      placeholder: "请输入姓名",
       clearable: true, // 可清空
       maxlength: 20, // 最大长度
-      showWordLimit: true, // 显示字数统计
+      showWordLimit: true // 显示字数统计
     },
-    rules: [ // 验证规则
-      { required: true, message: '请输入姓名', trigger: 'blur' },
+    rules: [
+      // 验证规则
+      { required: true, message: "请输入姓名", trigger: "blur" }
     ],
-    onChange: (val) => { // 字段变化回调
+    onChange: val => {
+      // 字段变化回调
       console.log("姓名变化:", val)
     }
   },
@@ -166,15 +160,12 @@ const basicQueryConfig = ref([
       min: 0, // 最小值
       max: 150, // 最大值
       step: 1, // 步长
-      placeholder: '请输入年龄',
-      controlsPosition: 'right', // 控制按钮位置
+      placeholder: "请输入年龄",
+      controlsPosition: "right", // 控制按钮位置
       precision: 0 // 精度
     },
-    rules: [
-      { required: true, message: '请输入年龄', trigger: 'blur' },
-
-    ],
-    onChange: (val) => {
+    rules: [{ required: true, message: "请输入年龄", trigger: "blur" }],
+    onChange: val => {
       console.log("年龄变化:", val)
     }
   },
@@ -188,7 +179,7 @@ const basicQueryConfig = ref([
     disabled: false, // 是否禁用
     placeholder: "请选择性别",
     props: {
-      placeholder: '请选择性别',
+      placeholder: "请选择性别",
       options: [
         { label: "男", value: "male" },
         { label: "女", value: "female" },
@@ -199,10 +190,8 @@ const basicQueryConfig = ref([
       multiple: false, // 是否多选
       collapseTags: false // 折叠标签
     },
-    rules: [
-      { required: true, message: "请选择性别", trigger: "blur" }
-    ],
-    onChange: (val) => {
+    rules: [{ required: true, message: "请选择性别", trigger: "blur" }],
+    onChange: val => {
       console.log("性别变化:", val)
     }
   },
@@ -221,7 +210,7 @@ const basicQueryConfig = ref([
       inlinePrompt: true, // 文字显示在开关旁边
       size: "default" // 开关大小
     },
-    onChange: (val) => {
+    onChange: val => {
       console.log("状态变化:", val)
     }
   },
@@ -242,12 +231,12 @@ const basicQueryConfig = ref([
       format: "YYYY-MM-DD",
       valueFormat: "YYYY-MM-DD",
       clearable: true,
-      unlinkPanels: false, // 面板不联动
-    //   disabledDate: (time: Date) => { // 禁用日期
-    //     return time.getTime() > Date.now()
-    //   }
+      unlinkPanels: false // 面板不联动
+      //   disabledDate: (time: Date) => { // 禁用日期
+      //     return time.getTime() > Date.now()
+      //   }
     },
-    onChange: (val) => {
+    onChange: val => {
       console.log("创建时间变化:", val)
     }
   },
@@ -275,16 +264,14 @@ const basicQueryConfig = ref([
     readonly: false, // 是否只读
     placeholder: "请输入邮箱",
     props: {
-      placeholder: '请输入邮箱',
+      placeholder: "请输入邮箱",
       clearable: true,
       maxlength: 50,
       showWordLimit: true,
       autocomplete: "on"
     },
-    rules: [
-      { type: 'email', message: '请输入有效的邮箱地址', trigger: 'blur' }
-    ],
-    onChange: (val) => {
+    rules: [{ type: "email", message: "请输入有效的邮箱地址", trigger: "blur" }],
+    onChange: val => {
       console.log("邮箱变化:", val)
     }
   }
@@ -309,17 +296,18 @@ const advancedQueryConfig = ref([
     label: "姓名",
     type: "el-input",
     placeholder: "请输入姓名",
-      disabled: true, // 是否禁用
+    disabled: true, // 是否禁用
     width: "200px",
-        props: {
-      placeholder: '请输入姓名',
-      clearable: true, // 可清空
+    props: {
+      placeholder: "请输入姓名",
+      clearable: true // 可清空
     },
-    rules: [ // 验证规则
-      { required: false, message: '请输入姓名', trigger: 'blur' },
-    ],
+    rules: [
+      // 验证规则
+      { required: false, message: "请输入姓名", trigger: "blur" }
+    ]
   },
- {
+  {
     prop: "gender",
     label: "性别",
     type: "el-select",
@@ -329,7 +317,7 @@ const advancedQueryConfig = ref([
     disabled: false, // 是否禁用
     placeholder: "请选择性别",
     props: {
-      placeholder: '请选择性别',
+      placeholder: "请选择性别",
       options: [
         { label: "男", value: "male" },
         { label: "女", value: "female" },
@@ -340,10 +328,8 @@ const advancedQueryConfig = ref([
       multiple: false, // 是否多选
       collapseTags: false // 折叠标签
     },
-    rules: [
-      { required: true, message: "请选择性别", trigger: "blur" }
-    ],
-    onChange: (val) => {
+    rules: [{ required: true, message: "请选择性别", trigger: "blur" }],
+    onChange: val => {
       console.log("性别变化:", val)
     }
   },
@@ -354,11 +340,11 @@ const advancedQueryConfig = ref([
     placeholder: "请选择出生日期",
     width: "200px",
     props: {
-          placeholder: "请选择出生日期",
+      placeholder: "请选择出生日期",
       type: "date",
       format: "YYYY-MM-DD",
-      valueFormat: "YYYY-MM-DD",
-    },
+      valueFormat: "YYYY-MM-DD"
+    }
   },
   {
     prop: "status",
@@ -366,13 +352,13 @@ const advancedQueryConfig = ref([
     type: "el-select",
     placeholder: "请选择状态",
     props: {
-         placeholder: "请选择状态",
+      placeholder: "请选择状态",
       options: [
         { label: "启用", value: "active" },
         { label: "禁用", value: "inactive" },
-        { label: "审核中", value: "pending" },
-      ],
-    },
+        { label: "审核中", value: "pending" }
+      ]
+    }
   },
   {
     prop: "isVIP",
@@ -380,8 +366,8 @@ const advancedQueryConfig = ref([
     type: "el-switch",
     props: {
       activeText: "是",
-      inactiveText: "否",
-    },
+      inactiveText: "否"
+    }
   },
   {
     prop: "readonlyField",
@@ -389,8 +375,8 @@ const advancedQueryConfig = ref([
     type: "el-input",
     value: "点击我查看详情",
     readonly: true,
-    width: "200px",
-  },
+    width: "200px"
+  }
 ])
 
 const advancedSearchResult = ref({})
@@ -437,16 +423,16 @@ const remoteQueryConfig = ref([
         console.log("remoteMethod直接触发，搜索关键词:", query)
         // 模拟远程API请求
         remoteQueryConfig.value[0].props.loading = true
-        
+
         // 模拟API返回结果
         const mockUsers = [
           { label: `用户${query}1`, value: `${query}1` },
           { label: `用户${query}2`, value: `${query}2` },
           { label: `用户${query}3`, value: `${query}3` },
           { label: `用户${query}4`, value: `${query}4` },
-          { label: `用户${query}5`, value: `${query}5` },
+          { label: `用户${query}5`, value: `${query}5` }
         ]
-        
+
         // 延迟返回结果，模拟网络请求
         setTimeout(() => {
           remoteQueryConfig.value[0].props.options = mockUsers
@@ -454,7 +440,7 @@ const remoteQueryConfig = ref([
         }, 1000)
       }
     },
-    onChange: (val) => {
+    onChange: val => {
       console.log("用户选择变化:", val)
     }
   },
@@ -468,7 +454,7 @@ const remoteQueryConfig = ref([
       placeholder: "请输入关键词",
       clearable: true
     }
-  },
+  }
 ])
 
 const remoteSearchResult = ref({})
@@ -485,12 +471,12 @@ const handleRemoteReset = (formData: any) => {
 
 // 属性表格数据
 const attributeData = [
-  { 
-    name: "queryConfig", 
-    type: "Array<QueryItem>", 
-    description: "搜索字段配置数组", 
-    required: "是", 
-    default: "[]" 
+  {
+    name: "queryConfig",
+    type: "Array<QueryItem>",
+    description: "搜索字段配置数组",
+    required: "是",
+    default: "[]"
   }
 ]
 
@@ -507,59 +493,65 @@ const queryItemData = [
   { name: "rules", type: "any[]", description: "验证规则", required: "否", default: "[]" },
   { name: "props", type: "Record<string, any>", description: "控件额外属性", required: "否", default: "{}" },
   { name: "onChange", type: "(val: any) => void", description: "字段值变化回调", required: "否", default: "-" },
-  { name: "onRemoteSearch", type: "(query: string) => Promise<void>", description: "远程搜索回调（仅select类型）", required: "否", default: "-" }
+  {
+    name: "onRemoteSearch",
+    type: "(query: string) => Promise<void>",
+    description: "远程搜索回调（仅select类型）",
+    required: "否",
+    default: "-"
+  }
 ]
 
 // 事件表格数据
 const eventData = [
-  { 
-    name: "search", 
-    parameters: "params: Record<string, any>", 
-    description: "搜索按钮点击事件，表单验证通过后触发" 
+  {
+    name: "search",
+    parameters: "params: Record<string, any>",
+    description: "搜索按钮点击事件，表单验证通过后触发"
   },
-  { 
-    name: "reset", 
-    parameters: "formData: Record<string, any>", 
-    description: "重置按钮点击事件" 
+  {
+    name: "reset",
+    parameters: "formData: Record<string, any>",
+    description: "重置按钮点击事件"
   },
-  { 
-    name: "field-click", 
-    parameters: "queryItem: QueryItem", 
-    description: "只读字段点击事件" 
+  {
+    name: "field-click",
+    parameters: "queryItem: QueryItem",
+    description: "只读字段点击事件"
   },
-  { 
-    name: "field-change", 
-    parameters: "queryItem: QueryItem, val: any", 
-    description: "字段值变化事件" 
+  {
+    name: "field-change",
+    parameters: "queryItem: QueryItem, val: any",
+    description: "字段值变化事件"
   }
 ]
 
 // 支持的控件类型表格数据
 const controlTypeData = [
-  { 
-    type: "el-input", 
-    description: "文本输入框", 
-    features: "支持清空、只读、点击事件" 
+  {
+    type: "el-input",
+    description: "文本输入框",
+    features: "支持清空、只读、点击事件"
   },
-  { 
-    type: "el-select", 
-    description: "下拉选择器", 
-    features: "支持远程搜索、清空、过滤" 
+  {
+    type: "el-select",
+    description: "下拉选择器",
+    features: "支持远程搜索、清空、过滤"
   },
-  { 
-    type: "el-date-picker", 
-    description: "日期选择器", 
-    features: "支持日期格式化" 
+  {
+    type: "el-date-picker",
+    description: "日期选择器",
+    features: "支持日期格式化"
   },
-  { 
-    type: "el-input-number", 
-    description: "数字输入框", 
-    features: "支持数字范围限制" 
+  {
+    type: "el-input-number",
+    description: "数字输入框",
+    features: "支持数字范围限制"
   },
-  { 
-    type: "el-switch", 
-    description: "开关组件", 
-    features: "支持自定义文本" 
+  {
+    type: "el-switch",
+    description: "开关组件",
+    features: "支持自定义文本"
   }
 ]
 

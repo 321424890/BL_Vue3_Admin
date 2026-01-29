@@ -535,6 +535,202 @@ const arr: any = [
         }
       }
     ]
+  },
+  {
+    path: "/cl-CrystalDialog",
+    name: "cl-CrystalDialog",
+    redirect: "/cl-CrystalDialog",
+    component: "layout",
+    meta: {
+      title: "弹窗抽屉",
+      icon: "mdi:workflow"
+    },
+    children: [
+      {
+        path: "dialog",
+        name: "dialog",
+        component: "/views/ClDialog/dialog",
+        meta: {
+          title: "cl_dialog弹窗示例"
+        }
+      },
+      {
+        path: "Drawer",
+        name: "Drawer",
+        component: "/views/ClDrawer/Drawer",
+        meta: {
+          title: "cl_drawer抽屉示例"
+        }
+      }
+    ]
+  },
+  {
+    path: "/el-ErystalTable",
+    name: "el-ErystalTable",
+    redirect: "/el-ErystalTable",
+    component: "layout",
+    meta: {
+      title: "el封装表格",
+      icon: "mdi:workflow"
+    },
+    children: [
+      {
+        path: "ElTable",
+        name: "ElTable",
+        component: "/views/ElTable/BasicTableDemo",
+        meta: {
+          title: "el_table表格示例"
+        }
+      },
+      {
+        path: "ElTable1",
+        name: "ElTable1",
+        component: "/views/ElTable/TableWithActionsDemo",
+        meta: {
+          title: "el_table操作表格示例"
+        }
+      },
+      {
+        path: "ElTable2",
+        name: "ElTable2",
+        component: "/views/ElTable/TableWithEditableRowsDemo",
+        meta: {
+          title: "el_table可编辑表格示例"
+        }
+      },
+      {
+        path: "ElTable3",
+        name: "ElTable3",
+        component: "/views/ElTable/TableWithSearchDemo",
+        meta: {
+          title: "el_table带搜索表格示例"
+        }
+      },
+      {
+        path: "ElTable4",
+        name: "ElTable4",
+        component: "/views/ElTable/TableWithSelection",
+        meta: {
+          title: "el_table带选择功能表格示例"
+        }
+      },
+      {
+        path: "ElTable5",
+        name: "ElTable5",
+        component: "/views/ElTable/TableWithSingleSelect",
+        meta: {
+          title: "el_table带单选功能表格示例"
+        }
+      },
+      {
+        path: "ElTable6",
+        name: "ElTable6",
+        component: "/views/ElTable/TableWithCustomColumns",
+        meta: {
+          title: "el_table带自定义列表格示例"
+        }
+      },
+      {
+        path: "ElTable7",
+        name: "ElTable7",
+        component: "/views/ElTable/TableWithPagination",
+        meta: {
+          title: "el_table带分页表格示例"
+        }
+      },
+      {
+        path: "ElTable8",
+        name: "ElTable8",
+        component: "/views/ElTable/ComprehensiveDemo",
+        meta: {
+          title: "el_table全部表格示例"
+        }
+      }
+    ]
+  },
+  {
+    path: "/cl-ErystalTable",
+    name: "cl-ErystalTable",
+    redirect: "/cl-ErystalTable",
+    component: "layout",
+    meta: {
+      title: "cl封装表格",
+      icon: "mdi:workflow"
+    },
+    children: [
+      {
+        path: "ClTable",
+        name: "ClTable",
+        component: "/views/ClTable/BasicTableDemo",
+        meta: {
+          title: "cl_table表格示例"
+        }
+      },
+      {
+        path: "ClTable1",
+        name: "ClTable1",
+        component: "/views/ClTable/TableWithActionsDemo",
+        meta: {
+          title: "cl_table操作表格示例"
+        }
+      },
+      {
+        path: "ClTable2",
+        name: "ClTable2",
+        component: "/views/ClTable/TableWithEditableRowsDemo",
+        meta: {
+          title: "cl_table可编辑表格示例"
+        }
+      },
+      {
+        path: "ClTable3",
+        name: "ClTable3",
+        component: "/views/ClTable/TableWithSearchDemo",
+        meta: {
+          title: "cl_table带搜索表格示例"
+        }
+      },
+      {
+        path: "ClTable4",
+        name: "ClTable4",
+        component: "/views/ClTable/TableWithSelectionDemo",
+        meta: {
+          title: "cl_table带选择功能表格示例"
+        }
+      },
+      {
+        path: "ClTable5",
+        name: "ClTable5",
+        component: "/views/ClTable/TableWithSingleSelectDemo",
+        meta: {
+          title: "cl_table带单选功能表格示例"
+        }
+      },
+      {
+        path: "ClTable6",
+        name: "ClTable6",
+        component: "/views/ClTable/TableWithCustomColumnsDemo",
+        meta: {
+          title: "cl_table带自定义列表格示例"
+        }
+      },
+      {
+        path: "ClTable7",
+        name: "ClTable7",
+        component: "/views/ClTable/TableWithPaginationDemo",
+        meta: {
+          title: "cl_table带分页表格示例"
+        }
+      },
+      {
+        path: "ClTable8",
+        name: "ClTable8",
+        component: "/views/ClTable/ComprehensiveDemo",
+        meta: {
+          title: "cl_table全部表格示例"
+        }
+      }
+    ]
   }
 ]
 
