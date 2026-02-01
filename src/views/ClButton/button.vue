@@ -190,6 +190,19 @@
       </el-col>
     </el-row>
 
+    <!-- 点击和回车事件 -->
+    <el-row :gutter="24">
+      <el-col :xs="24" :sm="12" :md="8" :lg="8">
+        <div class="input-group">
+          <h4>点击和回车事件</h4>
+          <CrystalButton type="primary" @click="handleClickAndEnter" @keyup.enter="handleClickAndEnter" tabindex="0">
+            点击或回车触发
+          </CrystalButton>
+          <p style="margin-top: 10px; color: #666; font-size: 14px">提示：点击按钮或按Tab键使按钮获得焦点后按回车键</p>
+        </div>
+      </el-col>
+    </el-row>
+
     <!-- 图标按钮和加载状态 -->
     <el-row :gutter="24">
       <el-col :xs="24" :sm="12" :md="8" :lg="8">

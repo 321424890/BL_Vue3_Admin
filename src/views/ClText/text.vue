@@ -25,7 +25,7 @@
       <el-col :xs="24" :sm="12" :md="8" :lg="8">
         <div class="input-group">
           <h4>粗体文本</h4>
-          <CrystalText bold>粗体文本内容</CrystalText>
+          <CrystalText font-weight="600">粗体文本内容</CrystalText>
         </div>
       </el-col>
     </el-row>
@@ -34,19 +34,19 @@
       <el-col :xs="24" :sm="12" :md="8" :lg="8">
         <div class="input-group">
           <h4>斜体文本</h4>
-          <CrystalText italic>斜体文本内容</CrystalText>
+          <CrystalText font-style="italic">斜体文本内容</CrystalText>
         </div>
       </el-col>
       <el-col :xs="24" :sm="12" :md="8" :lg="8">
         <div class="input-group">
           <h4>下划线文本</h4>
-          <CrystalText underline>下划线文本内容</CrystalText>
+          <CrystalText text-decoration="underline">下划线文本内容</CrystalText>
         </div>
       </el-col>
       <el-col :xs="24" :sm="12" :md="8" :lg="8">
         <div class="input-group">
           <h4>删除线文本</h4>
-          <CrystalText delete>删除线文本内容</CrystalText>
+          <CrystalText text-decoration="line-through">删除线文本内容</CrystalText>
         </div>
       </el-col>
     </el-row>
@@ -177,11 +177,15 @@
         <div class="input-group">
           <h4>文本对齐</h4>
           <div style="width: 100%">
-            <CrystalText text-align="left">左对齐文本</CrystalText>
-            <br />
-            <CrystalText text-align="center">居中对齐文本</CrystalText>
-            <br />
-            <CrystalText text-align="right">右对齐文本</CrystalText>
+            <div style="width: 100%; text-align: left; margin-bottom: 10px">
+              <CrystalText>左对齐文本</CrystalText>
+            </div>
+            <div style="width: 100%; text-align: center; margin-bottom: 10px">
+              <CrystalText>居中对齐文本</CrystalText>
+            </div>
+            <div style="width: 100%; text-align: right">
+              <CrystalText>右对齐文本</CrystalText>
+            </div>
           </div>
         </div>
       </el-col>
@@ -254,10 +258,10 @@ const tableData = [
   { name: "tag", type: "string", default: "'span'", description: "文本包裹标签" },
   { name: "type", type: "string", default: "''", description: "文本类型，可选值：primary、success、warning、danger、info" },
   { name: "size", type: "string", default: "''", description: "文本大小，可选值：xs、sm、base、lg" },
-  { name: "bold", type: "boolean", default: "false", description: "是否粗体" },
-  { name: "italic", type: "boolean", default: "false", description: "是否斜体" },
-  { name: "underline", type: "boolean", default: "false", description: "是否下划线" },
-  { name: "delete", type: "boolean", default: "false", description: "是否删除线" },
+  { name: "font-weight", type: "string", default: "bold", description: "字体粗细，可选值：normal、bold" },
+  { name: "font-style", type: "string", default: "italic", description: "是否斜体" },
+  { name: "text-decoration", type: "string", default: "''", description: "文本装饰，可选值：underline、line-through" },
+  { name: "text-decoration", type: "string", default: "line-through", description: "是否删除线" },
   { name: "code", type: "boolean", default: "false", description: "是否代码块样式" },
   { name: "copyable", type: "boolean", default: "false", description: "是否可复制" },
   { name: "gradient", type: "boolean", default: "false", description: "是否启用渐变文字效果" },

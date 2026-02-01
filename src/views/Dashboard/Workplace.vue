@@ -126,127 +126,259 @@ const member: {
 ]
 </script>
 <template>
-  <div>
-    <ElCard shadow="never">
-      <div class="workplace-header">
-        <div class="header-left">
-          <ElAvatar class="header-left__avatar" :size="50" :src="url"></ElAvatar>
-          <div class="header-left__tips">
-            <div class="tips-greeting">早安, 系统管理员, 开始您一天的工作吧!</div>
-            <div class="tips-weather">
-              <VxIcon :icon="weather.src" :size="20" /><span>{{ weather.tips }}</span>
-            </div>
-          </div>
-        </div>
-        <div class="header-right">
-          <ElStatistic class="static" :value="20">
-            <template #title>
-              <div class="static-title"><VxIcon icon="octicon:project-symlink-24" :size="14" /><span>项目数</span></div>
-            </template></ElStatistic
-          >
-          <ElStatistic class="static" :value="6">
-            <template #title>
-              <div class="static-title"><VxIcon icon="map:travel-agency" :size="14" /><span>代办项</span></div>
-            </template></ElStatistic
-          >
-          <ElStatistic class="static" :value="18">
-            <template #title>
-              <div class="static-title"><VxIcon icon="eva:message-circle-outline" :size="14" /><span>消息</span></div>
-            </template></ElStatistic
-          >
-        </div>
+  <div id="printArea" class="flex-column-page-wrap pageWrap">
+    <!-- 页面头部 -->
+    <div class="page-header">
+      <div class="header-content">
+        <h1 class="page-title">系统首页</h1>
+        <p class="page-description">欢迎回来，系统管理员！</p>
       </div>
-    </ElCard>
-    <div class="workplace-module">
-      <ElCard shadow="hover" class="module-card">
-        <div class="module-box">
-          <VxIcon icon="mdi:account" color="#69c0ff" hover-color="var(--theme-color)" :size="30" />
-          <span>用户</span>
-        </div>
-      </ElCard>
-      <ElCard shadow="hover" class="module-card">
-        <div class="module-box">
-          <VxIcon icon="ri:line-chart-line" color="rgb(149, 222, 100)" hover-color="var(--theme-color)" :size="30" />
-          <span>分析</span>
-        </div>
-      </ElCard>
-      <ElCard shadow="hover" class="module-card">
-        <div class="module-box">
-          <VxIcon icon="ri:line-chart-line" color="rgb(255, 156, 110)" hover-color="var(--theme-color)" :size="30" />
-          <span>分析</span>
-        </div>
-      </ElCard>
-      <ElCard shadow="hover" class="module-card">
-        <div class="module-box">
-          <VxIcon icon="ri:line-chart-line" color="rgb(179, 127, 235)" hover-color="var(--theme-color)" :size="30" />
-          <span>分析</span>
-        </div>
-      </ElCard>
-      <ElCard shadow="hover" class="module-card">
-        <div class="module-box">
-          <VxIcon icon="ri:line-chart-line" color="rgb(255, 192, 105)" hover-color="var(--theme-color)" :size="30" />
-          <span>分析</span>
-        </div>
-      </ElCard>
     </div>
-    <div class="workplace-active">
-      <ElCard shadow="never" class="active-card">
-        <template #header>
-          <div class="card-header">
-            <span>动态</span>
-          </div>
-        </template>
-        <ElScrollbar :height="250">
-          <ElTimeline style="max-width: 600px">
-            <ElTimelineItem
-              v-for="(activity, index) in activities"
-              :type="activity.type"
-              :key="index"
-              :timestamp="activity.timestamp"
-            >
-              {{ activity.content }}
-            </ElTimelineItem>
-          </ElTimeline>
-        </ElScrollbar>
-      </ElCard>
-      <ElCard shadow="never" class="active-card">
-        <template #header>
-          <div class="card-header">
-            <span>成员</span>
-          </div>
-        </template>
-        <ElScrollbar :height="250">
-          <div class="member-list" v-for="v in member" :key="v.id">
-            <div class="member-list__left">
-              <ElAvatar :src="v.avatar" :size="30" />
-              <!-- <span>{{ v.username }}</span> -->
-              <div class="user-message">
-                <span class="username">{{ v.username }}</span>
-                <span class="user-message__detail">
-                  <VxIcon
-                    v-if="v.sex === 1 || v.sex === 0"
-                    :icon="v.sex === 1 ? 'ant-design:man-outlined' : 'ant-design:woman-outlined'"
-                    :color="v.sex === 1 ? '#33A3EC' : '#F6425A'"
-                    :hover-color="v.sex === 1 ? '#33A3EC' : '#F6425A'"
-                  />
-                  <span v-else class="scr">保密</span>
-                  <span class="time">加入时间：{{ v.time }}</span>
-                </span>
+
+    <!-- 用户信息和天气 -->
+    <!-- <el-row :gutter="24">
+      <el-col :xs="24" :sm="24" :md="24" :lg="24">
+        <div class="input-group">
+          <h4>个人信息</h4>
+          <div class="workplace-header">
+            <div class="header-left">
+              <el-avatar class="header-left__avatar" :size="50" :src="url"></el-avatar>
+              <div class="header-left__tips">
+                <div class="tips-greeting">早安, 系统管理员, 开始您一天的工作吧!</div>
+                <div class="tips-weather">
+                  <VxIcon :icon="weather.src" :size="20" /><span>{{ weather.tips }}</span>
+                </div>
               </div>
             </div>
-            <div class="member-list__right">
-              <!--@ts-ignore-->
-              <ElTag :type="`${v.status === 0 ? 'info' : v.status === 1 ? 'success' : 'danger'}`">
-                {{ v.status === 0 ? "离线" : v.status === 1 ? "在线" : "已停用" }}
-              </ElTag>
+            <div class="header-right">
+              <el-statistic class="static" :value="20">
+                <template #title>
+                  <div class="static-title"><VxIcon icon="octicon:project-symlink-24" :size="14" /><span>项目数</span></div>
+                </template></el-statistic
+              >
+              <el-statistic class="static" :value="6">
+                <template #title>
+                  <div class="static-title"><VxIcon icon="map:travel-agency" :size="14" /><span>代办项</span></div>
+                </template></el-statistic
+              >
+              <el-statistic class="static" :value="18">
+                <template #title>
+                  <div class="static-title"><VxIcon icon="eva:message-circle-outline" :size="14" /><span>消息</span></div>
+                </template></el-statistic
+              >
             </div>
           </div>
-        </ElScrollbar>
-      </ElCard>
-    </div>
+        </div>
+      </el-col>
+    </el-row>
+
+    -->
   </div>
 </template>
 
-<style lang="scss" scoped>
-@use "./Workplace.scss";
+<style scoped>
+.pageWrap {
+  padding: 20px;
+}
+
+/* 页面头部样式 */
+.page-header {
+  padding: 20px 0;
+  text-align: center;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 20px;
+}
+
+.page-title {
+  color: #303133;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.page-description {
+  color: #606266;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* 示例组样式 */
+.input-group {
+  margin-bottom: 20px;
+  padding: 16px;
+  background-color: white;
+  border: 1px solid #ebeef5;
+  border-radius: 4px;
+}
+
+.input-group h4 {
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #303133;
+}
+
+/* 头部信息样式 */
+.workplace-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-left__avatar {
+  border: 2px solid #e6f7ff;
+}
+
+.header-left__tips {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tips-greeting {
+  font-size: 16px;
+  font-weight: 500;
+  color: #303133;
+}
+
+.tips-weather {
+  font-size: 14px;
+  color: #606266;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-right {
+  display: flex;
+  gap: 30px;
+}
+
+.static {
+  text-align: center;
+}
+
+.static-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #606266;
+}
+
+/* 功能模块样式 */
+.workplace-module {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.module-card {
+  flex: 1;
+  min-width: 150px;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #ebeef5;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.module-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: #e6f7ff;
+  transform: translateY(-2px);
+}
+
+.module-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.module-box span {
+  font-size: 14px;
+  color: #303133;
+  font-weight: 500;
+}
+
+/* 滚动容器样式 */
+.scroll-container {
+  padding: 8px 0;
+}
+
+/* 成员列表样式 */
+.member-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.member-list:last-child {
+  border-bottom: none;
+}
+
+.member-list__left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-message {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.username {
+  font-size: 14px;
+  font-weight: 500;
+  color: #303133;
+}
+
+.user-message__detail {
+  font-size: 12px;
+  color: #909399;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.time {
+  font-size: 12px;
+  color: #909399;
+}
+
+/* 响应式样式 */
+@media (max-width: 768px) {
+  .workplace-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-right {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .workplace-module {
+    justify-content: center;
+  }
+
+  .module-card {
+    flex: 1 1 120px;
+  }
+}
 </style>

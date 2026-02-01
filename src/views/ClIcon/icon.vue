@@ -410,16 +410,6 @@
     <el-row :gutter="24" style="margin-top: 24px">
       <el-col :xs="24" :sm="12" :md="8" :lg="12">
         <div class="input-group">
-          <h4>颜色渐变</h4>
-          <div class="icon-grid">
-            <crystal-icon icon="Star" gradient size="32" />
-            <crystal-icon icon="Heart" gradient gradient-from="#ff4d4f" gradient-to="#ff7a45" size="32" />
-            <crystal-icon icon="Rocket" gradient gradient-from="#1890ff" gradient-to="#722ed1" size="32" />
-          </div>
-        </div>
-      </el-col>
-      <el-col :xs="24" :sm="12" :md="8" :lg="12">
-        <div class="input-group">
           <h4>自定义内容</h4>
           <div class="icon-grid">
             <crystal-icon size="48">
@@ -432,24 +422,6 @@
               </svg>
             </crystal-icon>
           </div>
-        </div>
-      </el-col>
-    </el-row>
-
-    <el-row :gutter="24" style="margin-top: 24px">
-      <el-col :xs="24" :sm="12" :md="8" :lg="12">
-        <div class="input-group">
-          <h4>组合使用</h4>
-          <crystal-icon
-            icon="Star"
-            size="48"
-            animate
-            animate-type="bounce"
-            gradient
-            gradient-from="#ff4d4f"
-            gradient-to="#722ed1"
-          />
-          <p>动画+渐变效果</p>
         </div>
       </el-col>
     </el-row>
@@ -502,10 +474,7 @@ const propsTableData = ref([
   { prop: "size", description: "图标大小", type: "Number/String", default: "'default'" },
   { prop: "color", description: "图标颜色", type: "String", default: "'#333'" },
   { prop: "animate", description: "是否启用动画效果", type: "Boolean", default: "false" },
-  { prop: "animateType", description: "动画类型", type: "String", default: "'rotate'" },
-  { prop: "gradient", description: "是否启用颜色渐变", type: "Boolean", default: "false" },
-  { prop: "gradientFrom", description: "渐变起始颜色", type: "String", default: "'#1890ff'" },
-  { prop: "gradientTo", description: "渐变结束颜色", type: "String", default: "'#52c41a'" }
+  { prop: "animateType", description: "动画类型", type: "String", default: "'rotate'" }
 ])
 
 // 属性表格列
