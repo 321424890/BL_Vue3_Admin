@@ -90,6 +90,24 @@
           />
         </div>
       </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>自定义边框颜色</h4>
+          <CrystalInputNumber
+            v-model="borderColorNumber1"
+            placeholder="红色边框"
+            border-theme-color="#ff4d4f"
+            style="margin-bottom: 10px"
+          />
+          <CrystalInputNumber
+            v-model="borderColorNumber2"
+            placeholder="绿色边框"
+            border-theme-color="#389e0d"
+            style="margin-bottom: 10px"
+          />
+          <CrystalInputNumber v-model="borderColorNumber3" placeholder="橙色边框" border-theme-color="#faad14" />
+        </div>
+      </el-col>
     </el-row>
 
     <!-- 组件文档 -->
@@ -144,7 +162,8 @@ const propsTableData = ref([
   { prop: "controls", type: "boolean", default: "true", description: "是否使用控制按钮" },
   { prop: "controls-position", type: "string", default: "-", description: "控制按钮位置，可选值为 right" },
   { prop: "rangeTip", type: "string", default: "''", description: "范围超出提示文本" },
-  { prop: "thousands", type: "boolean", default: "false", description: "是否显示千分位分隔符" }
+  { prop: "thousands", type: "boolean", default: "false", description: "是否显示千分位分隔符" },
+  { prop: "borderThemeColor", type: "string", default: "undefined", description: "边框主题颜色，支持CSS颜色格式" }
 ])
 
 // 属性表格列配置
@@ -186,6 +205,9 @@ const number9 = ref(0)
 const number10 = ref(0)
 const number11 = ref(123456.78)
 const eventNumber = ref(0)
+const borderColorNumber1 = ref(0)
+const borderColorNumber2 = ref(0)
+const borderColorNumber3 = ref(0)
 
 // 事件处理
 function handleChange(value: number) {

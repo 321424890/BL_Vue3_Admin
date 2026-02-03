@@ -18,28 +18,19 @@
       <el-col :xs="24" :sm="12" :md="8" :lg="12">
         <div class="input-group">
           <h4>带前缀图标</h4>
-          <CrystalInput
-            v-model="text2"
-            placeholder="搜索"
-            :prefix-icon="Search"
-            border-theme-color="red"
-            clearable
-            @focus="handleFocus"
-          >
-          </CrystalInput>
+          <CrystalInput v-model="text2" placeholder="搜索" :prefix-icon="Search" clearable @focus="handleFocus"> </CrystalInput>
         </div>
       </el-col>
       <el-col :xs="24" :sm="12" :md="8" :lg="12">
         <div class="input-group">
           <h4>带后缀图标</h4>
-          <CrystalInput v-model="text3" border-theme-color="#52c41a" :suffix-icon="Calendar" placeholder="请输入内容">
-          </CrystalInput>
+          <CrystalInput v-model="text3" :suffix-icon="Calendar" placeholder="请输入内容"> </CrystalInput>
         </div>
       </el-col>
       <el-col :xs="24" :sm="12" :md="8" :lg="12">
         <div class="input-group">
           <h4>不同尺寸</h4>
-          <CrystalInput v-model="text4" placeholder="小尺寸" border-theme-color="pink" size="small" style="margin-right: 20px" />
+          <CrystalInput v-model="text4" placeholder="小尺寸" size="small" style="margin-right: 20px" />
           <CrystalInput v-model="text5" placeholder="中尺寸" size="default" style="margin-right: 20px" />
           <BLInpCrystalInputut v-model="text6" placeholder="大尺寸" size="large" />
         </div>
@@ -112,6 +103,32 @@
           />
         </div>
       </el-col>
+      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+        <div class="input-group">
+          <h4>自定义边框颜色和阴影效果</h4>
+          <div class="flex flex-wrap gap-4">
+            <div>
+              <p style="margin-bottom: 8px; font-size: 14px; color: #606266">默认蓝色</p>
+              <CrystalInput v-model="borderColor1" placeholder="默认蓝色边框" />
+            </div>
+            <div>
+              <p style="margin-bottom: 8px; font-size: 14px; color: #606266">红色</p>
+              <CrystalInput v-model="borderColor2" placeholder="红色边框" border-theme-color="#ff4d4f" />
+            </div>
+            <div>
+              <p style="margin-bottom: 8px; font-size: 14px; color: #606266">绿色</p>
+              <CrystalInput v-model="borderColor3" placeholder="绿色边框" border-theme-color="#389e0d" />
+            </div>
+            <div>
+              <p style="margin-bottom: 8px; font-size: 14px; color: #606266">橙色</p>
+              <CrystalInput v-model="borderColor4" placeholder="橙色边框" border-theme-color="#faad14" />
+            </div>
+          </div>
+          <p style="margin-top: 16px; font-size: 14px; color: #606266">
+            提示：鼠标经过输入框时会显示阴影效果，点击输入框获得焦点时阴影效果会更加明显
+          </p>
+        </div>
+      </el-col>
     </el-row>
 
     <!-- 组件文档 -->
@@ -179,7 +196,13 @@ const propsTableData = ref([
   { prop: "show-word-limit", type: "boolean", default: "false", description: "是否显示字数统计" },
   { prop: "show-password", type: "boolean", default: "false", description: "是否显示密码切换按钮" },
   { prop: "prefix-icon", type: "string / Component", default: "-", description: "前缀图标" },
-  { prop: "suffix-icon", type: "string / Component", default: "-", description: "后缀图标" }
+  { prop: "suffix-icon", type: "string / Component", default: "-", description: "后缀图标" },
+  {
+    prop: "border-theme-color",
+    type: "string",
+    default: "'#409eff'",
+    description: "自定义边框颜色，同时影响鼠标经过和聚焦时的阴影效果"
+  }
 ])
 
 // 属性表格列配置
@@ -240,6 +263,10 @@ const text12 = ref("")
 const text13 = ref("")
 const text14 = ref("")
 const eventText = ref("")
+const borderColor1 = ref("")
+const borderColor2 = ref("")
+const borderColor3 = ref("")
+const borderColor4 = ref("")
 
 // 事件处理
 function handleFocus() {
@@ -337,6 +364,18 @@ h3 {
 
 .el-input {
   margin-bottom: 10px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.gap-4 {
+  gap: 16px;
 }
 
 /* 组件文档样式 */
