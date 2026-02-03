@@ -195,7 +195,7 @@
       <el-col :xs="24" :sm="12" :md="8" :lg="8">
         <div class="input-group">
           <h4>点击和回车事件</h4>
-          <CrystalButton type="primary" @click="handleClickAndEnter" @keyup.enter="handleClickAndEnter" tabindex="0">
+          <CrystalButton type="primary" @click="handleAction" @keyup.enter="handleAction" tabindex="0">
             点击或回车触发
           </CrystalButton>
           <p style="margin-top: 10px; color: #666; font-size: 14px">提示：点击按钮或按Tab键使按钮获得焦点后按回车键</p>
@@ -226,6 +226,69 @@
       </el-col>
     </el-row>
 
+    <!-- 多个异步按钮示例 -->
+    <el-row :gutter="24">
+      <el-col :xs="24" :sm="24" :md="24" :lg="24">
+        <div class="input-group">
+          <h4>多个异步按钮示例</h4>
+          <p style="margin-bottom: 16px; color: #666; font-size: 14px">
+            演示多个按钮独立的异步加载状态管理，每个按钮都有自己的loading状态，互不影响
+          </p>
+          <div class="flex gap-4">
+            <CrystalButton type="primary" :auto-loading="true" @async-click="(event, done) => handleAsyncOperation(1000, done)">
+              异步操作 1s
+            </CrystalButton>
+            <CrystalButton type="success" :auto-loading="true" @async-click="(event, done) => handleAsyncOperation(2000, done)">
+              异步操作 2s
+            </CrystalButton>
+            <CrystalButton type="warning" :auto-loading="true" @async-click="(event, done) => handleAsyncOperation(3000, done)">
+              异步操作 3s
+            </CrystalButton>
+            <CrystalButton type="danger" :auto-loading="true" @async-click="(event, done) => handleAsyncOperation(1500, done)">
+              异步操作 1.5s
+            </CrystalButton>
+            <CrystalButton type="info" :auto-loading="true" @async-click="(event, done) => handleAsyncOperation(2500, done)">
+              异步操作 2.5s
+            </CrystalButton>
+          </div>
+          <div style="margin-top: 16px; color: #666; font-size: 14px">
+            <p>点击任意按钮，观察其独立的loading状态</p>
+            <p>每个按钮的loading状态都是独立管理的，不会相互影响</p>
+          </div>
+        </div>
+      </el-col>
+    </el-row>
+
+    <!-- 点击节流示例 -->
+    <el-row :gutter="24">
+      <el-col :xs="24" :sm="24" :md="24" :lg="24">
+        <div class="input-group">
+          <h4>点击节流示例</h4>
+          <p style="margin-bottom: 16px; color: #666; font-size: 14px">
+            演示按钮的点击节流功能，防止用户在短时间内重复点击按钮，导致多次触发相同的操作
+          </p>
+          <div class="flex gap-4">
+            <CrystalButton type="primary" :throttle="1000" @click="handleThrottleClick(1000)"> 1秒节流 </CrystalButton>
+            <CrystalButton type="success" :throttle="2000" @click="handleThrottleClick(2000)"> 2秒节流 </CrystalButton>
+            <CrystalButton type="warning" :throttle="3000" @click="handleThrottleClick(3000)"> 3秒节流 </CrystalButton>
+            <CrystalButton
+              type="danger"
+              :auto-loading="true"
+              :throttle="2000"
+              @async-click="(event, done) => handleAsyncThrottleClick(2000, done)"
+            >
+              异步操作 + 2秒节流
+            </CrystalButton>
+          </div>
+          <div style="margin-top: 16px; color: #666; font-size: 14px">
+            <p>快速点击任意按钮，观察节流效果</p>
+            <p>节流时间内重复点击不会触发多次操作</p>
+            <p>异步操作按钮同时展示了loading状态管理和节流功能的结合使用</p>
+          </div>
+        </div>
+      </el-col>
+    </el-row>
+
     <!-- 带图标的按钮和按钮组 -->
     <el-row :gutter="24">
       <el-col :xs="24" :sm="24" :md="16" :lg="16">
@@ -240,17 +303,6 @@
           <CrystalButton type="danger" icon="Search" circle />
         </div>
       </el-col>
-      <el-col :xs="24" :sm="24" :md="8" :lg="8">
-        <div class="input-group">
-          <h4>按钮组</h4>
-          <el-button-group>
-            <CrystalButton type="primary" icon="ArrowLeft">上一页</CrystalButton>
-            <CrystalButton type="primary"
-              >下一页<template #icon><ArrowRight /></template
-            ></CrystalButton>
-          </el-button-group>
-        </div>
-      </el-col>
     </el-row>
 
     <!-- 属性表格 -->
@@ -261,13 +313,13 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue"
 // import { CrystalButton } from "@/components/CrystalButton"
 import { CrystalButton } from "crystal-ui"
-// import CrystalButton from "./CrystalButton.vue"
+
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
-import { ArrowRight } from "@element-plus/icons-vue"
+// import { ArrowRight } from "@element-plus/icons-vue"
 
 // 表格列配置
 const columns = [
@@ -299,7 +351,20 @@ const tableData = [
   { name: "gradient", type: "boolean", default: "false", description: "是否启用芝加哥渐变效果" },
   { name: "gradientFrom", type: "string", default: "'#1890ff'", description: "渐变起始颜色" },
   { name: "gradientTo", type: "string", default: "'#52c41a'", description: "渐变结束颜色" },
-  { name: "borderRadius", type: "string", default: "''", description: "自定义圆角（如：'8px'、'10px 20px'）" }
+  { name: "borderRadius", type: "string", default: "''", description: "自定义圆角（如：'8px'、'10px 20px'）" },
+  { name: "autoLoading", type: "boolean", default: "false", description: "是否启用内置异步操作 loading 状态管理" },
+  {
+    name: "asyncClick",
+    type: "function",
+    default: "-",
+    description: "当启用 autoLoading 时的异步点击事件，接收 (event, done) 参数"
+  },
+  {
+    name: "throttle",
+    type: "number",
+    default: "0",
+    description: "点击节流时间（毫秒），0 表示不启用节流"
+  }
 ]
 
 // 点击事件处理函数
@@ -307,11 +372,64 @@ const handleClick = () => {
   console.log("按钮被点击了！")
   alert("按钮被点击了！")
 }
+
+// 通用事件处理函数
+const handleAction = () => {
+  console.log("按钮被触发了！")
+  alert("按钮被触发了！")
+}
+
+// 处理异步操作
+const handleAsyncOperation = async (delay: number, done: () => void) => {
+  console.log(`开始异步操作，延迟 ${delay}ms`)
+  try {
+    // 模拟异步操作
+    await new Promise(resolve => setTimeout(resolve, delay))
+    console.log(`异步操作完成，延迟 ${delay}ms`)
+    // 可以在这里添加操作完成后的逻辑
+  } catch (error) {
+    console.error(`异步操作失败，延迟 ${delay}ms`, error)
+  } finally {
+    // 不管成功失败，都关闭loading状态
+    done()
+  }
+}
+
+// 处理节流点击事件
+const handleThrottleClick = (milliseconds?: number) => {
+  const seconds = milliseconds ? milliseconds / 1000 : 0
+  console.log(`${new Date().toLocaleTimeString()}: 触发点击事件，节流时间 ${seconds}秒`)
+}
+
+// 处理异步节流点击事件
+const handleAsyncThrottleClick = async (delay: number, done: () => void) => {
+  console.log(`${new Date().toLocaleTimeString()}: 开始异步节流操作，延迟 ${delay}ms`)
+  try {
+    // 模拟异步操作
+    await new Promise(resolve => setTimeout(resolve, delay))
+    console.log(`${new Date().toLocaleTimeString()}: 异步节流操作完成，延迟 ${delay}ms`)
+    // 可以在这里添加操作完成后的逻辑
+  } catch (error) {
+    console.error(`${new Date().toLocaleTimeString()}: 异步节流操作失败，延迟 ${delay}ms`, error)
+  } finally {
+    // 不管成功失败，都关闭loading状态
+    done()
+  }
+}
 </script>
 
 <style scoped>
 .pageWrap {
   padding: 20px;
+}
+:deep(.el-button.is-circle) {
+  border-radius: 50%;
+  padding: 8px;
+  width: 32px;
+  /* display: flex; */
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
 }
 
 /* 页面头部样式 */
@@ -363,5 +481,14 @@ const handleClick = () => {
   font-size: 16px;
   font-weight: 600;
   color: #303133;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gap-4 {
+  gap: 16px;
 }
 </style>

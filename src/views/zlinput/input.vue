@@ -18,20 +18,21 @@
       <el-col :xs="24" :sm="12" :md="8" :lg="12">
         <div class="input-group">
           <h4>带前缀图标</h4>
-          <CrystalInput v-model="text2" placeholder="搜索" border-theme-color="red" clearable @focus="handleFocus">
-            <template #prefix>
-              <i class="el-icon-search"></i>
-            </template>
+          <CrystalInput
+            v-model="text2"
+            placeholder="搜索"
+            :prefix-icon="Search"
+            border-theme-color="red"
+            clearable
+            @focus="handleFocus"
+          >
           </CrystalInput>
         </div>
       </el-col>
       <el-col :xs="24" :sm="12" :md="8" :lg="12">
         <div class="input-group">
           <h4>带后缀图标</h4>
-          <CrystalInput v-model="text3" border-theme-color="#52c41a" placeholder="请输入内容">
-            <template #suffix>
-              <i class="el-icon-date"></i>
-            </template>
+          <CrystalInput v-model="text3" border-theme-color="#52c41a" :suffix-icon="Calendar" placeholder="请输入内容">
           </CrystalInput>
         </div>
       </el-col>
@@ -161,9 +162,9 @@
 <script setup lang="ts">
 import { ref } from "vue"
 // import CrystalInput from "@/components/BasicInput/input/index.vue"
-import { CrystalInput } from "crystal-ui"
+import { CrystalInput, CrystalIcon } from "crystal-ui"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
-
+import { Calendar, Search } from "@element-plus/icons-vue"
 // 属性表格数据
 const propsTableData = ref([
   { prop: "modelValue / v-model", type: "string / number / boolean", default: "''", description: "绑定值" },
@@ -176,7 +177,9 @@ const propsTableData = ref([
   { prop: "maxlength", type: "number", default: "-", description: "最大输入长度" },
   { prop: "minlength", type: "number", default: "-", description: "最小输入长度" },
   { prop: "show-word-limit", type: "boolean", default: "false", description: "是否显示字数统计" },
-  { prop: "show-password", type: "boolean", default: "false", description: "是否显示密码切换按钮" }
+  { prop: "show-password", type: "boolean", default: "false", description: "是否显示密码切换按钮" },
+  { prop: "prefix-icon", type: "string / Component", default: "-", description: "前缀图标" },
+  { prop: "suffix-icon", type: "string / Component", default: "-", description: "后缀图标" }
 ])
 
 // 属性表格列配置
