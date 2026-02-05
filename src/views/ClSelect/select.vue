@@ -8,8 +8,8 @@
       </div>
     </div>
 
-    <el-row :gutter="24">
-      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+    <el-row :gutter="32">
+      <el-col :xs="24" :sm="24" :md="12" :lg="12">
         <div class="input-group">
           <h4>基础单选带搜索</h4>
           <CrystalSelect
@@ -22,7 +22,7 @@
           ></CrystalSelect>
         </div>
       </el-col>
-      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+      <el-col :xs="24" :sm="24" :md="12" :lg="12">
         <div class="input-group">
           <h4>多选功能</h4>
           <CrystalSelect
@@ -35,7 +35,7 @@
           ></CrystalSelect>
         </div>
       </el-col>
-      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+      <el-col :xs="24" :sm="24" :md="12" :lg="12">
         <div class="input-group">
           <h4>图标支持</h4>
           <CrystalSelect
@@ -46,7 +46,7 @@
           ></CrystalSelect>
         </div>
       </el-col>
-      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+      <el-col :xs="24" :sm="24" :md="12" :lg="12">
         <div class="input-group">
           <h4>带描述文本</h4>
           <CrystalSelect
@@ -57,7 +57,7 @@
           ></CrystalSelect>
         </div>
       </el-col>
-      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+      <el-col :xs="24" :sm="24" :md="12" :lg="12">
         <div class="input-group">
           <h4>禁用状态</h4>
           <CrystalSelect
@@ -69,7 +69,7 @@
           ></CrystalSelect>
         </div>
       </el-col>
-      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+      <el-col :xs="24" :sm="24" :md="12" :lg="12">
         <div class="input-group">
           <h4>加载状态</h4>
           <CrystalSelect
@@ -82,7 +82,7 @@
           ></CrystalSelect>
         </div>
       </el-col>
-      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+      <el-col :xs="24" :sm="24" :md="12" :lg="12">
         <div class="input-group">
           <h4>自定义选项渲染</h4>
           <CrystalSelect v-model="customValue" :options="customOptions" placeholder="选择用户" style="width: 100%">
@@ -98,7 +98,7 @@
           </CrystalSelect>
         </div>
       </el-col>
-      <el-col :xs="24" :sm="12" :md="8" :lg="12">
+      <el-col :xs="24" :sm="24" :md="12" :lg="12">
         <div class="input-group">
           <h4>颜色小圆标记</h4>
           <CrystalSelect
@@ -114,6 +114,40 @@
               </div>
             </template>
           </CrystalSelect>
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="24" :md="24" :lg="24">
+        <div class="input-group">
+          <h4>自定义边框颜色</h4>
+          <el-row :gutter="20">
+            <el-col :xs="24" :sm="8" :md="8" :lg="8">
+              <CrystalSelect
+                v-model="borderColorValue"
+                :options="basicOptions"
+                placeholder="红色边框"
+                border-theme-color="#ff4d4f"
+                style="width: 100%"
+              ></CrystalSelect>
+            </el-col>
+            <el-col :xs="24" :sm="8" :md="8" :lg="8">
+              <CrystalSelect
+                v-model="borderColorValue2"
+                :options="basicOptions"
+                placeholder="绿色边框"
+                border-theme-color="#389e0d"
+                style="width: 100%"
+              ></CrystalSelect>
+            </el-col>
+            <el-col :xs="24" :sm="8" :md="8" :lg="8">
+              <CrystalSelect
+                v-model="borderColorValue3"
+                :options="basicOptions"
+                placeholder="橙色边框"
+                border-theme-color="#faad14"
+                style="width: 100%"
+              ></CrystalSelect>
+            </el-col>
+          </el-row>
         </div>
       </el-col>
     </el-row>
@@ -222,6 +256,9 @@ const disabledValue = ref("")
 const loadingValue = ref("")
 const customValue = ref("")
 const colorDotValue = ref("")
+const borderColorValue = ref("")
+const borderColorValue2 = ref("")
+const borderColorValue3 = ref("")
 
 // 属性表格数据
 const propsTableData = ref([
@@ -240,7 +277,8 @@ const propsTableData = ref([
   { prop: "remote-method", type: "Function", default: "-", description: "远程搜索方法" },
   { prop: "multiple-limit", type: "number", default: "0", description: "多选时最多选择的数量" },
   { prop: "no-data-text", type: "string", default: "'无数据'", description: "无数据时的文本" },
-  { prop: "no-match-text", type: "string", default: "'无匹配数据'", description: "搜索无匹配时的文本" }
+  { prop: "no-match-text", type: "string", default: "'无匹配数据'", description: "搜索无匹配时的文本" },
+  { prop: "border-theme-color", type: "string", default: "undefined", description: "边框主题颜色，支持CSS颜色格式" }
 ])
 
 // 属性表格列配置
