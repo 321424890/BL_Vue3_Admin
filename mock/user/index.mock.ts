@@ -533,6 +533,14 @@ const arr: any = [
         meta: {
           title: "cl动态搜索表单示例"
         }
+      },
+      {
+        path: "clFormGroup",
+        name: "clFormGroup",
+        component: "/views/ClForm/ClFormGroup",
+        meta: {
+          title: "cl_formGroup示例"
+        }
       }
     ]
   },
@@ -560,6 +568,38 @@ const arr: any = [
         component: "/views/ClDrawer/Drawer",
         meta: {
           title: "cl_drawer抽屉示例"
+        }
+      },
+      {
+        path: "alert",
+        name: "alert",
+        component: "/views/ClAlert/alert",
+        meta: {
+          title: "cl_alert示例"
+        }
+      },
+      {
+        path: "modal",
+        name: "modal",
+        component: "/views/Clmodal/modal",
+        meta: {
+          title: "cl_modal示例"
+        }
+      },
+      {
+        path: "notify",
+        name: "notify",
+        component: "/views/ClNotify/notify",
+        meta: {
+          title: "cl_notify示例"
+        }
+      },
+      {
+        path: "message",
+        name: "message",
+        component: "/views/ClMessage/message",
+        meta: {
+          title: "cl_message示例"
         }
       }
     ]
@@ -664,6 +704,14 @@ const arr: any = [
         component: "/views/ClTable/BasicTableDemo",
         meta: {
           title: "cl_table表格示例"
+        }
+      },
+      {
+        path: "ClTable0",
+        name: "ClTable0",
+        component: "/views/ClTable/BasicTableDem1",
+        meta: {
+          title: "cl_table排序筛选表格示例"
         }
       },
       {

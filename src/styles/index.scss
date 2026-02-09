@@ -3,3 +3,15 @@
 
 // 全局样式
 @use "var.scss";
+
+.el-table .cell {
+  box-sizing: border-box;
+  line-height: 23px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  padding: 0 12px;
+  text-overflow: ellipsis;
+  white-space: normal;
+  display: flex;
+  align-items: center;
+}
