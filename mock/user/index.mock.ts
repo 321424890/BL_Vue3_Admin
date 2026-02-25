@@ -276,6 +276,14 @@ const arr: any = [
         meta: {
           title: "cl_button按钮示例"
         }
+      },
+      {
+        path: "card",
+        name: "card",
+        component: "/views/ClCard/card",
+        meta: {
+          title: "cl_card卡片示例"
+        }
       }
     ]
   },
@@ -458,6 +466,14 @@ const arr: any = [
           title: "cl_image多图片示例"
         }
       }
+      // {
+      //   path: "CrystalEditor",
+      //   name: "CrystalEditor",
+      //   component: "/views/ClEditor/Editor",
+      //   meta: {
+      //     title: "cl_editor示例"
+      //   }
+      // }
     ]
   },
   {
