@@ -257,7 +257,7 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
 import { ElMessage } from 'element-plus'
-import { CrystalTimeSelect } from "crystal-ui"
+import { CrystalTimeSelect } from "crystalplus-ui"
 import BasicTable from '@/components/BasicTable/BasicTable.vue'
 
 // 时间绑定值

@@ -195,7 +195,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from "vue"
-import { CrystalTreeSelect } from "crystal-ui"
+import { CrystalTreeSelect } from "crystalplus-ui"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 import { Document, Plus, Minus } from "@element-plus/icons-vue"
 

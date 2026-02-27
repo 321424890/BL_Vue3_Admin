@@ -433,7 +433,7 @@ import {
   CrystalLineChartCard,
   CrystalBarChartCard,
   CrystalDonutChartCard
-} from "crystal-ui"
+} from "crystalplus-ui"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 
 const dataList = ref([

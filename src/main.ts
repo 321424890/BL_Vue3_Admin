@@ -8,6 +8,16 @@ import { setupAuthDirective } from "./directives/auth"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 import "@/router/asyncRouterHelper"
 
+// 全局导入 Element Plus
+import ElementPlus from "element-plus"
+import "element-plus/dist/index.css"
+import zhCn from "element-plus/dist/locale/zh-cn.mjs"
+import * as ElementPlusIconsVue from "@element-plus/icons-vue"
+
+// 导入 Crystal 组件库
+import CrystalUi from "crystalplus-ui"
+import "crystalplus-ui/dist/index.css"
+
 import "animate.css"
 import "./styles/reset.scss"
 import "./styles/index.scss"
@@ -18,14 +28,23 @@ const setupApp = async () => {
   setupRouter(app)
   // 在页面显示之前先等待router加载完毕
   await router.isReady()
-  if (process.env.NODE_ENV === "production" && import.meta.env?.VITE_CDN) {
-    const { setupElementPlus } = await import("./plugins/elementPlus")
-    setupElementPlus(app)
+
+  // 全局注册 Element Plus
+  app.use(ElementPlus, {
+    locale: zhCn
+  })
+
+  // 全局注册 Element Plus 图标
+  for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+    app.component(key, component)
   }
+
   setupStore(app)
   setupVxeTable(app)
   setupAuthDirective(app)
-  app.mount("#app")
+  // 全局注册 Crystal 组件库
+  app.use(CrystalUi)
   app.component("BasicTable", BasicTable)
+  app.mount("#app")
 }
 setupApp()

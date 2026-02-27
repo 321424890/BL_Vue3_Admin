@@ -110,7 +110,7 @@
 <script setup lang="ts">
 import { ref } from "vue"
 // import CrystalInputTag from "@/components/CrystalInput/inputTag/index.vue"
-import { CrystalInputTag } from "crystal-ui"
+import { CrystalInputTag } from "crystalplus-ui"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 
 // 属性表格数据

@@ -28,7 +28,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue"
-import { ElBasicTable } from "crystal-ui"
+import { ElBasicTable } from "crystalplus-ui"
 import { ElMessage } from "element-plus"
 
 // 表格数据

@@ -88,7 +88,7 @@
 <script setup lang="ts">
 import { ref, reactive, watch } from "vue"
 import { ElMessage } from "element-plus"
-import { ClFormWrapper } from "crystal-ui"
+import { ClFormWrapper } from "crystalplus-ui"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 
 const formData = ref<Record<string, any>>({

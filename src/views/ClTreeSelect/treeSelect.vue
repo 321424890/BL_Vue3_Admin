@@ -30,11 +30,11 @@
           <CrystalTreeSelect
             :data="treeData"
             v-model="colorValue"
-            :color="'yellow'"
-            :selected-color="'red'"
-            :hover-color="'pink'"
-            :text-color="'909399'"
-            :line-color="'red'"
+            :color="'#ffcc00'"
+            :selected-color="'#ff0000'"
+            :hover-color="'#ffcccc'"
+            :text-color="'#909399'"
+            :line-color="'#ff0000'"
           ></CrystalTreeSelect>
           <p>选中的值: {{ colorValue }}</p>
         </div>
@@ -170,7 +170,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue"
-import { CrystalTreeSelect } from "crystal-ui"
+import { CrystalTreeSelect } from "crystalplus-ui"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 
 // 树数据

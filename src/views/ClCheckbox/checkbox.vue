@@ -179,7 +179,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue"
-import { CrystalCheckbox } from "crystal-ui"
+import { CrystalCheckbox } from "crystalplus-ui"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 
 // 绑定值定义

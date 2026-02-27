@@ -7,6 +7,7 @@ CrystalCascader 是基于 Element Plus ElCascader 组件封装的增强版级联
 ## 特性亮点
 
 ### ✨ 增强功能
+
 - **自动清空搜索内容**：当弹窗关闭时自动清除搜索框内容，提升用户体验
 - **自定义数据结构支持**：支持自定义 `value`、`label`、`children` 字段名，灵活适配各种数据格式
 - **完善的错误处理**：添加了全面的边界情况检查和错误捕获机制，确保组件稳定运行
@@ -17,6 +18,7 @@ CrystalCascader 是基于 Element Plus ElCascader 组件封装的增强版级联
 - **响应式设计**：组件在移动设备上可自动适应屏幕宽度
 
 ### 🎯 保留原组件所有功能
+
 - 完整支持 Element Plus Cascader 组件的所有属性和事件
 - 支持单选/多选模式
 - 支持搜索过滤功能
@@ -26,60 +28,56 @@ CrystalCascader 是基于 Element Plus ElCascader 组件封装的增强版级联
 
 ```vue
 <template>
-  <CrystalCascader 
-    v-model="value" 
-    :options="options" 
-    placeholder="请选择"
-  />
+  <CrystalCascader v-model="value" :options="options" placeholder="请选择" />
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CrystalCascader } from 'crystal-ui'
+import { ref } from "vue"
+import { CrystalCascader } from "crystalplus-ui"
 
 const value = ref([])
 const options = ref([
   {
-    value: 'zhinan',
-    label: '指南',
+    value: "zhinan",
+    label: "指南",
     children: [
       {
-        value: 'shejiyuanze',
-        label: '设计原则',
+        value: "shejiyuanze",
+        label: "设计原则",
         children: [
-          { value: 'yizhi', label: '一致' },
-          { value: 'fankui', label: '反馈' },
-          { value: 'xiaolv', label: '效率' },
-          { value: 'kekong', label: '可控' },
-        ],
+          { value: "yizhi", label: "一致" },
+          { value: "fankui", label: "反馈" },
+          { value: "xiaolv", label: "效率" },
+          { value: "kekong", label: "可控" }
+        ]
       },
       {
-        value: 'daohang',
-        label: '导航',
+        value: "daohang",
+        label: "导航",
         children: [
-          { value: 'cexiangdaohang', label: '侧向导航' },
-          { value: 'dingbudaohang', label: '顶部导航' },
-        ],
-      },
-    ],
+          { value: "cexiangdaohang", label: "侧向导航" },
+          { value: "dingbudaohang", label: "顶部导航" }
+        ]
+      }
+    ]
   },
   {
-    value: 'zujian',
-    label: '组件',
+    value: "zujian",
+    label: "组件",
     children: [
       {
-        value: 'basic',
-        label: '基础组件',
+        value: "basic",
+        label: "基础组件",
         children: [
-          { value: 'layout', label: '布局' },
-          { value: 'color', label: '色彩' },
-          { value: 'typography', label: '排版' },
-          { value: 'icon', label: '图标' },
-          { value: 'button', label: '按钮' },
-        ],
-      },
-    ],
-  },
+          { value: "layout", label: "布局" },
+          { value: "color", label: "色彩" },
+          { value: "typography", label: "排版" },
+          { value: "icon", label: "图标" },
+          { value: "button", label: "按钮" }
+        ]
+      }
+    ]
+  }
 ])
 </script>
 ```
@@ -90,73 +88,73 @@ const options = ref([
 
 CrystalCascader 支持所有 ElementPlus ElCascader 的属性，同时增加了以下自定义属性：
 
-| 属性 | 类型 | 默认值 | 说明 |
-| ---- | ---- | ------ | ---- |
-| modelValue / v-model | any[]/any | [] | 绑定值 |
-| options | any[] | [] | 选项数据源 |
-| size | string | 'default' | 尺寸，可选值为 'large', 'default', 'small' |
-| disabled | boolean | false | 是否禁用 |
-| clearable | boolean | true | 是否可清除 |
-| showAllLevels | boolean | true | 输入框中是否显示选中值的完整路径 |
-| collapseTags | boolean | false | 多选模式下是否折叠标签 |
-| separator | string | '/' | 选项分隔符 |
-| filterable | boolean | false | 是否可搜索 |
-| debounce | number | 300 | 搜索关键词输入的防抖延迟 |
-| placeholder | string | '请选择' | 占位符 |
-| checkStrictly | boolean | false | 是否严格的遵循父子节点不互相关联 |
-| multiple | boolean | false | 是否多选 |
+| 属性                 | 类型      | 默认值    | 说明                                       |
+| -------------------- | --------- | --------- | ------------------------------------------ |
+| modelValue / v-model | any[]/any | []        | 绑定值                                     |
+| options              | any[]     | []        | 选项数据源                                 |
+| size                 | string    | 'default' | 尺寸，可选值为 'large', 'default', 'small' |
+| disabled             | boolean   | false     | 是否禁用                                   |
+| clearable            | boolean   | true      | 是否可清除                                 |
+| showAllLevels        | boolean   | true      | 输入框中是否显示选中值的完整路径           |
+| collapseTags         | boolean   | false     | 多选模式下是否折叠标签                     |
+| separator            | string    | '/'       | 选项分隔符                                 |
+| filterable           | boolean   | false     | 是否可搜索                                 |
+| debounce             | number    | 300       | 搜索关键词输入的防抖延迟                   |
+| placeholder          | string    | '请选择'  | 占位符                                     |
+| checkStrictly        | boolean   | false     | 是否严格的遵循父子节点不互相关联           |
+| multiple             | boolean   | false     | 是否多选                                   |
 
 ### 自定义数据结构属性
 
-| 属性 | 类型 | 默认值 | 说明 |
-| ---- | ---- | ------ | ---- |
-| value | string | 'value' | 自定义值字段名 |
-| label | string | 'label' | 自定义标签字段名 |
+| 属性     | 类型   | 默认值     | 说明               |
+| -------- | ------ | ---------- | ------------------ |
+| value    | string | 'value'    | 自定义值字段名     |
+| label    | string | 'label'    | 自定义标签字段名   |
 | children | string | 'children' | 自定义子节点字段名 |
 
 ### 增强功能属性
 
-| 属性 | 类型 | 默认值 | 说明 |
-| ---- | ---- | ------ | ---- |
-| autoClearSearch | boolean | true | 弹窗关闭时是否自动清除搜索内容 |
-| teleport-to | string/HTMLElement | 'body' | 指定弹出层挂载位置 |
-| teleported | boolean | true | 是否使用 teleport |
-| validateEvent | boolean | true | 输入时是否触发表单的校验 |
-| reserve-keyword | boolean | true | 是否保留搜索关键字（新版本默认为 true） |
-| automaticDropdown | boolean | false | 输入框聚焦时是否自动展开下拉菜单 |
-| fitInputWidth | boolean | false | 弹出层宽度是否与输入框保持一致 |
-| multipleLimit | number/null | null | 多选模式下用户最多可以选择的项目数 |
+| 属性              | 类型               | 默认值 | 说明                                    |
+| ----------------- | ------------------ | ------ | --------------------------------------- |
+| autoClearSearch   | boolean            | true   | 弹窗关闭时是否自动清除搜索内容          |
+| teleport-to       | string/HTMLElement | 'body' | 指定弹出层挂载位置                      |
+| teleported        | boolean            | true   | 是否使用 teleport                       |
+| validateEvent     | boolean            | true   | 输入时是否触发表单的校验                |
+| reserve-keyword   | boolean            | true   | 是否保留搜索关键字（新版本默认为 true） |
+| automaticDropdown | boolean            | false  | 输入框聚焦时是否自动展开下拉菜单        |
+| fitInputWidth     | boolean            | false  | 弹出层宽度是否与输入框保持一致          |
+| multipleLimit     | number/null        | null   | 多选模式下用户最多可以选择的项目数      |
 
 ### 新增功能属性
 
-| 属性 | 类型 | 默认值 | 说明 |
-| ---- | ---- | ------ | ---- |
-| highlightSearchText | boolean | true | 是否高亮显示搜索文本，**选中后高亮依然保持可见** |
-| borderColor | string | '' | 自定义边框颜色，设置后会覆盖默认样式 |
-| backgroundColor | string | '' | 自定义背景颜色 |
-| textColor | string | '' | 自定义文本颜色，设置后会覆盖默认样式 |
-| placeholderColor | string | '' | 自定义占位符颜色 |
-| theme | string | '' | 主题，可选值为 'light', 'dark', 'borderless' |
+| 属性                | 类型    | 默认值 | 说明                                             |
+| ------------------- | ------- | ------ | ------------------------------------------------ |
+| highlightSearchText | boolean | true   | 是否高亮显示搜索文本，**选中后高亮依然保持可见** |
+| borderColor         | string  | ''     | 自定义边框颜色，设置后会覆盖默认样式             |
+| backgroundColor     | string  | ''     | 自定义背景颜色                                   |
+| textColor           | string  | ''     | 自定义文本颜色，设置后会覆盖默认样式             |
+| placeholderColor    | string  | ''     | 自定义占位符颜色                                 |
+| theme               | string  | ''     | 主题，可选值为 'light', 'dark', 'borderless'     |
 
 ## 事件
 
-| 事件名 | 说明 | 参数 |
-| ------ | ---- | ---- |
-| update:modelValue | 绑定值变化时触发 | 选中的值 |
-| change | 选中值变化时触发 | 选中的值 |
-| visible-change | 下拉框出现/隐藏时触发 | 出现则为 true，隐藏则为 false |
-| expand-change | 展开/收起节点时触发 | 值数组，状态 |
-| remove-tag | 移除标签时触发 | 移除的标签值 |
+| 事件名            | 说明                  | 参数                          |
+| ----------------- | --------------------- | ----------------------------- |
+| update:modelValue | 绑定值变化时触发      | 选中的值                      |
+| change            | 选中值变化时触发      | 选中的值                      |
+| visible-change    | 下拉框出现/隐藏时触发 | 出现则为 true，隐藏则为 false |
+| expand-change     | 展开/收起节点时触发   | 值数组，状态                  |
+| remove-tag        | 移除标签时触发        | 移除的标签值                  |
 
 ## 插槽
 
-| 插槽名 | 说明 | 参数 |
-| ------ | ---- | ---- |
-| default | 自定义选项模板 | { node, data } |
-| prefix | 输入框前置内容 | - |
-| suffix | 输入框后置内容 | - |
-| option | 自定义选项内容（增强版） | { node, data } |
-| tags | 自定义已选标签展示 | { node, data } |
+| 插槽名  | 说明                     | 参数           |
+| ------- | ------------------------ | -------------- |
+| default | 自定义选项模板           | { node, data } |
+| prefix  | 输入框前置内容           | -              |
+| suffix  | 输入框后置内容           | -              |
+| option  | 自定义选项内容（增强版） | { node, data } |
+| tags    | 自定义已选标签展示       | { node, data } |
 
 ## 高级用法示例
 
@@ -175,26 +173,26 @@ CrystalCascader 支持所有 ElementPlus ElCascader 的属性，同时增加了�
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CrystalCascader } from 'crystal-ui'
+import { ref } from "vue"
+import { CrystalCascader } from "crystalplus-ui"
 
 const selectedValue = ref([])
 
 const customOptions = ref([
   {
-    code: '001',
-    name: '产品类别',
+    code: "001",
+    name: "产品类别",
     subItems: [
-      { code: '00101', name: '电子产品' },
-      { code: '00102', name: '生活用品' }
+      { code: "00101", name: "电子产品" },
+      { code: "00102", name: "生活用品" }
     ]
   },
   {
-    code: '002',
-    name: '服务类别',
+    code: "002",
+    name: "服务类别",
     subItems: [
-      { code: '00201', name: '在线服务' },
-      { code: '00202', name: '实体服务' }
+      { code: "00201", name: "在线服务" },
+      { code: "00202", name: "实体服务" }
     ]
   }
 ])
@@ -216,37 +214,37 @@ const customOptions = ref([
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CrystalCascader } from 'crystal-ui'
+import { ref } from "vue"
+import { CrystalCascader } from "crystalplus-ui"
 
 const selectedValues = ref([])
 const options = ref([
   {
-    value: 'zhinan',
-    label: '指南',
+    value: "zhinan",
+    label: "指南",
     children: [
       {
-        value: 'shejiyuanze',
-        label: '设计原则',
+        value: "shejiyuanze",
+        label: "设计原则",
         children: [
-          { value: 'yizhi', label: '一致' },
-          { value: 'fankui', label: '反馈' },
-          { value: 'xiaolv', label: '效率' },
-          { value: 'kekong', label: '可控' },
-        ],
-      },
-    ],
+          { value: "yizhi", label: "一致" },
+          { value: "fankui", label: "反馈" },
+          { value: "xiaolv", label: "效率" },
+          { value: "kekong", label: "可控" }
+        ]
+      }
+    ]
   },
   {
-    value: 'zujian',
-    label: '组件',
+    value: "zujian",
+    label: "组件",
     children: [
       {
-        value: 'basic',
-        label: '基础组件',
-      },
-    ],
-  },
+        value: "basic",
+        label: "基础组件"
+      }
+    ]
+  }
 ])
 </script>
 ```
@@ -265,27 +263,27 @@ const options = ref([
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CrystalCascader } from 'crystal-ui'
+import { ref } from "vue"
+import { CrystalCascader } from "crystalplus-ui"
 
 const selectedValue = ref([])
 const options = ref([
   {
-    value: 'zhinan',
-    label: '指南',
+    value: "zhinan",
+    label: "指南",
     children: [
       {
-        value: 'shejiyuanze',
-        label: '设计原则',
+        value: "shejiyuanze",
+        label: "设计原则",
         children: [
-          { value: 'yizhi', label: '一致' },
-          { value: 'fankui', label: '反馈' },
-          { value: 'xiaolv', label: '效率' },
-          { value: 'kekong', label: '可控' },
-        ],
-      },
-    ],
-  },
+          { value: "yizhi", label: "一致" },
+          { value: "fankui", label: "反馈" },
+          { value: "xiaolv", label: "效率" },
+          { value: "kekong", label: "可控" }
+        ]
+      }
+    ]
+  }
 ])
 </script>
 ```
@@ -294,11 +292,7 @@ const options = ref([
 
 ```vue
 <template>
-  <CrystalCascader
-    v-model="selectedValue"
-    :options="options"
-    placeholder="自定义选项内容"
-  >
+  <CrystalCascader v-model="selectedValue" :options="options" placeholder="自定义选项内容">
     <template #option="{ node, data }">
       <div class="custom-option">
         <el-tag size="small" type="info" v-if="data.isHot">热门</el-tag>
@@ -310,21 +304,21 @@ const options = ref([
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CrystalCascader } from 'crystal-ui'
-import { Star, StarFilled } from '@element-plus/icons-vue'
+import { ref } from "vue"
+import { CrystalCascader } from "crystalplus-ui"
+import { Star, StarFilled } from "@element-plus/icons-vue"
 
 const selectedValue = ref([])
 const options = ref([
   {
-    value: 'option1',
-    label: '选项1',
+    value: "option1",
+    label: "选项1",
     isHot: true,
     icon: StarFilled
   },
   {
-    value: 'option2',
-    label: '选项2',
+    value: "option2",
+    label: "选项2",
     isHot: false,
     icon: Star
   }
@@ -354,27 +348,27 @@ const options = ref([
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CrystalCascader } from 'crystal-ui'
+import { ref } from "vue"
+import { CrystalCascader } from "crystalplus-ui"
 
 const selectedValue = ref([])
 const options = ref([
   {
-    value: 'zhinan',
-    label: '指南',
+    value: "zhinan",
+    label: "指南",
     children: [
       {
-        value: 'shejiyuanze',
-        label: '设计原则',
+        value: "shejiyuanze",
+        label: "设计原则",
         children: [
-          { value: 'yizhi', label: '一致' },
-          { value: 'fankui', label: '反馈' },
-          { value: 'xiaolv', label: '效率' },
-          { value: 'kekong', label: '可控' },
-        ],
-      },
-    ],
-  },
+          { value: "yizhi", label: "一致" },
+          { value: "fankui", label: "反馈" },
+          { value: "xiaolv", label: "效率" },
+          { value: "kekong", label: "可控" }
+        ]
+      }
+    ]
+  }
 ])
 </script>
 ```
@@ -393,44 +387,24 @@ const options = ref([
       text-color="#36cfc9"
       placeholder="自定义颜色"
     />
-    
+
     <!-- 红色边框示例 -->
-    <CrystalCascader
-      v-model="valueRed"
-      :options="options"
-      border-color="red"
-      placeholder="红色边框"
-    />
-    
+    <CrystalCascader v-model="valueRed" :options="options" border-color="red" placeholder="红色边框" />
+
     <!-- 绿色文字示例 -->
-    <CrystalCascader
-      v-model="valueGreenText"
-      :options="options"
-      text-color="#67c23a"
-      placeholder="绿色文字"
-    />
-    
+    <CrystalCascader v-model="valueGreenText" :options="options" text-color="#67c23a" placeholder="绿色文字" />
+
     <!-- 暗色主题 -->
-    <CrystalCascader
-      v-model="value2"
-      :options="options"
-      theme="dark"
-      placeholder="暗色主题"
-    />
-    
+    <CrystalCascader v-model="value2" :options="options" theme="dark" placeholder="暗色主题" />
+
     <!-- 无边框样式 -->
-    <CrystalCascader
-      v-model="value3"
-      :options="options"
-      theme="borderless"
-      placeholder="无边框样式"
-    />
+    <CrystalCascader v-model="value3" :options="options" theme="borderless" placeholder="无边框样式" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CrystalCascader } from 'crystal-ui'
+import { ref } from "vue"
+import { CrystalCascader } from "crystalplus-ui"
 
 const value1 = ref([])
 const valueRed = ref([])
@@ -439,19 +413,19 @@ const value2 = ref([])
 const value3 = ref([])
 const options = ref([
   {
-    value: 'zhinan',
-    label: '指南',
+    value: "zhinan",
+    label: "指南",
     children: [
       {
-        value: 'shejiyuanze',
-        label: '设计原则',
+        value: "shejiyuanze",
+        label: "设计原则",
         children: [
-          { value: 'yizhi', label: '一致' },
-          { value: 'fankui', label: '反馈' },
-        ],
-      },
-    ],
-  },
+          { value: "yizhi", label: "一致" },
+          { value: "fankui", label: "反馈" }
+        ]
+      }
+    ]
+  }
 ])
 </script>
 
@@ -469,12 +443,7 @@ const options = ref([
 
 ```vue
 <template>
-  <CrystalCascader
-    v-model="selectedValues"
-    :options="options"
-    multiple
-    placeholder="自定义标签展示"
-  >
+  <CrystalCascader v-model="selectedValues" :options="options" multiple placeholder="自定义标签展示">
     <template #tags="{ node, data }">
       <div class="custom-tag">
         <el-avatar size="small" :src="data.avatar || ''"></el-avatar>
@@ -485,20 +454,20 @@ const options = ref([
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CrystalCascader } from 'crystal-ui'
+import { ref } from "vue"
+import { CrystalCascader } from "crystalplus-ui"
 
 const selectedValues = ref([])
 const options = ref([
   {
-    value: 'user1',
-    label: '张三',
-    avatar: 'https://example.com/avatar1.jpg'
+    value: "user1",
+    label: "张三",
+    avatar: "https://example.com/avatar1.jpg"
   },
   {
-    value: 'user2',
-    label: '李四',
-    avatar: 'https://example.com/avatar2.jpg'
+    value: "user2",
+    label: "李四",
+    avatar: "https://example.com/avatar2.jpg"
   }
 ])
 </script>
@@ -528,25 +497,25 @@ const options = ref([
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CrystalCascader } from 'crystal-ui'
+import { ref } from "vue"
+import { CrystalCascader } from "crystalplus-ui"
 
 const selectedValue = ref([])
 const options = ref([
   {
-    value: 'zhinan',
-    label: '指南',
+    value: "zhinan",
+    label: "指南",
     children: [
       {
-        value: 'shejiyuanze',
-        label: '设计原则',
+        value: "shejiyuanze",
+        label: "设计原则"
       },
       {
-        value: 'daohang',
-        label: '导航',
-      },
-    ],
-  },
+        value: "daohang",
+        label: "导航"
+      }
+    ]
+  }
 ])
 </script>
 ```

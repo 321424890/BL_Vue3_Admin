@@ -24,10 +24,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CrystalRadioGroup, CrystalRadio } from '@crystal-ui/crystal-ui'
+import { ref } from "vue"
+import { CrystalRadioGroup, CrystalRadio } from "@crystalplus-ui/crystalplus-ui"
 
-const selectedValue = ref('option1')
+const selectedValue = ref("option1")
 </script>
 ```
 
@@ -36,12 +36,7 @@ const selectedValue = ref('option1')
 ```vue
 <template>
   <div>
-    <crystal-radio-group 
-      v-model="selectedValue"
-      fill-color="#67c23a"
-      text-color="#ffffff"
-      border-color="#909399"
-    >
+    <crystal-radio-group v-model="selectedValue" fill-color="#67c23a" text-color="#ffffff" border-color="#909399">
       <crystal-radio label="option1">选项1</crystal-radio>
       <crystal-radio label="option2">选项2</crystal-radio>
       <crystal-radio label="option3">选项3</crystal-radio>
@@ -50,10 +45,10 @@ const selectedValue = ref('option1')
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CrystalRadioGroup, CrystalRadio } from '@crystal-ui/crystal-ui'
+import { ref } from "vue"
+import { CrystalRadioGroup, CrystalRadio } from "@crystalplus-ui/crystalplus-ui"
 
-const selectedValue = ref('option1')
+const selectedValue = ref("option1")
 </script>
 ```
 
@@ -62,11 +57,7 @@ const selectedValue = ref('option1')
 ```vue
 <template>
   <div>
-    <crystal-radio-group 
-      v-model="selectedValue"
-      border
-      size="large"
-    >
+    <crystal-radio-group v-model="selectedValue" border size="large">
       <crystal-radio label="option1">选项1</crystal-radio>
       <crystal-radio label="option2">选项2</crystal-radio>
       <crystal-radio label="option3">选项3</crystal-radio>
@@ -75,10 +66,10 @@ const selectedValue = ref('option1')
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CrystalRadioGroup, CrystalRadio } from '@crystal-ui/crystal-ui'
+import { ref } from "vue"
+import { CrystalRadioGroup, CrystalRadio } from "@crystalplus-ui/crystalplus-ui"
 
-const selectedValue = ref('option1')
+const selectedValue = ref("option1")
 </script>
 ```
 
@@ -110,10 +101,10 @@ const selectedValue = ref('option1')
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CrystalRadioGroup, CrystalRadio } from '@crystal-ui/crystal-ui'
+import { ref } from "vue"
+import { CrystalRadioGroup, CrystalRadio } from "@crystalplus-ui/crystalplus-ui"
 
-const selectedValue = ref('option1')
+const selectedValue = ref("option1")
 </script>
 
 <style scoped>
@@ -149,10 +140,10 @@ const selectedValue = ref('option1')
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CrystalRadioGroup, CrystalRadio } from '@crystal-ui/crystal-ui'
+import { ref } from "vue"
+import { CrystalRadioGroup, CrystalRadio } from "@crystalplus-ui/crystalplus-ui"
 
-const selectedValue = ref('option1')
+const selectedValue = ref("option1")
 </script>
 
 <style scoped>
@@ -171,11 +162,7 @@ h4 {
 ```vue
 <template>
   <div>
-    <crystal-radio-group 
-      v-model="selectedValue"
-      highlight
-      highlight-color="#67c23a"
-    >
+    <crystal-radio-group v-model="selectedValue" highlight highlight-color="#67c23a">
       <crystal-radio label="option1">选项1</crystal-radio>
       <crystal-radio label="option2">选项2</crystal-radio>
       <crystal-radio label="option3">选项3</crystal-radio>
@@ -184,10 +171,10 @@ h4 {
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CrystalRadioGroup, CrystalRadio } from '@crystal-ui/crystal-ui'
+import { ref } from "vue"
+import { CrystalRadioGroup, CrystalRadio } from "@crystalplus-ui/crystalplus-ui"
 
-const selectedValue = ref('option1')
+const selectedValue = ref("option1")
 </script>
 ```
 
@@ -208,8 +195,8 @@ const selectedValue = ref('option1')
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CrystalRadioGroup, CrystalRadio } from '@crystal-ui/crystal-ui'
+import { ref } from "vue"
+import { CrystalRadioGroup, CrystalRadio } from "@crystalplus-ui/crystalplus-ui"
 
 const selectedNumber = ref(1)
 </script>
@@ -221,23 +208,24 @@ const selectedNumber = ref(1)
 
 CrystalRadioGroup 继承了 Element Plus ElRadioGroup 的所有属性，并添加了以下自定义属性：
 
-| 属性名 | 类型 | 默认值 | 说明 |
-|--------|------|--------|------|
-| modelValue / v-model | any | undefined | 绑定值 |
-| size | 'large' / 'default' / 'small' | 'default' | 尺寸 |
-| disabled | boolean | false | 是否禁用 |
-| textColor | string | '' | 选中状态的文本颜色 |
-| fillColor | string | '' | 选中状态的填充颜色 |
-| borderColor | string | '' | 边框颜色 |
-| highlight | boolean | false | 是否启用点亮点功能 |
-| highlightColor | string | #409EFF | 点亮点颜色 |
-| name | string | '' | 原生 name 属性 |
-| border | boolean | false | 是否显示边框 |
-| beforeChange | Function | undefined | 变更前的钩子函数 |
+| 属性名               | 类型                          | 默认值    | 说明               |
+| -------------------- | ----------------------------- | --------- | ------------------ |
+| modelValue / v-model | any                           | undefined | 绑定值             |
+| size                 | 'large' / 'default' / 'small' | 'default' | 尺寸               |
+| disabled             | boolean                       | false     | 是否禁用           |
+| textColor            | string                        | ''        | 选中状态的文本颜色 |
+| fillColor            | string                        | ''        | 选中状态的填充颜色 |
+| borderColor          | string                        | ''        | 边框颜色           |
+| highlight            | boolean                       | false     | 是否启用点亮点功能 |
+| highlightColor       | string                        | #409EFF   | 点亮点颜色         |
+| name                 | string                        | ''        | 原生 name 属性     |
+| border               | boolean                       | false     | 是否显示边框       |
+| beforeChange         | Function                      | undefined | 变更前的钩子函数   |
 
 **继承的 ElRadioGroup 属性**：
 
 所有 Element Plus ElRadioGroup 的属性都支持，包括但不限于：
+
 - `modelValue`：绑定值
 - `size`：尺寸
 - `disabled`：是否禁用
@@ -249,28 +237,30 @@ CrystalRadioGroup 继承了 Element Plus ElRadioGroup 的所有属性，并添�
 
 ### 事件 (Events)
 
-| 事件名 | 说明 | 参数 |
-|--------|------|------|
-| change | 绑定值变化时触发 | value: any（选中的 Radio label 值） |
+| 事件名            | 说明                     | 参数                                |
+| ----------------- | ------------------------ | ----------------------------------- |
+| change            | 绑定值变化时触发         | value: any（选中的 Radio label 值） |
 | update:modelValue | v-model 绑定值更新时触发 | value: any（选中的 Radio label 值） |
 
 **继承的 ElRadioGroup 事件**：
 
 所有 Element Plus ElRadioGroup 的事件都支持，包括但不限于：
+
 - `change`：绑定值变化时触发
 
 详见 [Element Plus RadioGroup 文档](https://element-plus.org/zh-CN/component/radio.html#radio-group-事件)。
 
 ### 方法 (Methods)
 
-| 方法名 | 说明 | 参数 | 返回值 |
-|--------|------|------|--------|
-| focus | 使第一个可用的单选框获得焦点 | - | - |
-| blur | 使第一个可用的单选框失去焦点 | - | - |
+| 方法名 | 说明                         | 参数 | 返回值 |
+| ------ | ---------------------------- | ---- | ------ |
+| focus  | 使第一个可用的单选框获得焦点 | -    | -      |
+| blur   | 使第一个可用的单选框失去焦点 | -    | -      |
 
 **继承的 ElRadioGroup 方法**：
 
 所有 Element Plus ElRadioGroup 的方法都支持，包括但不限于：
+
 - `focus`：使第一个可用的单选框获得焦点
 - `blur`：使第一个可用的单选框失去焦点
 
@@ -280,13 +270,13 @@ CrystalRadioGroup 继承了 Element Plus ElRadioGroup 的所有属性，并添�
 
 CrystalRadioGroup 支持通过 CSS 自定义属性来定制样式：
 
-| 属性名 | 默认值 | 说明 |
-|--------|--------|------|
-| --crystal-radio-group-fill-color | #409EFF | 选中状态的填充颜色 |
-| --crystal-radio-group-text-color | #ffffff | 选中状态的文本颜色 |
-| --crystal-radio-group-border-color | #dcdfe6 | 边框颜色 |
-| --crystal-radio-group-disabled-color | #c0c4cc | 禁用状态的颜色 |
-| --crystal-radio-group-highlight-color | #409EFF | 点亮点颜色 |
+| 属性名                                | 默认值  | 说明               |
+| ------------------------------------- | ------- | ------------------ |
+| --crystal-radio-group-fill-color      | #409EFF | 选中状态的填充颜色 |
+| --crystal-radio-group-text-color      | #ffffff | 选中状态的文本颜色 |
+| --crystal-radio-group-border-color    | #dcdfe6 | 边框颜色           |
+| --crystal-radio-group-disabled-color  | #c0c4cc | 禁用状态的颜色     |
+| --crystal-radio-group-highlight-color | #409EFF | 点亮点颜色         |
 
 **使用示例**：
 
@@ -300,10 +290,7 @@ CrystalRadioGroup 支持通过 CSS 自定义属性来定制样式：
 
 ```vue
 <template>
-  <crystal-radio-group 
-    v-model="selectedValue" 
-    class="custom-radio-group"
-  >
+  <crystal-radio-group v-model="selectedValue" class="custom-radio-group">
     <crystal-radio label="option1">选项1</crystal-radio>
     <crystal-radio label="option2">选项2</crystal-radio>
   </crystal-radio-group>
@@ -322,22 +309,25 @@ CrystalRadioGroup 支持通过 CSS 自定义属性来定制样式：
 **问题**：点击单选框时，选中状态没有变化。
 
 **可能原因**：
+
 1. 没有正确绑定 `v-model` 或 `modelValue`
 2. `v-model` 绑定的变量不是响应式的
 3. 单选框的 `label` 值与 `modelValue` 类型不匹配
 
 **解决方案**：
+
 ```vue
 <!-- 正确用法 -->
 <template>
   <crystal-radio-group v-model="selectedValue">
-    <crystal-radio :label="1">选项1</crystal-radio> <!-- 数字类型 -->
+    <crystal-radio :label="1">选项1</crystal-radio>
+    <!-- 数字类型 -->
     <crystal-radio :label="2">选项2</crystal-radio>
   </crystal-radio-group>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from "vue"
 const selectedValue = ref(1) // 使用 ref 创建响应式变量
 </script>
 ```
@@ -347,14 +337,16 @@ const selectedValue = ref(1) // 使用 ref 创建响应式变量
 **问题**：设置了 `fillColor` 或 `textColor` 属性，但颜色没有变化。
 
 **可能原因**：
+
 1. 颜色值格式不正确
 2. 存在 CSS 样式覆盖
 3. 没有正确传递属性到组件
 
 **解决方案**：
+
 ```vue
 <!-- 确保颜色值格式正确 -->
-<crystal-radio-group 
+<crystal-radio-group
   v-model="selectedValue"
   fill-color="#67c23a" <!-- 使用正确的颜色格式 -->
   text-color="#ffffff"
@@ -368,6 +360,7 @@ const selectedValue = ref(1) // 使用 ref 创建响应式变量
 **问题**：设置了 `highlight` 属性为 `true`，但点亮点没有显示。
 
 **可能原因**：
+
 1. 没有安装或引入对应的样式文件
 2. 自定义样式覆盖了点亮点样式
 
@@ -387,6 +380,7 @@ A: 可以通过 borderColor 属性设置边框颜色，也可以使用 CSS 自�
 
 **Q: 如何获取当前选中的值？**
 A: 通过 v-model 绑定的变量即可获取当前选中的值。
+
 ```vue
 <template>
   <crystal-radio-group v-model="selectedValue">
@@ -411,30 +405,29 @@ A: 是的，组件提供了完整的 TypeScript 类型定义。
 
 **Q: 如何使用 beforeChange 钩子函数？**
 A: beforeChange 是一个变更前的钩子函数，返回 false 可以阻止变更。
+
 ```vue
 <template>
-  <crystal-radio-group 
-    v-model="selectedValue"
-    :before-change="handleBeforeChange"
-  >
+  <crystal-radio-group v-model="selectedValue" :before-change="handleBeforeChange">
     <crystal-radio label="option1">选项1</crystal-radio>
     <crystal-radio label="option2">选项2</crystal-radio>
   </crystal-radio-group>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-const selectedValue = ref('option1')
+import { ref } from "vue"
+const selectedValue = ref("option1")
 
 const handleBeforeChange = (value: any) => {
   // 返回 false 阻止变更
-  return value !== 'option2'
+  return value !== "option2"
 }
 </script>
 ```
 
 **Q: 如何在表单中使用？**
 A: 可以与 Element Plus 的 Form 组件配合使用，支持表单验证。
+
 ```vue
 <template>
   <el-form :model="form" :rules="rules" ref="formRef">
@@ -450,6 +443,7 @@ A: 可以与 Element Plus 的 Form 组件配合使用，支持表单验证。
 
 **Q: 如何重置选中状态？**
 A: 直接修改 v-model 绑定的变量即可重置选中状态。
+
 ```vue
 <template>
   <div>
@@ -462,11 +456,11 @@ A: 直接修改 v-model 绑定的变量即可重置选中状态。
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-const selectedValue = ref('option1')
+import { ref } from "vue"
+const selectedValue = ref("option1")
 
 const reset = () => {
-  selectedValue.value = 'option1' // 重置为默认值
+  selectedValue.value = "option1" // 重置为默认值
 }
 </script>
 ```

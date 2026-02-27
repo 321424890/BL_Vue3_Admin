@@ -76,7 +76,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue"
-import { CrystalNotify } from "crystal-ui"
+import { CrystalNotify } from "crystalplus-ui"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 
 // 显示通知

@@ -166,7 +166,7 @@
 <script setup lang="ts">
 import { ref, watch } from "vue"
 import { ElMessage } from "element-plus"
-import { CrystalTree } from "crystal-ui"
+import { CrystalTree } from "crystalplus-ui"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 
 // 基础使用

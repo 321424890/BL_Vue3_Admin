@@ -177,8 +177,8 @@
 <script setup lang="ts">
 import { ref } from "vue"
 // import CrystalSelect from "@/components/CrystalSelect/index.vue"
-import { CrystalSelect } from "crystal-ui"
-// import "crystal-ui/index.css"
+import { CrystalSelect } from "crystalplus-ui"
+// import "crystalplus-ui/index.css"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 // 基础选项数据
 const basicOptions = [

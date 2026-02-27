@@ -28,95 +28,95 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { CrystalTimePicker } from "@crystal-ui";
+import { ref } from "vue"
+import { CrystalTimePicker } from "@crystalplus-ui"
 
-const time1 = ref("");
-const time2 = ref("");
-const time3 = ref("12:00:00");
-const time4 = ref([]);
-const time5 = ref("");
-const time6 = ref("");
+const time1 = ref("")
+const time2 = ref("")
+const time3 = ref("12:00:00")
+const time4 = ref([])
+const time5 = ref("")
+const time6 = ref("")
 </script>
 ```
 
 ## API Attributes
 
-| 属性名               | 说明                   | 类型                                                 | 默认值       |
-| -------------------- | ---------------------- | ---------------------------------------------------- | ------------ |
-| **基础属性**         |                        |                                                      |              |
-| modelValue / v-model | 绑定值                 | string / number / [string / number, string / number] | undefined    |
-| placeholder          | 占位符                 | string                                               | "请选择时间" |
-| start                | 开始时间               | string                                               | "09:00"      |
-| end                  | 结束时间               | string                                               | "18:00"      |
-| step                 | 时间间隔，格式为 hh:mm | string                                               | "00:30"      |
-| max-time             | 最大时间               | string                                               | undefined    |
-| min-time             | 最小时间               | string                                               | undefined    |
-| formatter            | 格式化函数             | Function                                             | undefined    |
-| parser               | 解析函数               | Function                                             | undefined    |
-| disabled             | 是否禁用               | boolean / string                                     | false        |
-| editable             | 是否可编辑             | boolean / string                                     | true         |
-| clearable            | 是否可清除             | boolean / string                                     | true         |
-| size                 | 尺寸                   | "large" / "default" / "small"                        | "default"    |
-| prefix-icon          | 前缀图标               | any                                                  | undefined    |
-| suffix-icon          | 后缀图标               | any                                                  | undefined    |
-| clear-icon           | 清除图标               | any                                                  | undefined    |
-| validate-event       | 校验事件               | boolean                                              | true         |
-| popper-class         | 弹出层类名             | string                                               | ""           |
-| teleported           | 是否使用 teleport      | boolean                                              | true         |
-| id                   | 原生属性               | string                                               | undefined    |
-| name                 | 原生属性               | string                                               | undefined    |
-| readonly             | 原生属性               | boolean                                              | false        |
-| validate-trigger     | 校验触发方式           | string / array                                       | undefined    |
-| is-range             | 是否为时间范围选择器   | boolean                                              | false        |
-| arrow-control        | 是否使用箭头控制时间   | boolean                                              |
-                               | false          |
-| range-separator       | 范围分隔符                   | string                                | "-"            |
-| start-placeholder     | 范围选择器开始时间占位符     | string                                | undefined      |
-| end-placeholder       | 范围选择器结束时间占位符     | string                                | undefined      |
-| **优化属性**          |                              |                                       |                |
-| input-style           | 输入框样式                   | object                                | undefined      |
-| placement             | 弹出层位置                   | string                                | "bottom-start" |
-| strategy              | 定位策略                     | string                                | "absolute"     |
-| fallback-strategy     | 回退策略                     | string                                | "flip"         |
-| gpu-acceleration      | 是否启用 GPU 加速            | boolean                               | true           |
-| persistent            | 点击外部是否关闭             | boolean                               | true           |
-| auto-complete         | 原生自动完成属性             | string                                | "off"          |
-| aria-label            | 无障碍标签                   | string                                | undefined      |
-| tabindex              | 原生 tabindex 属性           | number                                | undefined      |
-| auto-focus            | 自动聚焦                     | boolean                               | false          |
-| maxlength             | 最大输入长度                 | number                                | undefined      |
-| minlength             | 最小输入长度                 | number                                | undefined      |
-| show-word-limit       | 是否显示字数统计             | boolean                               | false          |
-| resize                | 调整大小                     | string                                | undefined      |
-| autosize              | 自适应高度                   | boolean / object                      | undefined      |
-| autocomplete          | 原生 autocomplete 属性       | string                                | "off"          |
-| autocorrect           | 原生 autocorrect 属性        | string                                | "off"          |
-| autocapitalize        | 原生 autocapitalize 属性     | string                                | "off"          |
-| spellcheck            | 原生 spellcheck 属性         | boolean                               | false          |
-| enterkeyhint          | 原生 enterkeyhint 属性       | string                                | undefined      |
-| inputmode             | 原生 inputmode 属性          | string                                | undefined      |
+| 属性名               | 说明                     | 类型                                                 | 默认值         |
+| -------------------- | ------------------------ | ---------------------------------------------------- | -------------- |
+| **基础属性**         |                          |                                                      |                |
+| modelValue / v-model | 绑定值                   | string / number / [string / number, string / number] | undefined      |
+| placeholder          | 占位符                   | string                                               | "请选择时间"   |
+| start                | 开始时间                 | string                                               | "09:00"        |
+| end                  | 结束时间                 | string                                               | "18:00"        |
+| step                 | 时间间隔，格式为 hh:mm   | string                                               | "00:30"        |
+| max-time             | 最大时间                 | string                                               | undefined      |
+| min-time             | 最小时间                 | string                                               | undefined      |
+| formatter            | 格式化函数               | Function                                             | undefined      |
+| parser               | 解析函数                 | Function                                             | undefined      |
+| disabled             | 是否禁用                 | boolean / string                                     | false          |
+| editable             | 是否可编辑               | boolean / string                                     | true           |
+| clearable            | 是否可清除               | boolean / string                                     | true           |
+| size                 | 尺寸                     | "large" / "default" / "small"                        | "default"      |
+| prefix-icon          | 前缀图标                 | any                                                  | undefined      |
+| suffix-icon          | 后缀图标                 | any                                                  | undefined      |
+| clear-icon           | 清除图标                 | any                                                  | undefined      |
+| validate-event       | 校验事件                 | boolean                                              | true           |
+| popper-class         | 弹出层类名               | string                                               | ""             |
+| teleported           | 是否使用 teleport        | boolean                                              | true           |
+| id                   | 原生属性                 | string                                               | undefined      |
+| name                 | 原生属性                 | string                                               | undefined      |
+| readonly             | 原生属性                 | boolean                                              | false          |
+| validate-trigger     | 校验触发方式             | string / array                                       | undefined      |
+| is-range             | 是否为时间范围选择器     | boolean                                              | false          |
+| arrow-control        | 是否使用箭头控制时间     | boolean                                              |
+| false                |
+| range-separator      | 范围分隔符               | string                                               | "-"            |
+| start-placeholder    | 范围选择器开始时间占位符 | string                                               | undefined      |
+| end-placeholder      | 范围选择器结束时间占位符 | string                                               | undefined      |
+| **优化属性**         |                          |                                                      |                |
+| input-style          | 输入框样式               | object                                               | undefined      |
+| placement            | 弹出层位置               | string                                               | "bottom-start" |
+| strategy             | 定位策略                 | string                                               | "absolute"     |
+| fallback-strategy    | 回退策略                 | string                                               | "flip"         |
+| gpu-acceleration     | 是否启用 GPU 加速        | boolean                                              | true           |
+| persistent           | 点击外部是否关闭         | boolean                                              | true           |
+| auto-complete        | 原生自动完成属性         | string                                               | "off"          |
+| aria-label           | 无障碍标签               | string                                               | undefined      |
+| tabindex             | 原生 tabindex 属性       | number                                               | undefined      |
+| auto-focus           | 自动聚焦                 | boolean                                              | false          |
+| maxlength            | 最大输入长度             | number                                               | undefined      |
+| minlength            | 最小输入长度             | number                                               | undefined      |
+| show-word-limit      | 是否显示字数统计         | boolean                                              | false          |
+| resize               | 调整大小                 | string                                               | undefined      |
+| autosize             | 自适应高度               | boolean / object                                     | undefined      |
+| autocomplete         | 原生 autocomplete 属性   | string                                               | "off"          |
+| autocorrect          | 原生 autocorrect 属性    | string                                               | "off"          |
+| autocapitalize       | 原生 autocapitalize 属性 | string                                               | "off"          |
+| spellcheck           | 原生 spellcheck 属性     | boolean                                              | false          |
+| enterkeyhint         | 原生 enterkeyhint 属性   | string                                               | undefined      |
+| inputmode            | 原生 inputmode 属性      | string                                               | undefined      |
 
 ## 事件
 
-| 事件名            | 说明                  | 参数         |
-| ----------------- | --------------------- | ------------ |
-| update:modelValue | 绑定值变化时触发      | 新值         |
-| change            | 选择时间时触发        | 新值         |
-| blur              | 失去焦点时触发        | 事件对象     |
-| focus             | 获得焦点时触发        | 事件对象     |
-| clear             | 清除时间时触发        | -            |
-| visible-change    | 下拉框显示/隐藏时触发 | 显示状态     |
-| input             | 输入时触发            | 输入值       |
-| keydown           | 按键按下时触发        | 键盘事件     |
-| keyup             | 按键抬起时触发        | 键盘事件     |
-| keypress          | 按键按下并释放时触发  | 键盘事件     |
-| paste             | 粘贴时触发            | 粘贴事件     |
-| copy              | 复制时触发            | 复制事件     |
-| cut               | 剪切时触发            | 剪切事件     |
-| compositionstart  | 开始输入中文时触发    | 事件对象     |
-| compositionupdate | 中文输入过程中触发    | 事件对象     |
-| compositionend    | 中文输入结束时触发    | 事件对象     |
+| 事件名            | 说明                  | 参数     |
+| ----------------- | --------------------- | -------- |
+| update:modelValue | 绑定值变化时触发      | 新值     |
+| change            | 选择时间时触发        | 新值     |
+| blur              | 失去焦点时触发        | 事件对象 |
+| focus             | 获得焦点时触发        | 事件对象 |
+| clear             | 清除时间时触发        | -        |
+| visible-change    | 下拉框显示/隐藏时触发 | 显示状态 |
+| input             | 输入时触发            | 输入值   |
+| keydown           | 按键按下时触发        | 键盘事件 |
+| keyup             | 按键抬起时触发        | 键盘事件 |
+| keypress          | 按键按下并释放时触发  | 键盘事件 |
+| paste             | 粘贴时触发            | 粘贴事件 |
+| copy              | 复制时触发            | 复制事件 |
+| cut               | 剪切时触发            | 剪切事件 |
+| compositionstart  | 开始输入中文时触发    | 事件对象 |
+| compositionupdate | 中文输入过程中触发    | 事件对象 |
+| compositionend    | 中文输入结束时触发    | 事件对象 |
 
 ## 优化功能
 
@@ -147,7 +147,7 @@ const time6 = ref("");
 </template>
 
 <script setup lang="ts">
-import { Clock } from "@element-plus/icons-vue";
+import { Clock } from "@element-plus/icons-vue"
 </script>
 ```
 
@@ -190,13 +190,7 @@ import { Clock } from "@element-plus/icons-vue";
 ### 自定义时间范围
 
 ```vue
-<CrystalTimePicker
-  v-model="time"
-  start="08:00"
-  end="22:00"
-  step="00:15"
-  placeholder="选择时间"
-/>
+<CrystalTimePicker v-model="time" start="08:00" end="22:00" step="00:15" placeholder="选择时间" />
 ```
 
 ### 禁用状态

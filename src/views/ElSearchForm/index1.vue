@@ -87,7 +87,7 @@
 <script setup lang="ts">
 import { ref } from "vue"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
-import { ElSearchForm } from "crystal-ui"
+import { ElSearchForm } from "crystalplus-ui"
 
 // 当前可见字段配置
 const currentVisibleFields = ref<string[]>([])

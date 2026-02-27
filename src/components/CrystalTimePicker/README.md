@@ -17,12 +17,7 @@
     <CrystalTimePicker v-model="time3" suffix-icon="Calendar" />
 
     <h3>自定义清除图标</h3>
-    <CrystalTimePicker
-      v-model="time4"
-      clearable
-      prefix-icon="Clock"
-      clear-icon="Delete"
-    />
+    <CrystalTimePicker v-model="time4" clearable prefix-icon="Clock" clear-icon="Delete" />
 
     <h3>不同尺寸</h3>
     <div style="display: flex; gap: 10px;">
@@ -61,21 +56,21 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { CrystalTimePicker } from "@crystal-ui";
+import { ref } from "vue"
+import { CrystalTimePicker } from "@crystalplus-ui"
 
-const time1 = ref("");
-const time2 = ref("");
-const time3 = ref("");
-const time4 = ref("");
-const time5 = ref("");
-const time6 = ref("");
-const time7 = ref("");
-const time8 = ref("12:00:00");
-const time9 = ref("");
-const time10 = ref("");
-const timeRange = ref(["09:00:00", "18:00:00"]);
-const dateRange = ref([new Date(), new Date()]);
+const time1 = ref("")
+const time2 = ref("")
+const time3 = ref("")
+const time4 = ref("")
+const time5 = ref("")
+const time6 = ref("")
+const time7 = ref("")
+const time8 = ref("12:00:00")
+const time9 = ref("")
+const time10 = ref("")
+const timeRange = ref(["09:00:00", "18:00:00"])
+const dateRange = ref([new Date(), new Date()])
 </script>
 ```
 
@@ -134,7 +129,7 @@ const dateRange = ref([new Date(), new Date()]);
 </template>
 
 <script setup lang="ts">
-import { Clock } from "@element-plus/icons-vue";
+import { Clock } from "@element-plus/icons-vue"
 </script>
 ```
 
@@ -159,13 +154,7 @@ import { Clock } from "@element-plus/icons-vue";
 <CrystalTimePicker v-model="time" clearable clear-icon="Delete" />
 
 <!-- 同时自定义多个图标 -->
-<CrystalTimePicker
-  v-model="time"
-  prefix-icon="Clock"
-  suffix-icon="Calendar"
-  clearable
-  clear-icon="Delete"
-/>
+<CrystalTimePicker v-model="time" prefix-icon="Clock" suffix-icon="Calendar" clearable clear-icon="Delete" />
 ```
 
 ### 不同尺寸
@@ -195,22 +184,10 @@ import { Clock } from "@element-plus/icons-vue";
 <CrystalTimePicker v-model="timeRange" is-range />
 
 <!-- 自定义分隔符和占位符 -->
-<CrystalTimePicker
-  v-model="timeRange"
-  is-range
-  range-separator="至"
-  start-placeholder="开始时间"
-  end-placeholder="结束时间"
-/>
+<CrystalTimePicker v-model="timeRange" is-range range-separator="至" start-placeholder="开始时间" end-placeholder="结束时间" />
 
 <!-- 使用Date对象 -->
-<CrystalTimePicker
-  v-model="dateRange"
-  is-range
-  range-separator="To"
-  start-placeholder="Start time"
-  end-placeholder="End time"
-/>
+<CrystalTimePicker v-model="dateRange" is-range range-separator="To" start-placeholder="Start time" end-placeholder="End time" />
 ```
 
 ### 箭头控制时间
@@ -231,4 +208,3 @@ import { Clock } from "@element-plus/icons-vue";
 4. 组件使用了 TypeScript，提供完整的类型支持
 5. 当使用时间范围选择时，绑定值为数组格式 `[startTime, endTime]`
 6. 支持使用 Date 对象作为绑定值，特别适合与后端 API 交互时使用
-   

@@ -465,7 +465,7 @@
 
 <script setup>
 import { ref } from "vue"
-import { CrystalIcon } from "crystal-ui"
+import { CrystalIcon } from "crystalplus-ui"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 
 // 属性表格数据

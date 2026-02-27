@@ -10,20 +10,20 @@
 
 ```javascript
 // 在 main.js 或 main.ts 中
-import { createApp } from 'vue'
-import App from './App.vue'
-import CrystalUI from 'crystal-ui'
+import { createApp } from "vue"
+import App from "./App.vue"
+import CrystalUI from "crystalplus-ui"
 
 const app = createApp(App)
 app.use(CrystalUI)
-app.mount('#app')
+app.mount("#app")
 ```
 
 ### 局部引入
 
 ```javascript
 // 在需要使用的组件中
-import { CrystalCheckboxGroup } from 'crystal-ui'
+import { CrystalCheckboxGroup } from "crystalplus-ui"
 
 export default {
   components: {
@@ -38,20 +38,17 @@ export default {
 
 ```vue
 <template>
-  <CrystalCheckboxGroup 
-    v-model="selectedValues"
-    :options="options"
-  />
+  <CrystalCheckboxGroup v-model="selectedValues" :options="options" />
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref } from "vue"
 
-const selectedValues = ref(['Option 1', 'Option 3'])
+const selectedValues = ref(["Option 1", "Option 3"])
 const options = [
-  { label: '选项1', value: 'Option 1' },
-  { label: '选项2', value: 'Option 2' },
-  { label: '选项3', value: 'Option 3', disabled: true }
+  { label: "选项1", value: "Option 1" },
+  { label: "选项2", value: "Option 2" },
+  { label: "选项3", value: "Option 3", disabled: true }
 ]
 </script>
 ```
@@ -68,40 +65,40 @@ const options = [
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref } from "vue"
 
-const selectedValues = ref(['Option A'])
+const selectedValues = ref(["Option A"])
 </script>
 ```
 
 ## 属性说明
 
-| 属性名 | 类型 | 默认值 | 说明 |
-| ------ | ---- | ------ | ---- |
-| modelValue | Array | [] | 绑定值 |
-| size | string | 'default' | 尺寸，可选值为 'large', 'default', 'small' |
-| disabled | boolean | false | 是否禁用 |
-| min | number | - | 可被勾选的 checkbox 的最小数量 |
-| max | number | - | 可被勾选的 checkbox 的最大数量 |
-| border | boolean | false | 是否显示边框 |
-| options | Array | [] | 选项数组，每个元素包含 label、value 和 disabled 属性 |
-| direction | string | 'horizontal' | 选项排列方向，可选值为 'horizontal' 或 'vertical' |
-| beforeChange | Function | - | 变化前的钩子函数，返回 false 可以阻止选择变化 |
-| checkboxColor | string | '' | 复选框选中状态下的背景色 |
-| fillColor | string | '' | 同 checkboxColor，优先级低于 checkboxColor |
-| borderColor | string | '' | 边框颜色 |
-| fontColor | string | '' | 字体颜色 |
-| textColor | string | '' | 同 fontColor，优先级低于 fontColor |
-| highlight | boolean | false | 是否启用高亮效果 |
-| highlightColor | string | '#409EFF' | 高亮颜色 |
-| hoverColor | string | '#409EFF' | 鼠标悬停颜色 |
+| 属性名         | 类型     | 默认值       | 说明                                                 |
+| -------------- | -------- | ------------ | ---------------------------------------------------- |
+| modelValue     | Array    | []           | 绑定值                                               |
+| size           | string   | 'default'    | 尺寸，可选值为 'large', 'default', 'small'           |
+| disabled       | boolean  | false        | 是否禁用                                             |
+| min            | number   | -            | 可被勾选的 checkbox 的最小数量                       |
+| max            | number   | -            | 可被勾选的 checkbox 的最大数量                       |
+| border         | boolean  | false        | 是否显示边框                                         |
+| options        | Array    | []           | 选项数组，每个元素包含 label、value 和 disabled 属性 |
+| direction      | string   | 'horizontal' | 选项排列方向，可选值为 'horizontal' 或 'vertical'    |
+| beforeChange   | Function | -            | 变化前的钩子函数，返回 false 可以阻止选择变化        |
+| checkboxColor  | string   | ''           | 复选框选中状态下的背景色                             |
+| fillColor      | string   | ''           | 同 checkboxColor，优先级低于 checkboxColor           |
+| borderColor    | string   | ''           | 边框颜色                                             |
+| fontColor      | string   | ''           | 字体颜色                                             |
+| textColor      | string   | ''           | 同 fontColor，优先级低于 fontColor                   |
+| highlight      | boolean  | false        | 是否启用高亮效果                                     |
+| highlightColor | string   | '#409EFF'    | 高亮颜色                                             |
+| hoverColor     | string   | '#409EFF'    | 鼠标悬停颜色                                         |
 
 ## 事件说明
 
-| 事件名 | 说明 | 回调参数 |
-| ------ | ---- | -------- |
-| change | 绑定值变化时触发的事件 | 选中的数组值 |
-| update:modelValue | 绑定值更新事件 | 选中的数组值 |
+| 事件名            | 说明                   | 回调参数     |
+| ----------------- | ---------------------- | ------------ |
+| change            | 绑定值变化时触发的事件 | 选中的数组值 |
+| update:modelValue | 绑定值更新事件         | 选中的数组值 |
 
 ## 高级用法示例
 
@@ -109,7 +106,7 @@ const selectedValues = ref(['Option A'])
 
 ```vue
 <template>
-  <CrystalCheckboxGroup 
+  <CrystalCheckboxGroup
     v-model="selectedValues"
     :options="options"
     checkbox-color="#67c23a"
@@ -124,12 +121,7 @@ const selectedValues = ref(['Option A'])
 
 ```vue
 <template>
-  <CrystalCheckboxGroup 
-    v-model="selectedValues"
-    :options="options"
-    :min="1"
-    :max="2"
-  />
+  <CrystalCheckboxGroup v-model="selectedValues" :options="options" :min="1" :max="2" />
 </template>
 ```
 
@@ -137,27 +129,23 @@ const selectedValues = ref(['Option A'])
 
 ```vue
 <template>
-  <CrystalCheckboxGroup 
-    v-model="selectedValues"
-    :options="options"
-    @change="handleChange"
-  />
+  <CrystalCheckboxGroup v-model="selectedValues" :options="options" @change="handleChange" />
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { ElMessage } from 'element-plus'
+import { ref } from "vue"
+import { ElMessage } from "element-plus"
 
 const selectedValues = ref([])
 const options = [
-  { label: '选项1', value: 'Option 1' },
-  { label: '选项2', value: 'Option 2' },
-  { label: '选项3', value: 'Option 3' }
+  { label: "选项1", value: "Option 1" },
+  { label: "选项2", value: "Option 2" },
+  { label: "选项3", value: "Option 3" }
 ]
 
-const handleChange = (values) => {
+const handleChange = values => {
   ElMessage.success(`已选择 ${values.length} 个选项`)
-  console.log('Selected values:', values)
+  console.log("Selected values:", values)
 }
 </script>
 ```
@@ -166,27 +154,23 @@ const handleChange = (values) => {
 
 ```vue
 <template>
-  <CrystalCheckboxGroup 
-    v-model="selectedValues"
-    :options="options"
-    :before-change="beforeChange"
-  />
+  <CrystalCheckboxGroup v-model="selectedValues" :options="options" :before-change="beforeChange" />
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { ElMessage } from 'element-plus'
+import { ref } from "vue"
+import { ElMessage } from "element-plus"
 
 const selectedValues = ref([])
 const options = [
-  { label: '选项1', value: 'Option 1' },
-  { label: '选项2', value: 'Option 2' },
-  { label: '选项3', value: 'Option 3' }
+  { label: "选项1", value: "Option 1" },
+  { label: "选项2", value: "Option 2" },
+  { label: "选项3", value: "Option 3" }
 ]
 
-const beforeChange = (values) => {
+const beforeChange = values => {
   if (values.length > 2) {
-    ElMessage.warning('最多只能选择2个选项')
+    ElMessage.warning("最多只能选择2个选项")
     return false
   }
   return true
@@ -198,12 +182,7 @@ const beforeChange = (values) => {
 
 ```vue
 <template>
-  <CrystalCheckboxGroup 
-    v-model="selectedValues"
-    :options="options"
-    border
-    size="small"
-  />
+  <CrystalCheckboxGroup v-model="selectedValues" :options="options" border size="small" />
 </template>
 ```
 

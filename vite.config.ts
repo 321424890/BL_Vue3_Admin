@@ -18,9 +18,11 @@ const pathResolve = (dir: string): string => {
 /** 设置别名 */
 const alias: Record<string, string> = {
   "@": pathResolve("src"),
-  "@build": pathResolve("build"),
-  // 使用用户指定的crystal-ui路径配置
-  "crystal-ui": pathResolve("../element-plus-wrapper/packages/crystal-ui/src/index.ts")
+  "@build": pathResolve("build")
+  // 将crystalplus-ui映射到已安装的crystalplus-ui npm包
+  // "crystalplus-ui": pathResolve("../element-plus-wrapper/packages/crystalplus-ui/src/index.ts")
+  // "crystalplus-ui": pathResolve("../element-plus-wrapper/packages/crystalplus-ui/dist")
+  // "crystalplus-ui": "crystalplus-ui"
 }
 
 export default ({ mode }: ConfigEnv): UserConfig => {
@@ -105,7 +107,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
         "vxe-table",
         "xe-utils",
         "lodash-es",
-        "crystal-ui"
+        "crystalplus-ui"
       ],
       exclude: ["@iconify-icons/ep", "@iconify-icons/ri", "@iconify/vue"],
       // 强制重新预构建（开发时如果遇到模块解析问题，可以临时启用）

@@ -20,19 +20,14 @@
 
 ```vue
 <template>
-  <crystal-select 
-    v-model="selectedValue" 
-    :options="['选项1', '选项2', '选项3']"
-    placeholder="请选择..."
-    clearable
-  />
+  <crystal-select v-model="selectedValue" :options="['选项1', '选项2', '选项3']" placeholder="请选择..." clearable />
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { CrystalSelect } from 'crystal-ui'
+import { ref } from "vue"
+import { CrystalSelect } from "crystalplus-ui"
 
-const selectedValue = ref('')
+const selectedValue = ref("")
 </script>
 ```
 
@@ -40,24 +35,19 @@ const selectedValue = ref('')
 
 ```vue
 <template>
-  <crystal-select 
-    v-model="selectedCity" 
-    :options="cities"
-    placeholder="选择城市..."
-    clearable
-  />
+  <crystal-select v-model="selectedCity" :options="cities" placeholder="选择城市..." clearable />
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { CrystalSelect } from 'crystal-ui'
+import { ref } from "vue"
+import { CrystalSelect } from "crystalplus-ui"
 
-const selectedCity = ref('')
+const selectedCity = ref("")
 const cities = ref([
-  { label: '北京', value: 'beijing' },
-  { label: '上海', value: 'shanghai' },
-  { label: '广州', value: 'guangzhou', disabled: true },
-  { label: '深圳', value: 'shenzhen' }
+  { label: "北京", value: "beijing" },
+  { label: "上海", value: "shanghai" },
+  { label: "广州", value: "guangzhou", disabled: true },
+  { label: "深圳", value: "shenzhen" }
 ])
 </script>
 ```
@@ -68,8 +58,8 @@ const cities = ref([
 
 ```vue
 <template>
-  <crystal-select 
-    v-model="selectedCities" 
+  <crystal-select
+    v-model="selectedCities"
     :options="cities"
     multiple
     placeholder="请选择城市..."
@@ -79,17 +69,17 @@ const cities = ref([
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { CrystalSelect } from 'crystal-ui'
+import { ref } from "vue"
+import { CrystalSelect } from "crystalplus-ui"
 
 const selectedCities = ref([])
 const cities = ref([
-  { label: '北京', value: 'beijing' },
-  { label: '上海', value: 'shanghai' },
-  { label: '广州', value: 'guangzhou' },
-  { label: '深圳', value: 'shenzhen' },
-  { label: '杭州', value: 'hangzhou' },
-  { label: '成都', value: 'chengdu' }
+  { label: "北京", value: "beijing" },
+  { label: "上海", value: "shanghai" },
+  { label: "广州", value: "guangzhou" },
+  { label: "深圳", value: "shenzhen" },
+  { label: "杭州", value: "hangzhou" },
+  { label: "成都", value: "chengdu" }
 ])
 </script>
 ```
@@ -98,8 +88,8 @@ const cities = ref([
 
 ```vue
 <template>
-  <crystal-select 
-    v-model="searchValue" 
+  <crystal-select
+    v-model="searchValue"
     :options="options"
     filterable
     remote
@@ -111,14 +101,14 @@ const cities = ref([
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { CrystalSelect } from 'crystal-ui'
+import { ref } from "vue"
+import { CrystalSelect } from "crystalplus-ui"
 
-const searchValue = ref('')
+const searchValue = ref("")
 const options = ref([])
 
 // 模拟远程搜索
-const remoteMethod = (query) => {
+const remoteMethod = query => {
   if (query) {
     // 模拟异步搜索
     setTimeout(() => {
@@ -139,28 +129,23 @@ const remoteMethod = (query) => {
 
 ```vue
 <template>
-  <crystal-select 
-    v-model="iconValue" 
-    :options="iconOptions"
-    placeholder="带图标选项"
-    clearable
-  />
+  <crystal-select v-model="iconValue" :options="iconOptions" placeholder="带图标选项" clearable />
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { CrystalSelect } from 'crystal-ui'
+import { ref } from "vue"
+import { CrystalSelect } from "crystalplus-ui"
 
-const iconValue = ref('')
+const iconValue = ref("")
 const iconOptions = ref([
   // 使用Element Plus图标
-  { label: '用户', value: 'user', icon: 'User' },
-  { label: '主页', value: 'home', prefixIcon: 'House' },
-  { label: '设置', value: 'settings', suffixIcon: 'Setting' },
+  { label: "用户", value: "user", icon: "User" },
+  { label: "主页", value: "home", prefixIcon: "House" },
+  { label: "设置", value: "settings", suffixIcon: "Setting" },
   // 使用Iconify图标
-  { label: '邮件', value: 'mail', icon: 'ep:message' },
-  { label: '电话', value: 'phone', prefixIcon: 'ep:phone' },
-  { label: '文档', value: 'doc', suffixIcon: 'ep:document' }
+  { label: "邮件", value: "mail", icon: "ep:message" },
+  { label: "电话", value: "phone", prefixIcon: "ep:phone" },
+  { label: "文档", value: "doc", suffixIcon: "ep:document" }
 ])
 </script>
 ```
@@ -169,8 +154,8 @@ const iconOptions = ref([
 
 ```vue
 <template>
-  <crystal-select 
-    v-model="actionValue" 
+  <crystal-select
+    v-model="actionValue"
     :options="actionOptions"
     placeholder="带操作按钮的选项"
     clearable
@@ -179,25 +164,23 @@ const iconOptions = ref([
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { CrystalSelect } from 'crystal-ui'
+import { ref } from "vue"
+import { CrystalSelect } from "crystalplus-ui"
 
-const actionValue = ref('')
+const actionValue = ref("")
 const actionOptions = ref([
   {
-    label: '选项1', 
-    value: '1',
+    label: "选项1",
+    value: "1",
     actions: [
-      { name: 'edit', icon: 'Edit', label: '编辑' },
-      { name: 'delete', icon: 'Delete', label: '删除' }
+      { name: "edit", icon: "Edit", label: "编辑" },
+      { name: "delete", icon: "Delete", label: "删除" }
     ]
   },
   {
-    label: '选项2', 
-    value: '2',
-    actions: [
-      { name: 'view', icon: 'View', label: '查看', disabled: true }
-    ]
+    label: "选项2",
+    value: "2",
+    actions: [{ name: "view", icon: "View", label: "查看", disabled: true }]
   }
 ])
 
@@ -206,14 +189,14 @@ const handleOptionAction = (actionName, option) => {
   console.log(`执行操作: ${actionName}，选项:`, option)
   // 根据不同操作执行相应逻辑
   switch (actionName) {
-    case 'edit':
-      console.log('编辑选项', option)
+    case "edit":
+      console.log("编辑选项", option)
       break
-    case 'delete':
-      console.log('删除选项', option)
+    case "delete":
+      console.log("删除选项", option)
       break
-    case 'view':
-      console.log('查看选项', option)
+    case "view":
+      console.log("查看选项", option)
       break
   }
 }
@@ -224,8 +207,8 @@ const handleOptionAction = (actionName, option) => {
 
 ```vue
 <template>
-  <crystal-select 
-    v-model="infiniteValue" 
+  <crystal-select
+    v-model="infiniteValue"
     :options="infiniteOptions"
     placeholder="无限滚动加载"
     clearable
@@ -238,13 +221,13 @@ const handleOptionAction = (actionName, option) => {
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { CrystalSelect } from 'crystal-ui'
+import { ref } from "vue"
+import { CrystalSelect } from "crystalplus-ui"
 
-const infiniteValue = ref('')
+const infiniteValue = ref("")
 const infiniteOptions = ref([])
 const loading = ref(false)
-const loadingText = ref('加载中...')
+const loadingText = ref("加载中...")
 let page = 1
 const pageSize = 10
 
@@ -263,27 +246,27 @@ initData()
 // 处理加载更多
 const handleLoadMore = () => {
   if (loading.value) return
-  
+
   loading.value = true
-  
+
   // 模拟异步加载
   setTimeout(() => {
     const startIdx = page * pageSize + 1
     const endIdx = startIdx + pageSize - 1
-    
+
     for (let i = startIdx; i <= endIdx; i++) {
       infiniteOptions.value.push({
         label: `选项 ${i}`,
         value: i.toString()
       })
     }
-    
+
     page++
     loading.value = false
-    
+
     // 模拟没有更多数据的情况
     if (page >= 10) {
-      loadingText.value = '没有更多数据了'
+      loadingText.value = "没有更多数据了"
     }
   }, 1000)
 }
@@ -294,30 +277,25 @@ const handleLoadMore = () => {
 
 ```vue
 <template>
-  <crystal-select 
-    v-model="descValue" 
-    :options="descOptions"
-    placeholder="带描述信息的选项"
-    clearable
-  />
+  <crystal-select v-model="descValue" :options="descOptions" placeholder="带描述信息的选项" clearable />
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { CrystalSelect } from 'crystal-ui'
+import { ref } from "vue"
+import { CrystalSelect } from "crystalplus-ui"
 
-const descValue = ref('')
+const descValue = ref("")
 const descOptions = ref([
   {
-    label: '选项1',
-    value: '1',
-    description: '这是选项1的详细描述信息'
+    label: "选项1",
+    value: "1",
+    description: "这是选项1的详细描述信息"
   },
   {
-    label: '选项2',
-    value: '2',
-    description: '这是选项2的详细描述信息，提供更多上下文',
-    icon: 'InfoFilled'
+    label: "选项2",
+    value: "2",
+    description: "这是选项2的详细描述信息，提供更多上下文",
+    icon: "InfoFilled"
   }
 ])
 </script>
@@ -330,7 +308,9 @@ const descOptions = ref([
   <crystal-select v-model="customValue" placeholder="自定义选项内容">
     <template #option="{ option }">
       <div class="custom-option-content">
-        <div class="custom-icon"><el-icon><StarFilled /></el-icon></div>
+        <div class="custom-icon">
+          <el-icon><StarFilled /></el-icon>
+        </div>
         <div class="custom-info">
           <div class="custom-label">{{ option.label }}</div>
           <div class="custom-desc">自定义描述信息</div>
@@ -345,11 +325,11 @@ const descOptions = ref([
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { CrystalSelect } from 'crystal-ui'
-import { StarFilled } from '@element-plus/icons-vue'
+import { ref } from "vue"
+import { CrystalSelect } from "crystalplus-ui"
+import { StarFilled } from "@element-plus/icons-vue"
 
-const customValue = ref('')
+const customValue = ref("")
 </script>
 
 <style scoped>
@@ -392,57 +372,57 @@ const customValue = ref('')
 
 CrystalSelect 组件扩展了以下自定义 props：
 
-| 属性名 | 类型 | 默认值 | 说明 |
-|-------|-----|-------|-----|
-| options | `Array<CustomOption \| string \| number>` | [] | 选项数据，支持字符串数组或对象数组 |
-| optionIcons | `Record<string \| number, string>` | {} | 用于批量自定义每个选项的图标 |
-| optionActions | `Record<string \| number, OptionAction[]>` | {} | 用于批量自定义每个选项的操作按钮 |
-| loading | boolean | false | 是否显示加载状态 |
-| loadingText | string | '加载中...' | 加载状态显示的文本 |
-| loadingIcon | string | 'Loading' | 加载状态显示的图标 |
-| scrollThreshold | number | 80 | 触底触发加载更多的阈值百分比 |
-| enableInfiniteScroll | boolean | false | 是否启用无限滚动触底更新 |
+| 属性名               | 类型                                       | 默认值      | 说明                               |
+| -------------------- | ------------------------------------------ | ----------- | ---------------------------------- |
+| options              | `Array<CustomOption \| string \| number>`  | []          | 选项数据，支持字符串数组或对象数组 |
+| optionIcons          | `Record<string \| number, string>`         | {}          | 用于批量自定义每个选项的图标       |
+| optionActions        | `Record<string \| number, OptionAction[]>` | {}          | 用于批量自定义每个选项的操作按钮   |
+| loading              | boolean                                    | false       | 是否显示加载状态                   |
+| loadingText          | string                                     | '加载中...' | 加载状态显示的文本                 |
+| loadingIcon          | string                                     | 'Loading'   | 加载状态显示的图标                 |
+| scrollThreshold      | number                                     | 80          | 触底触发加载更多的阈值百分比       |
+| enableInfiniteScroll | boolean                                    | false       | 是否启用无限滚动触底更新           |
 
 ### 继承的 Element Plus Select 主要 props
 
 以下是一些常用的 Element Plus Select 组件的 props：
 
-| 属性名 | 类型 | 默认值 | 说明 |
-|-------|-----|-------|-----|
-| modelValue / v-model | any | — | 绑定值 |
-| multiple | boolean | false | 是否多选 |
-| disabled | boolean | false | 是否禁用 |
-| clearable | boolean | false | 是否可清空 |
-| collapseTags | boolean | false | 多选时是否将选中值按文字的形式展示 |
-| filterable | boolean | false | 是否可搜索 |
-| remote | boolean | false | 是否为远程搜索 |
-| remoteMethod | function | — | 远程搜索方法 |
-| placeholder | string | '请选择' | 占位符 |
-| size | string | 'default' | 尺寸，可选值为 large、default、small |
+| 属性名               | 类型     | 默认值    | 说明                                 |
+| -------------------- | -------- | --------- | ------------------------------------ |
+| modelValue / v-model | any      | —         | 绑定值                               |
+| multiple             | boolean  | false     | 是否多选                             |
+| disabled             | boolean  | false     | 是否禁用                             |
+| clearable            | boolean  | false     | 是否可清空                           |
+| collapseTags         | boolean  | false     | 多选时是否将选中值按文字的形式展示   |
+| filterable           | boolean  | false     | 是否可搜索                           |
+| remote               | boolean  | false     | 是否为远程搜索                       |
+| remoteMethod         | function | —         | 远程搜索方法                         |
+| placeholder          | string   | '请选择'  | 占位符                               |
+| size                 | string   | 'default' | 尺寸，可选值为 large、default、small |
 
 ## Events
 
 CrystalSelect 组件扩展了以下自定义事件：
 
-| 事件名 | 说明 | 参数 |
-|-------|-----|------|
+| 事件名        | 说明                   | 参数                            |
+| ------------- | ---------------------- | ------------------------------- |
 | option-action | 选项操作按钮点击时触发 | actionName: string, option: any |
-| load-more | 触底加载更多时触发 | — |
-| scroll | 下拉框滚动时触发 | event: Event |
+| load-more     | 触底加载更多时触发     | —                               |
+| scroll        | 下拉框滚动时触发       | event: Event                    |
 
 ### 继承的 Element Plus Select 事件
 
-| 事件名 | 说明 | 参数 |
-|-------|-----|------|
-| update:model-value | 绑定值变化时触发 | 新的绑定值 |
-| change | 选中值发生变化时触发 | 选中的值 |
-| visible-change | 下拉框出现/隐藏时触发 | 出现则为 true，隐藏则为 false |
-| remove-tag | 多选模式下移除tag时触发 | 移除的tag值 |
-| clear | 可清空模式下用户点击清空按钮时触发 | — |
-| blur | 当选择器的输入框失去焦点时触发 | event |
-| focus | 当选择器的输入框获得焦点时触发 | event |
-| query-change | 搜索词变化时触发 | query: string |
-| current-change | 当前选中值变化时触发 | currentVal: any |
+| 事件名             | 说明                               | 参数                          |
+| ------------------ | ---------------------------------- | ----------------------------- |
+| update:model-value | 绑定值变化时触发                   | 新的绑定值                    |
+| change             | 选中值发生变化时触发               | 选中的值                      |
+| visible-change     | 下拉框出现/隐藏时触发              | 出现则为 true，隐藏则为 false |
+| remove-tag         | 多选模式下移除tag时触发            | 移除的tag值                   |
+| clear              | 可清空模式下用户点击清空按钮时触发 | —                             |
+| blur               | 当选择器的输入框失去焦点时触发     | event                         |
+| focus              | 当选择器的输入框获得焦点时触发     | event                         |
+| query-change       | 搜索词变化时触发                   | query: string                 |
+| current-change     | 当前选中值变化时触发               | currentVal: any               |
 
 ## 插槽
 
@@ -462,12 +442,12 @@ CrystalSelect 组件扩展了以下自定义事件：
 
 CrystalSelect 组件还支持 Element Plus Select 组件的所有插槽：
 
-| 插槽名 | 说明 |
-|-------|------|
-| prefix | 组件头部内容 |
-| empty | 无选项时的内容 |
+| 插槽名  | 说明           |
+| ------- | -------------- |
+| prefix  | 组件头部内容   |
+| empty   | 无选项时的内容 |
 | prepend | 输入框前置内容 |
-| append | 输入框后置内容 |
+| append  | 输入框后置内容 |
 
 ## 类型定义
 
@@ -475,14 +455,14 @@ CrystalSelect 组件还支持 Element Plus Select 组件的所有插槽：
 
 ```typescript
 interface CustomOption {
-  label?: string;          // 选项标签
-  value: any;              // 选项值
-  disabled?: boolean;      // 是否禁用
-  icon?: string;           // 图标类名
-  prefixIcon?: string;     // 前置图标类名
-  suffixIcon?: string;     // 后置图标类名
-  description?: string;    // 描述信息
-  actions?: OptionAction[]; // 操作按钮数组
+  label?: string // 选项标签
+  value: any // 选项值
+  disabled?: boolean // 是否禁用
+  icon?: string // 图标类名
+  prefixIcon?: string // 前置图标类名
+  suffixIcon?: string // 后置图标类名
+  description?: string // 描述信息
+  actions?: OptionAction[] // 操作按钮数组
 }
 ```
 
@@ -490,10 +470,10 @@ interface CustomOption {
 
 ```typescript
 interface OptionAction {
-  name: string;      // 操作名称
-  icon?: string;     // 图标类名
-  label?: string;    // 显示文本
-  disabled?: boolean; // 是否禁用
+  name: string // 操作名称
+  icon?: string // 图标类名
+  label?: string // 显示文本
+  disabled?: boolean // 是否禁用
 }
 ```
 

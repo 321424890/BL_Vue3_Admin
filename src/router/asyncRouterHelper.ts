@@ -6,7 +6,6 @@ import { useAppStoreWithOut } from "@/store/modules/app"
 import { generateDynamicRouters } from "@/utils/routerUtils"
 import { useNProgress } from "@/hooks/useProgress"
 import { useStorage } from "@/hooks/useStorage"
-import { getRouterList } from "@/api/user"
 import { menuWhiteList } from "@/constants"
 
 const { start, done } = useNProgress()
@@ -23,19 +22,26 @@ export const createRouter = (asyncRouters: RouteRecordRaw[] = cashRoutes) => {
   let newAsyncFinalRouter = [] as RouteRecordRaw[]
   asyncFinalRouter = generateDynamicRouters(asyncRouters, unref(mode), routersStore.user)
 
+  // 过滤菜单，去除白名单中的路由，只保留有名称的路由
   newAsyncFinalRouter = asyncFinalRouter.filter((route: RouteRecordRaw) => {
-    return !menuWhiteList.includes(route.name as string)
+    return route.name && !menuWhiteList.includes(route.name as string)
   })
   routersStore.setMenu(newAsyncFinalRouter)
-  router.getRoutes().map((v: RouteRecordRaw) => {
-    router.removeRoute(v.name)
+
+  // 清除现有路由
+  router.getRoutes().forEach((v: RouteRecordRaw) => {
+    if (v.name) {
+      router.removeRoute(v.name)
+    }
   })
-  asyncFinalRouter.map((v: RouteRecordRaw) => {
+
+  // 添加新路由
+  asyncFinalRouter.forEach((v: RouteRecordRaw) => {
     router.addRoute(v)
   })
 }
 
-// 如果未登录过默认不执行,实际可换成token (本地无user缓存和pinia中无路由表视为未登录)
+// 登录验证逻辑
 const isAuth = computed(() => (getStorage("user") || routersStore.getRouters.length ? true : false))
 
 // 保持原有行为：先用本地缓存/静态路由创建一次，避免刷新自定义路由时直接 404
@@ -46,40 +52,26 @@ if (unref(isAuth)) {
 // 初始化时，根据路由模式决定是否重新请求最新路由
 const initAsyncRouters = async () => {
   if (!unref(isAuth)) return
-  const currentMode = unref(mode)
-  // 异步路由模式：每次刷新页面都重新从接口获取一次路由列表
-  if (currentMode === "async") {
-    try {
-      const res = await getRouterList({ page: 1, pageSize: 999 })
-      const list = (res.data?.data?.list || []) as RouteRecordRaw[]
-      if (list.length) {
-        routersStore.setRouters(list)
-        createRouter(list)
-        return
-      }
-    } catch (error) {
-      console.error("获取路由列表失败，使用缓存路由", error)
-    }
-  }
-  // 静态模式或请求失败时，退回使用缓存/静态路由
-  createRouter(cashRoutes)
+  // 无论什么模式，都使用静态路由
+  routersStore.setRouters(staticRouter)
+  createRouter(staticRouter)
 }
 
 // 应用启动时执行一次
 initAsyncRouters()
 
 // 开发环境下，周期性拉取最新路由（配合 mock 修改，省去重新登录）
-if (import.meta.env.DEV) {
-  const w = window as any
-  if (w.__MENU_POLL_TIMER__) {
-    clearInterval(w.__MENU_POLL_TIMER__)
-  }
-  w.__MENU_POLL_TIMER__ = setInterval(() => {
-    if (unref(isAuth)) {
-      initAsyncRouters()
-    }
-  }, 2000) // 间隔可按需调整
-}
+// if (import.meta.env.DEV) {
+//   const w = window as any
+//   if (w.__MENU_POLL_TIMER__) {
+//     clearInterval(w.__MENU_POLL_TIMER__)
+//   }
+//   w.__MENU_POLL_TIMER__ = setInterval(() => {
+//     if (unref(isAuth)) {
+//       initAsyncRouters()
+//     }
+//   }, 2000) // 间隔可按需调整
+// }
 
 // 使用 sessionStorage 标记页面刷新
 // 在应用启动时设置标记

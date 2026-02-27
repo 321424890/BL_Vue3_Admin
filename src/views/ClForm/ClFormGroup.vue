@@ -20,7 +20,7 @@
 <script setup lang="ts">
 import { ref, reactive } from "vue"
 import { ElMessage } from "element-plus"
-import { CrystalFormGroup } from "crystal-ui"
+import { CrystalFormGroup } from "crystalplus-ui"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 
 // 表单数据

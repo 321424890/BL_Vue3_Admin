@@ -207,12 +207,15 @@ const generateDynamicRouters = (routers: RouteRecordRaw[], mode: RouterMode, use
 const traverseRouting = (routers: RouteRecordRaw[]): RouteRecordRaw[] => {
   for (let v of routers) {
     let component = v.component as any
-    const module = modules[`${component.replace("/", "../")}.vue`] || modules[`${component.replace("/", "../")}.tsx`]
+    let module = null
+    if (component && typeof component === "string") {
+      module = modules[`${component.replace("/", "../")}.vue`] || modules[`${component.replace("/", "../")}.tsx`]
 
-    if (!module && !component.toLowerCase().includes("layout")) {
-      console.error(`未找到${component}.vue文件或${component}.tsx文件，请创建`)
+      if (!module && !component.toLowerCase().includes("layout")) {
+        console.error(`未找到${component}.vue文件或${component}.tsx文件，请创建`)
+      }
     }
-    v.component = component === "layout" ? Layout : component === "secLayout" ? secLayout() : module
+    v.component = component === "layout" ? Layout : component === "secLayout" ? secLayout() : module || component
     if (v.children && v.children.length) {
       traverseRouting(v.children)
     }
@@ -224,24 +227,27 @@ const traverseRoleRouting = (routers: RouteRecordRaw[], roles: string[]): RouteR
   const toolArray = [] as RouteRecordRaw[]
   for (let v of routers) {
     let component = v.component as any
-    const module = modules[`${component.replace("/", "../")}.vue`] || modules[`${component.replace("/", "../")}.tsx`]
+    let module = null
+    if (component && typeof component === "string") {
+      module = modules[`${component.replace("/", "../")}.vue`] || modules[`${component.replace("/", "../")}.tsx`]
 
-    if (!module && !component.toLowerCase().includes("layout")) {
-      console.error(`未找到${component}.vue文件或${component}.tsx文件，请创建`)
+      if (!module && !component.toLowerCase().includes("layout")) {
+        console.error(`未找到${component}.vue文件或${component}.tsx文件，请创建`)
+      }
     }
     // 如果有权限说明要筛选，没有的就跳过
     if (v.meta?.role?.length) {
-      const hasRequiredPermissions = v.meta?.role.every(permission => roles.includes(permission))
+      const hasRequiredPermissions = v.meta?.role.every(permission => roles?.includes(permission))
       if (hasRequiredPermissions) {
         toolArray.push(v)
       }
     }
-    v.component = component === "layout" ? Layout : component === "secLayout" ? secLayout() : module
+    v.component = component === "layout" ? Layout : component === "secLayout" ? secLayout() : module || component
     if (v.children && v.children.length) {
       traverseRouting(v.children)
     }
     // 其他情况正常返回
-    if (!v.meta?.role && !v.meta?.role?.length) {
+    if (!v.meta?.role || !v.meta?.role?.length) {
       toolArray.push(v)
     }
   }

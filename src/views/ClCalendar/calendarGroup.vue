@@ -114,7 +114,7 @@
 <script setup lang="tsx" name="MaintenanceSchedule">
 import { ref, computed, onMounted, reactive, watch } from "vue"
 import { ElMessage, ElMessageBox } from "element-plus"
-import { CrystalCalendar } from "crystal-ui"
+import { CrystalCalendar } from "crystalplus-ui"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 
 const currentDate = ref(new Date())

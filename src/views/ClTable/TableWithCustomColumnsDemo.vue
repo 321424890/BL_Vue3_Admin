@@ -55,7 +55,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue"
-import { CrystalTable } from "crystal-ui"
+import { CrystalTable } from "crystalplus-ui"
 
 // 表格数据
 const tableData = ref([

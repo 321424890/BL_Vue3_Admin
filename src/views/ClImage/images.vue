@@ -70,7 +70,7 @@
 
 <script setup>
 import { ref } from "vue"
-import { CrystalImages } from "crystal-ui"
+import { CrystalImages } from "crystalplus-ui"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 
 // 模拟文件列表

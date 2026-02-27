@@ -37,29 +37,35 @@ const loginOut = () => {
     confirmButtonText: t("login.confirm"),
     cancelButtonText: t("login.cancel"),
     type: "warning"
-  }).then(async () => {
+  }).then(() => {
     const loadingInstance = ElLoading.service({ fullscreen: true })
-    const {
-      data: { code }
-    } = await outLogin()
-    console.log(code)
-    if (code === 200) {
-      // 清除本地user和路由缓存
-      clear()
-      // 清除状态管理
-      appStore.$reset()
-      localeStore.$reset()
-      routersStore.$reset()
-      tagsStore.$reset()
-      ElMessage({
-        type: "success",
-        message: t("login.outSuccess")
-      })
-      push({
-        name: "Login"
-      })
-      loadingInstance.close()
+    // 模拟接口返回
+    const outLoginRes = {
+      data: {
+        code: 200,
+        message: "退出成功"
+      }
     }
+    
+    setTimeout(() => {
+      if (outLoginRes.data.code === 200) {
+        // 清除本地user和路由缓存
+        clear()
+        // 清除状态管理
+        appStore.$reset()
+        localeStore.$reset()
+        routersStore.$reset()
+        tagsStore.$reset()
+        ElMessage({
+          type: "success",
+          message: t("login.outSuccess")
+        })
+        push({
+          name: "Login"
+        })
+      }
+      loadingInstance.close()
+    }, 500)
   })
 }
 </script>

@@ -74,7 +74,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue"
-import { CrystalAlert } from "crystal-ui"
+import { CrystalAlert } from "crystalplus-ui"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 
 // 关闭事件处理

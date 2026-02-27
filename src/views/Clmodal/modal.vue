@@ -125,7 +125,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue"
-import { CrystalModal } from "crystal-ui"
+import { CrystalModal } from "crystalplus-ui"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 import { MessageBox } from "@element-plus/icons-vue"
 

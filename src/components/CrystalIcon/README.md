@@ -13,7 +13,7 @@
 ## 安装
 
 ```bash
-npm install crystal-ui
+npm install crystalplus-ui
 ```
 
 ## 基本用法
@@ -22,7 +22,7 @@ npm install crystal-ui
 <template>
   <!-- 使用 Element Plus 图标 -->
   <crystal-icon icon="edit" size="24" color="#1890ff" />
-  
+
   <!-- 使用自定义内容 -->
   <crystal-icon size="32">
     <div class="custom-icon">🎉</div>
@@ -30,22 +30,22 @@ npm install crystal-ui
 </template>
 
 <script setup>
-import { CrystalIcon } from 'crystal-ui'
+import { CrystalIcon } from "crystalplus-ui"
 </script>
 ```
 
 ## 属性说明
 
-| 属性名 | 类型 | 默认值 | 说明 |
-| ----- | ---- | ----- | ---- |
-| icon | string | - | Element Plus 图标名称，例如：`edit`、`delete`、`search` |
-| size | number/string | 'default' | 图标大小，例如：`24`、`32`、`large` |
-| color | string | '#333' | 图标颜色 |
-| animate | boolean | false | 是否启用动画效果 |
-| animateType | string | 'rotate' | 动画类型：`rotate`（旋转）、`pulse`（脉冲）、`bounce`（弹跳） |
-| gradient | boolean | false | 是否启用颜色渐变 |
-| gradientFrom | string | '#1890ff' | 渐变起始颜色 |
-| gradientTo | string | '#52c41a' | 渐变结束颜色 |
+| 属性名       | 类型          | 默认值    | 说明                                                          |
+| ------------ | ------------- | --------- | ------------------------------------------------------------- |
+| icon         | string        | -         | Element Plus 图标名称，例如：`edit`、`delete`、`search`       |
+| size         | number/string | 'default' | 图标大小，例如：`24`、`32`、`large`                           |
+| color        | string        | '#333'    | 图标颜色                                                      |
+| animate      | boolean       | false     | 是否启用动画效果                                              |
+| animateType  | string        | 'rotate'  | 动画类型：`rotate`（旋转）、`pulse`（脉冲）、`bounce`（弹跳） |
+| gradient     | boolean       | false     | 是否启用颜色渐变                                              |
+| gradientFrom | string        | '#1890ff' | 渐变起始颜色                                                  |
+| gradientTo   | string        | '#52c41a' | 渐变结束颜色                                                  |
 
 ## 动画效果
 
@@ -74,13 +74,7 @@ import { CrystalIcon } from 'crystal-ui'
 <crystal-icon icon="star" gradient size="32" />
 
 <!-- 自定义渐变色 -->
-<crystal-icon 
-  icon="heart" 
-  gradient 
-  gradient-from="#ff4d4f" 
-  gradient-to="#ff7a45" 
-  size="32" 
-/>
+<crystal-icon icon="heart" gradient gradient-from="#ff4d4f" gradient-to="#ff7a45" size="32" />
 ```
 
 ## 自定义内容
@@ -97,15 +91,7 @@ import { CrystalIcon } from 'crystal-ui'
 ## 组合使用
 
 ```vue
-<crystal-icon 
-  icon="rocket" 
-  size="48" 
-  animate 
-  animate-type="bounce" 
-  gradient 
-  gradient-from="#ff4d4f" 
-  gradient-to="#722ed1" 
-/>
+<crystal-icon icon="rocket" size="48" animate animate-type="bounce" gradient gradient-from="#ff4d4f" gradient-to="#722ed1" />
 ```
 
 ## 事件
@@ -121,6 +107,7 @@ import { CrystalIcon } from 'crystal-ui'
 ## 浏览器支持
 
 支持所有现代浏览器，包括：
+
 - Chrome (推荐)
 - Firefox
 - Safari

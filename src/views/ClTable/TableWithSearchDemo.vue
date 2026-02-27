@@ -32,7 +32,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue"
-import { CrystalTable } from "crystal-ui"
+import { CrystalTable } from "crystalplus-ui"
 import { ElMessage } from "element-plus"
 
 // 表格数据

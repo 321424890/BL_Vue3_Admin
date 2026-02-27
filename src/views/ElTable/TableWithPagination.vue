@@ -34,7 +34,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from "vue"
-import { ElBasicTable } from "crystal-ui"
+import { ElBasicTable } from "crystalplus-ui"
 
 // 模拟总数据
 const totalData = ref([

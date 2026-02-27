@@ -798,6 +798,9 @@ const arr: any = [
   }
 ]
 
+// 导出路由配置
+export const mockRoutes = arr
+
 export default [
   // 列表接口
   {

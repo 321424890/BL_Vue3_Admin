@@ -322,7 +322,7 @@
 <script setup lang="ts">
 import { ref } from "vue"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
-import { CrystalCascader } from "crystal-ui"
+import { CrystalCascader } from "crystalplus-ui"
 
 // 基础级联数据
 const options = ref([

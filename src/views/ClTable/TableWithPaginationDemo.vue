@@ -37,7 +37,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from "vue"
-import { CrystalTable } from "crystal-ui"
+import { CrystalTable } from "crystalplus-ui"
 import { ElMessage } from "element-plus"
 
 // 模拟总数据量

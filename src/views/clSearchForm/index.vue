@@ -119,7 +119,7 @@
 <script setup lang="ts">
 import { ref } from "vue"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
-import { ClSearchForm } from "crystal-ui"
+import { ClSearchForm } from "crystalplus-ui"
 
 // 基础使用示例 - 完整配置示例
 const basicQueryConfig = ref([

@@ -6,15 +6,13 @@ import { useForm } from "@/hooks/useForm"
 import { useValidator } from "@/hooks/useValidator"
 import { useI18n } from "@/hooks/useI18n"
 import { ElButton, ElMessage } from "element-plus"
-import { login } from "@/api/user"
-import { useDebounceFn } from "@vueuse/core"
-import { omit } from "lodash-es"
+import { useRouter } from "vue-router"
 import { staticRouter } from "@/router"
 import { useRoutersStore } from "@/store/modules/router"
-import { RouteRecordRaw, useRouter } from "vue-router"
 import { useAppStore } from "@/store/modules/app"
-const appSotre = useAppStore()
+import { createRouter } from "@/router/asyncRouterHelper"
 
+const appSotre = useAppStore()
 const { formRegister, formMethods } = useForm()
 const { getFormData, getElFormExpose } = formMethods
 const { required } = useValidator()
@@ -39,7 +37,7 @@ const schema = reactive<FormSchema[]>([
       span: 24
     },
     componentProps: {
-      placeholder: "admin or test"
+      placeholder: "请输入账号"
     }
   },
   {
@@ -84,29 +82,56 @@ const signIn = async () => {
     Login(formData)
     return
   }
-  ElMessage.error("登录失败，校验不通过")
+  ElMessage.error("请输入账号和密码")
 }
 
-const Login = useDebounceFn(async ({ username, password }) => {
-  const loginRes = await login({
-    username,
-    password
-  })
-  let user = omit(loginRes.data.data, "routers")
-  // 存储user信息
-  routersStore.setUser(user)
-  // 写入router
-  routersStore.setRouters(unref(routerMode) === "static" ? staticRouter : (loginRes.data.data.routers as RouteRecordRaw[]))
-  if (loginRes.data.code === 200) {
-    push({
-      name: "Redirect",
-      params: {
-        path: "dashboard/workplace",
-        type: "async"
+const Login = async ({ username, password }) => {
+  loading.value = true
+  // 模拟接口返回
+  const loginRes = {
+    data: {
+      code: 200,
+      message: "登录成功",
+      data: {
+        username: username,
+        name: "管理员",
+        roles: ["admin"],
+        routers: []
       }
-    })
+    }
   }
-}, 300)
+
+  setTimeout(() => {
+    loading.value = false
+    if (loginRes.data.code === 200) {
+      // 存储user信息
+      const userData = {
+        ...loginRes.data.data,
+        routers: staticRouter
+      }
+      routersStore.setUser(userData)
+      // 写入router
+      routersStore.setRouters(staticRouter)
+      // 设置为静态路由模式
+      appSotre.setRouterMode("static")
+      // 创建路由和更新菜单
+      createRouter(staticRouter)
+      // 延迟跳转，确保路由和菜单更新完成
+      setTimeout(() => {
+        // 跳转到主页面
+        push({
+          name: "Redirect",
+          params: {
+            path: "dashboard/workplace",
+            type: "static"
+          }
+        })
+      }, 100)
+    } else {
+      ElMessage.error(loginRes.data.message || "登录失败")
+    }
+  }, 500)
+}
 </script>
 <template>
   <Form :schema="schema" :rules="rules" label-position="top" hide-required-asterisk size="large" @register="formRegister" />

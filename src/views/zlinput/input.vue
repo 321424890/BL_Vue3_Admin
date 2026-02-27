@@ -179,7 +179,7 @@
 <script setup lang="ts">
 import { ref } from "vue"
 // import CrystalInput from "@/components/BasicInput/input/index.vue"
-import { CrystalInput, CrystalIcon } from "crystal-ui"
+import { CrystalInput, CrystalIcon } from "crystalplus-ui"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 import { Calendar, Search } from "@element-plus/icons-vue"
 // 属性表格数据

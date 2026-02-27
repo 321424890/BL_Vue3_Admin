@@ -20,8 +20,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CrystalRadio } from '@crystal-ui/crystal-ui'
+import { ref } from "vue"
+import { CrystalRadio } from "@crystalplus-ui/crystalplus-ui"
 
 const checked = ref(false)
 </script>
@@ -42,10 +42,10 @@ const checked = ref(false)
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CrystalRadio, CrystalRadioGroup } from '@crystal-ui/crystal-ui'
+import { ref } from "vue"
+import { CrystalRadio, CrystalRadioGroup } from "@crystalplus-ui/crystalplus-ui"
 
-const radioValue = ref('option1')
+const radioValue = ref("option1")
 </script>
 ```
 
@@ -54,19 +54,13 @@ const radioValue = ref('option1')
 ```vue
 <template>
   <div>
-    <crystal-radio 
-      v-model="checked" 
-      highlight
-      highlight-color="#67c23a"
-    >
-      带点亮点的单选框
-    </crystal-radio>
+    <crystal-radio v-model="checked" highlight highlight-color="#67c23a"> 带点亮点的单选框 </crystal-radio>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CrystalRadio } from '@crystal-ui/crystal-ui'
+import { ref } from "vue"
+import { CrystalRadio } from "@crystalplus-ui/crystalplus-ui"
 
 const checked = ref(false)
 </script>
@@ -77,21 +71,15 @@ const checked = ref(false)
 ```vue
 <template>
   <div>
-    <crystal-radio 
-      v-model="checked" 
-      radio-color="#f56c6c"
-      border-color="#909399"
-      hover-color="#e6a23c"
-      font-color="#606266"
-    >
+    <crystal-radio v-model="checked" radio-color="#f56c6c" border-color="#909399" hover-color="#e6a23c" font-color="#606266">
       自定义颜色的单选框
     </crystal-radio>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CrystalRadio } from '@crystal-ui/crystal-ui'
+import { ref } from "vue"
+import { CrystalRadio } from "@crystalplus-ui/crystalplus-ui"
 
 const checked = ref(false)
 </script>
@@ -102,19 +90,13 @@ const checked = ref(false)
 ```vue
 <template>
   <div>
-    <crystal-radio 
-      v-model="checked" 
-      border
-      border-color="#409EFF"
-    >
-      带边框的单选框
-    </crystal-radio>
+    <crystal-radio v-model="checked" border border-color="#409EFF"> 带边框的单选框 </crystal-radio>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CrystalRadio } from '@crystal-ui/crystal-ui'
+import { ref } from "vue"
+import { CrystalRadio } from "@crystalplus-ui/crystalplus-ui"
 
 const checked = ref(false)
 </script>
@@ -125,33 +107,15 @@ const checked = ref(false)
 ```vue
 <template>
   <div>
-    <crystal-radio 
-      v-model="checked" 
-      size="large"
-      border
-    >
-      大号单选框
-    </crystal-radio>
-    <crystal-radio 
-      v-model="checked" 
-      size="default"
-      border
-    >
-      默认尺寸单选框
-    </crystal-radio>
-    <crystal-radio 
-      v-model="checked" 
-      size="small"
-      border
-    >
-      小号单选框
-    </crystal-radio>
+    <crystal-radio v-model="checked" size="large" border> 大号单选框 </crystal-radio>
+    <crystal-radio v-model="checked" size="default" border> 默认尺寸单选框 </crystal-radio>
+    <crystal-radio v-model="checked" size="small" border> 小号单选框 </crystal-radio>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CrystalRadio } from '@crystal-ui/crystal-ui'
+import { ref } from "vue"
+import { CrystalRadio } from "@crystalplus-ui/crystalplus-ui"
 
 const checked = ref(false)
 </script>
@@ -162,25 +126,14 @@ const checked = ref(false)
 ```vue
 <template>
   <div>
-    <crystal-radio 
-      v-model="checked" 
-      disabled
-    >
-      禁用的单选框
-    </crystal-radio>
-    <crystal-radio 
-      v-model="checked" 
-      disabled
-      highlight
-    >
-      禁用且带点亮点的单选框
-    </crystal-radio>
+    <crystal-radio v-model="checked" disabled> 禁用的单选框 </crystal-radio>
+    <crystal-radio v-model="checked" disabled highlight> 禁用且带点亮点的单选框 </crystal-radio>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CrystalRadio } from '@crystal-ui/crystal-ui'
+import { ref } from "vue"
+import { CrystalRadio } from "@crystalplus-ui/crystalplus-ui"
 
 const checked = ref(false)
 </script>
@@ -192,37 +145,37 @@ const checked = ref(false)
 
 所有 Element Plus ElRadio 的属性都支持，详见 [Element Plus Radio 文档](https://element-plus.org/zh-CN/component/radio.html)。以下是 CrystalRadio 新增或有特殊说明的属性：
 
-| 属性名 | 类型 | 默认值 | 说明 |
-|--------|------|--------|------|
-| modelValue | any | false | 绑定值，单个使用时表示是否选中 |
-| label | any | true | 单选框的值，单个使用时默认为 true |
-| highlight | boolean | false | 是否启用点亮点功能 |
-| highlight-color | string | #409EFF | 点亮点颜色，支持十六进制、RGB或颜色名称 |
-| radio-color | string | '' | 单选框选中时的自定义颜色 |
-| border-color | string | '' | 单选框边框的自定义颜色 |
-| hover-color | string | #409EFF | 鼠标悬停时的颜色 |
-| font-color | string | '' | 自定义字体颜色 |
-| fill-color | string | '' | 单选框选中时的填充颜色 |
-| disabled | boolean | false | 是否禁用单选框 |
-| border | boolean | false | 是否显示边框 |
-| size | string | 'default' | 尺寸，可选值为 'large'、'default' 或 'small' |
-| name | string | - | 原生 name 属性 |
-| true-label | any | - | 选中时的值，优先级高于 label |
-| false-label | any | - | 未选中时的值，优先级高于 label |
-| before-change | Function | - | 切换前的回调函数 |
+| 属性名          | 类型     | 默认值    | 说明                                         |
+| --------------- | -------- | --------- | -------------------------------------------- |
+| modelValue      | any      | false     | 绑定值，单个使用时表示是否选中               |
+| label           | any      | true      | 单选框的值，单个使用时默认为 true            |
+| highlight       | boolean  | false     | 是否启用点亮点功能                           |
+| highlight-color | string   | #409EFF   | 点亮点颜色，支持十六进制、RGB或颜色名称      |
+| radio-color     | string   | ''        | 单选框选中时的自定义颜色                     |
+| border-color    | string   | ''        | 单选框边框的自定义颜色                       |
+| hover-color     | string   | #409EFF   | 鼠标悬停时的颜色                             |
+| font-color      | string   | ''        | 自定义字体颜色                               |
+| fill-color      | string   | ''        | 单选框选中时的填充颜色                       |
+| disabled        | boolean  | false     | 是否禁用单选框                               |
+| border          | boolean  | false     | 是否显示边框                                 |
+| size            | string   | 'default' | 尺寸，可选值为 'large'、'default' 或 'small' |
+| name            | string   | -         | 原生 name 属性                               |
+| true-label      | any      | -         | 选中时的值，优先级高于 label                 |
+| false-label     | any      | -         | 未选中时的值，优先级高于 label               |
+| before-change   | Function | -         | 切换前的回调函数                             |
 
 ### 事件 (Events)
 
-| 事件名 | 参数 | 说明 |
-|--------|------|------|
-| change | value: any | 绑定值变化时触发 |
+| 事件名            | 参数       | 说明                 |
+| ----------------- | ---------- | -------------------- |
+| change            | value: any | 绑定值变化时触发     |
 | update:modelValue | value: any | v-model 双向绑定事件 |
 
 ### 方法 (Methods)
 
-| 方法名 | 参数 | 返回值 | 说明 |
-|--------|------|--------|------|
-| toggleHighlight | 无 | void | 切换点亮点状态 |
+| 方法名          | 参数 | 返回值 | 说明           |
+| --------------- | ---- | ------ | -------------- |
+| toggleHighlight | 无   | void   | 切换点亮点状态 |
 
 ## 兼容性说明
 
@@ -236,29 +189,32 @@ CrystalRadio 组件支持通过 CSS 自定义属性进行更深层次的样式�
 ```css
 .crystal-radio-wrapper {
   /* 单选框颜色 */
-  --crystal-radio-color: #409EFF;
+  --crystal-radio-color: #409eff;
   /* 边框颜色 */
   --crystal-border-color: #dcdfe6;
   /* 点亮点颜色 */
-  --crystal-highlight-color: #409EFF;
+  --crystal-highlight-color: #409eff;
   /* 悬停颜色 */
-  --crystal-hover-color: #409EFF;
+  --crystal-hover-color: #409eff;
 }
 ```
 
 ## 故障排除
 
 ### 单选框无法选中
+
 - 检查是否正确使用了 `v-model` 进行双向绑定
 - 单个使用时，确保 `modelValue` 是响应式变量
 - 多个单选框时，确保每个单选框都设置了唯一的 `label` 属性
 
 ### 点亮点功能不生效
+
 - 确保已启用 `highlight` 属性
 - 检查是否在禁用状态下尝试使用点亮点功能
 - 验证 `highlight-color` 是否设置了有效的颜色值
 
 ### 自定义颜色不生效
+
 - 确保使用了正确的属性名（如 `radio-color` 而非 `color`）
 - 检查颜色值是否有效（十六进制、RGB 或颜色名称）
 - 对于组内单选框，自定义颜色可能会被 RadioGroup 的设置覆盖

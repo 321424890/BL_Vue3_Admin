@@ -131,7 +131,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue"
-import { CrystalSwitch } from "crystal-ui"
+import { CrystalSwitch } from "crystalplus-ui"
 import { ElIcon, ElMessage } from "element-plus"
 import { Check, Close } from "@element-plus/icons-vue"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"

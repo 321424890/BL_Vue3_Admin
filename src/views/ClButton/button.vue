@@ -316,7 +316,7 @@
 <script setup lang="ts">
 import { ref } from "vue"
 // import { CrystalButton } from "@/components/CrystalButton"
-import { CrystalButton } from "crystal-ui"
+import { CrystalButton } from "crystalplus-ui"
 
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 // import { ArrowRight } from "@element-plus/icons-vue"

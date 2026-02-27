@@ -76,7 +76,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue"
-import { CrystalMessage } from "crystal-ui"
+import { CrystalMessage } from "crystalplus-ui"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 
 // 显示消息

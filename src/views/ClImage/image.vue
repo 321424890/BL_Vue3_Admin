@@ -163,7 +163,7 @@
 
 <script setup>
 import { ref } from "vue"
-import { CrystalImages, CrystalImage } from "crystal-ui"
+import { CrystalImages, CrystalImage } from "crystalplus-ui"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 import { Plus, Upload } from "@element-plus/icons-vue"
 

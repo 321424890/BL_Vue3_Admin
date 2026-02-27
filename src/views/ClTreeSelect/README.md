@@ -8,35 +8,26 @@ CrystalTree 是基于 Element Plus 的 `el-tree-select` 组件封装的树选择
 
 ```vue
 <template>
-  <crystal-tree
-    v-model="value"
-    :data="treeData"
-  />
+  <crystal-tree v-model="value" :data="treeData" />
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { CrystalTree } from 'crystal-ui'
+import { ref } from "vue"
+import { CrystalTree } from "crystalplus-ui"
 
 const value = ref(null)
 
 const treeData = [
   {
-    label: '一级菜单',
+    label: "一级菜单",
     children: [
       {
-        label: '二级菜单 1',
-        children: [
-          { label: '三级菜单 1-1' },
-          { label: '三级菜单 1-2' }
-        ]
+        label: "二级菜单 1",
+        children: [{ label: "三级菜单 1-1" }, { label: "三级菜单 1-2" }]
       },
       {
-        label: '二级菜单 2',
-        children: [
-          { label: '三级菜单 2-1' },
-          { label: '三级菜单 2-2' }
-        ]
+        label: "二级菜单 2",
+        children: [{ label: "三级菜单 2-1" }, { label: "三级菜单 2-2" }]
       }
     ]
   }
@@ -48,76 +39,76 @@ const treeData = [
 
 ### 核心属性
 
-| 属性名 | 类型 | 默认值 | 说明 |
-|-------|------|-------|------|
-| `modelValue` | `any` | `null` | 绑定值 |
-| `data` | `any[]` | `[]` | 树结构数据 |
-| `props` | `any` | `{ label: 'label', children: 'children' }` | 树节点配置 |
-| `nodeKey` | `string \| number` | - | 树节点唯一标识 |
+| 属性名       | 类型               | 默认值                                     | 说明           |
+| ------------ | ------------------ | ------------------------------------------ | -------------- |
+| `modelValue` | `any`              | `null`                                     | 绑定值         |
+| `data`       | `any[]`            | `[]`                                       | 树结构数据     |
+| `props`      | `any`              | `{ label: 'label', children: 'children' }` | 树节点配置     |
+| `nodeKey`    | `string \| number` | -                                          | 树节点唯一标识 |
 
 ### 展开/折叠控制
 
-| 属性名 | 类型 | 默认值 | 说明 |
-|-------|------|-------|------|
-| `defaultExpandAll` | `boolean` | `false` | 是否默认展开所有节点 |
-| `defaultExpandLevel` | `number` | `1` | 默认展开的层级 |
-| `expandOnClickNode` | `boolean` | `true` | 是否点击节点展开 |
-| `accordion` | `boolean` | `false` | 是否手风琴模式（同一级别只能展开一个节点） |
+| 属性名               | 类型      | 默认值  | 说明                                       |
+| -------------------- | --------- | ------- | ------------------------------------------ |
+| `defaultExpandAll`   | `boolean` | `false` | 是否默认展开所有节点                       |
+| `defaultExpandLevel` | `number`  | `1`     | 默认展开的层级                             |
+| `expandOnClickNode`  | `boolean` | `true`  | 是否点击节点展开                           |
+| `accordion`          | `boolean` | `false` | 是否手风琴模式（同一级别只能展开一个节点） |
 
 ### 选择相关
 
-| 属性名 | 类型 | 默认值 | 说明 |
-|-------|------|-------|------|
-| `highlightCurrent` | `boolean` | `false` | 是否高亮当前选中节点 |
-| `showCheckbox` | `boolean` | `false` | 是否显示复选框 |
-| `checkStrictly` | `boolean` | `false` | 是否严格勾选（父子节点不关联） |
+| 属性名             | 类型      | 默认值  | 说明                           |
+| ------------------ | --------- | ------- | ------------------------------ |
+| `highlightCurrent` | `boolean` | `false` | 是否高亮当前选中节点           |
+| `showCheckbox`     | `boolean` | `false` | 是否显示复选框                 |
+| `checkStrictly`    | `boolean` | `false` | 是否严格勾选（父子节点不关联） |
 
 ### 渲染控制
 
-| 属性名 | 类型 | 默认值 | 说明 |
-|-------|------|-------|------|
+| 属性名              | 类型      | 默认值  | 说明                 |
+| ------------------- | --------- | ------- | -------------------- |
 | `renderAfterExpand` | `boolean` | `false` | 是否展开后渲染子节点 |
 
 ### 样式相关
 
-| 属性名 | 类型 | 默认值 | 说明 |
-|-------|------|-------|------|
+| 属性名  | 类型  | 默认值               | 说明     |
+| ------- | ----- | -------------------- | -------- |
 | `style` | `any` | `{ width: '240px' }` | 组件样式 |
 
 ### 自定义颜色属性
 
-| 属性名 | 类型 | 默认值 | 说明 |
-|-------|------|-------|------|
-| `color` | `string` | `#409EFF` | 树节点默认颜色 |
-| `selectedColor` | `string` | `#409EFF` | 选中节点颜色 |
-| `hoverColor` | `string` | `#f5f7fa` | 鼠标悬停颜色 |
-| `textColor` | `string` | `#303133` | 文本颜色 |
-| `lineColor` | `string` | `#dcdfe6` | 连接线颜色 |
-| `backgroundColor` | `string` | `transparent` | 背景颜色 |
+| 属性名            | 类型     | 默认值        | 说明           |
+| ----------------- | -------- | ------------- | -------------- |
+| `color`           | `string` | `#409EFF`     | 树节点默认颜色 |
+| `selectedColor`   | `string` | `#409EFF`     | 选中节点颜色   |
+| `hoverColor`      | `string` | `#f5f7fa`     | 鼠标悬停颜色   |
+| `textColor`       | `string` | `#303133`     | 文本颜色       |
+| `lineColor`       | `string` | `#dcdfe6`     | 连接线颜色     |
+| `backgroundColor` | `string` | `transparent` | 背景颜色       |
 
 ## 事件
 
-| 事件名 | 说明 | 回调参数 |
-|-------|------|---------|
-| `update:modelValue` | 值改变时触发 | `value: any` |
-| `visible-change` | 下拉面板显示/隐藏时触发 | `visible: boolean` |
-| `remove-tag` | 删除选中标签时触发 | `value: any` |
-| `clear` | 清空选中值时触发 | - |
-| `check-change` | 节点勾选状态变化时触发 | `data: any, checked: boolean, indeterminate: boolean` |
-| `check` | 节点勾选时触发 | `data: any, checked: boolean, indeterminate: boolean` |
-| `node-click` | 节点点击时触发 | `data: any, node: any` |
-| `node-expand` | 节点展开时触发 | `data: any, node: any` |
-| `node-collapse` | 节点折叠时触发 | `data: any, node: any` |
+| 事件名              | 说明                    | 回调参数                                              |
+| ------------------- | ----------------------- | ----------------------------------------------------- |
+| `update:modelValue` | 值改变时触发            | `value: any`                                          |
+| `visible-change`    | 下拉面板显示/隐藏时触发 | `visible: boolean`                                    |
+| `remove-tag`        | 删除选中标签时触发      | `value: any`                                          |
+| `clear`             | 清空选中值时触发        | -                                                     |
+| `check-change`      | 节点勾选状态变化时触发  | `data: any, checked: boolean, indeterminate: boolean` |
+| `check`             | 节点勾选时触发          | `data: any, checked: boolean, indeterminate: boolean` |
+| `node-click`        | 节点点击时触发          | `data: any, node: any`                                |
+| `node-expand`       | 节点展开时触发          | `data: any, node: any`                                |
+| `node-collapse`     | 节点折叠时触发          | `data: any, node: any`                                |
 
 ## 插槽
 
-| 插槽名 | 说明 |
-|-------|------|
-| `default` | 默认插槽 |
-| `label` | 自定义标签内容 |
-| `prefix` | 输入框前置内容 |
-| `empty` | 空数据时的内容 |
-| `node` | 自定义节点内容，包含 `data` 和 `node` 参数 |
+| 插槽名    | 说明                                       |
+| --------- | ------------------------------------------ |
+| `default` | 默认插槽                                   |
+| `label`   | 自定义标签内容                             |
+| `prefix`  | 输入框前置内容                             |
+| `empty`   | 空数据时的内容                             |
+| `node`    | 自定义节点内容，包含 `data` 和 `node` 参数 |
 
 ## 高级用法
 
@@ -153,12 +144,12 @@ const treeData = [
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref } from "vue"
 
 const value = ref(null)
 
 const handleCheckChange = (data, checked, indeterminate) => {
-  console.log('Check change:', data, checked, indeterminate)
+  console.log("Check change:", data, checked, indeterminate)
 }
 
 // treeData 定义同上
@@ -169,29 +160,25 @@ const handleCheckChange = (data, checked, indeterminate) => {
 
 ```vue
 <template>
-  <crystal-tree
-    v-model="value"
-    :data="customTreeData"
-    :props="customProps"
-  />
+  <crystal-tree v-model="value" :data="customTreeData" :props="customProps" />
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref } from "vue"
 
 const value = ref(null)
 
 const customProps = {
-  label: 'name',
-  children: 'subMenu'
+  label: "name",
+  children: "subMenu"
 }
 
 const customTreeData = [
   {
-    name: '一级菜单',
+    name: "一级菜单",
     subMenu: [
       {
-        name: '二级菜单 1'
+        name: "二级菜单 1"
       }
     ]
   }
@@ -203,36 +190,33 @@ const customTreeData = [
 
 ```vue
 <template>
-  <crystal-tree
-    v-model="value"
-    :data="treeDataWithIcons"
-  />
+  <crystal-tree v-model="value" :data="treeDataWithIcons" />
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref } from "vue"
 
 const value = ref(null)
 
 const treeDataWithIcons = [
   {
-    label: '文件管理',
-    icon: '📁',
+    label: "文件管理",
+    icon: "📁",
     children: [
       {
-        label: '图片',
-        icon: '🖼️',
+        label: "图片",
+        icon: "🖼️",
         children: [
-          { label: '风景', icon: '🏞️' },
-          { label: '人物', icon: '👥' }
+          { label: "风景", icon: "🏞️" },
+          { label: "人物", icon: "👥" }
         ]
       },
       {
-        label: '文档',
-        icon: '📄',
+        label: "文档",
+        icon: "📄",
         children: [
-          { label: 'Word', icon: '📝' },
-          { label: 'Excel', icon: '📊' }
+          { label: "Word", icon: "📝" },
+          { label: "Excel", icon: "📊" }
         ]
       }
     ]
@@ -245,35 +229,26 @@ const treeDataWithIcons = [
 
 ```vue
 <template>
-  <crystal-tree
-    v-model="value"
-    :data="treeDataWithDisabled"
-  />
+  <crystal-tree v-model="value" :data="treeDataWithDisabled" />
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref } from "vue"
 
 const value = ref(null)
 
 const treeDataWithDisabled = [
   {
-    label: '可访问菜单',
+    label: "可访问菜单",
     children: [
       {
-        label: '启用的子菜单',
-        children: [
-          { label: '功能1' },
-          { label: '功能2' }
-        ]
+        label: "启用的子菜单",
+        children: [{ label: "功能1" }, { label: "功能2" }]
       },
       {
-        label: '禁用的子菜单',
+        label: "禁用的子菜单",
         disabled: true,
-        children: [
-          { label: '功能3' },
-          { label: '功能4' }
-        ]
+        children: [{ label: "功能3" }, { label: "功能4" }]
       }
     ]
   }
@@ -295,20 +270,20 @@ const treeDataWithDisabled = [
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref } from "vue"
 
 const value = ref(null)
 
 const handleNodeExpand = (data, node) => {
-  console.log('Node expanded:', data.label)
+  console.log("Node expanded:", data.label)
 }
 
 const handleNodeCollapse = (data, node) => {
-  console.log('Node collapsed:', data.label)
+  console.log("Node collapsed:", data.label)
 }
 
 const handleNodeClick = (data, node) => {
-  console.log('Node clicked:', data.label)
+  console.log("Node clicked:", data.label)
 }
 
 // treeData 定义同上
@@ -319,10 +294,7 @@ const handleNodeClick = (data, node) => {
 
 ```vue
 <template>
-  <crystal-tree
-    v-model="value"
-    :data="treeData"
-  >
+  <crystal-tree v-model="value" :data="treeData">
     <template #node="{ data }">
       <span class="custom-node-content">
         <el-tag v-if="data.tag" :type="data.tag.type" size="small">{{ data.tag.text }}</el-tag>
@@ -333,23 +305,23 @@ const handleNodeClick = (data, node) => {
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { ElTag } from 'element-plus'
+import { ref } from "vue"
+import { ElTag } from "element-plus"
 
 const value = ref(null)
 
 const treeData = [
   {
-    label: '一级菜单',
-    tag: { type: 'primary', text: '热门' },
+    label: "一级菜单",
+    tag: { type: "primary", text: "热门" },
     children: [
       {
-        label: '二级菜单 1',
-        tag: { type: 'success', text: '推荐' }
+        label: "二级菜单 1",
+        tag: { type: "success", text: "推荐" }
       },
       {
-        label: '二级菜单 2',
-        tag: { type: 'warning', text: '新功能' }
+        label: "二级菜单 2",
+        tag: { type: "warning", text: "新功能" }
       }
     ]
   }

@@ -20,8 +20,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CrystalCheckbox } from '@crystal-ui/crystal-ui'
+import { ref } from "vue"
+import { CrystalCheckbox } from "@crystalplus-ui/crystalplus-ui"
 
 const checked = ref(false)
 </script>
@@ -32,19 +32,13 @@ const checked = ref(false)
 ```vue
 <template>
   <div>
-    <crystal-checkbox 
-      v-model="checked" 
-      highlight
-      highlight-color="#67c23a"
-    >
-      带点亮点的复选框
-    </crystal-checkbox>
+    <crystal-checkbox v-model="checked" highlight highlight-color="#67c23a"> 带点亮点的复选框 </crystal-checkbox>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CrystalCheckbox } from '@crystal-ui/crystal-ui'
+import { ref } from "vue"
+import { CrystalCheckbox } from "@crystalplus-ui/crystalplus-ui"
 
 const checked = ref(false)
 </script>
@@ -55,16 +49,10 @@ const checked = ref(false)
 ```vue
 <template>
   <div>
-    <crystal-checkbox 
-      v-model="checked1" 
-      checkbox-color="#e6a23c"
-      font-color="#e6a23c"
-    >
-      橙色复选框
-    </crystal-checkbox>
-    
-    <crystal-checkbox 
-      v-model="checked2" 
+    <crystal-checkbox v-model="checked1" checkbox-color="#e6a23c" font-color="#e6a23c"> 橙色复选框 </crystal-checkbox>
+
+    <crystal-checkbox
+      v-model="checked2"
       checkbox-color="#67c23a"
       border-color="#67c23a"
       font-color="#67c23a"
@@ -77,8 +65,8 @@ const checked = ref(false)
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CrystalCheckbox } from '@crystal-ui/crystal-ui'
+import { ref } from "vue"
+import { CrystalCheckbox } from "@crystalplus-ui/crystalplus-ui"
 
 const checked1 = ref(false)
 const checked2 = ref(false)
@@ -90,9 +78,9 @@ const checked2 = ref(false)
 ```vue
 <template>
   <div>
-    <crystal-checkbox 
-      v-model="checked" 
-      :border="true" 
+    <crystal-checkbox
+      v-model="checked"
+      :border="true"
       size="large"
       highlight
       checkbox-color="#f56c6c"
@@ -107,8 +95,8 @@ const checked2 = ref(false)
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CrystalCheckbox } from '@crystal-ui/crystal-ui'
+import { ref } from "vue"
+import { CrystalCheckbox } from "@crystalplus-ui/crystalplus-ui"
 
 const checked = ref(false)
 </script>
@@ -120,9 +108,9 @@ const checked = ref(false)
 <template>
   <div>
     <el-checkbox-group v-model="checkList">
-      <crystal-checkbox 
-        v-for="item in options" 
-        :key="item.value" 
+      <crystal-checkbox
+        v-for="item in options"
+        :key="item.value"
         :label="item.value"
         :highlight="true"
         :highlight-color="getHighlightColor(item.value)"
@@ -135,75 +123,75 @@ const checked = ref(false)
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { ElCheckboxGroup } from 'element-plus'
-import { CrystalCheckbox } from '@crystal-ui/crystal-ui'
+import { ref } from "vue"
+import { ElCheckboxGroup } from "element-plus"
+import { CrystalCheckbox } from "@crystalplus-ui/crystalplus-ui"
 
 const checkList = ref<string[]>([])
 const options = [
-  { label: '选项1', value: 'option1' },
-  { label: '选项2', value: 'option2' },
-  { label: '选项3', value: 'option3' }
+  { label: "选项1", value: "option1" },
+  { label: "选项2", value: "option2" },
+  { label: "选项3", value: "option3" }
 ]
 
 const getHighlightColor = (value: string) => {
   const colors = {
-    option1: '#409EFF',
-    option2: '#67c23a',
-    option3: '#e6a23c'
+    option1: "#409EFF",
+    option2: "#67c23a",
+    option3: "#e6a23c"
   }
-  return colors[value as keyof typeof colors] || '#409EFF'
+  return colors[value as keyof typeof colors] || "#409EFF"
 }
 
 const getFontColor = (value: string) => {
   const colors = {
-    option1: '#409EFF',
-    option2: '#67c23a',
-    option3: '#e6a23c'
+    option1: "#409EFF",
+    option2: "#67c23a",
+    option3: "#e6a23c"
   }
-  return colors[value as keyof typeof colors] || '#409EFF'
+  return colors[value as keyof typeof colors] || "#409EFF"
 }
 </script>
 ```
 
 ## 属性
 
-| 属性名 | 说明 | 类型 | 默认值 | 可选值 |
-|-------|-----|------|-------|-------|
-| model-value / v-model | 绑定值 | boolean | false | true/false |
-| label | 选中时的值 | string/number/boolean/object | - | - |
-| true-label | 选中时的值 | string/number | - | - |
-| false-label | 未选中时的值 | string/number | - | - |
-| disabled | 禁用状态 | boolean | false | true/false |
-| border | 是否显示边框 | boolean | false | true/false |
-| size | 尺寸 | string | 'default' | 'large'/'default'/'small' |
-| name | 原生 name 属性 | string | - | - |
-| checked | 当前是否勾选 | boolean | false | true/false |
-| indeterminate | 是否为 indeterminate 状态 | boolean | false | true/false |
-| before-change | 点击前的钩子函数 | (val: boolean) => boolean | - | - |
-| min | 选中项数量最小值 | number | - | - |
-| max | 选中项数量最大值 | number | - | - |
-| controls | 与原生 input 元素绑定的 id | string | - | - |
-| highlight | 是否启用点亮点功能 | boolean | false | true/false |
-| highlight-color | 点亮点颜色 | string | '#409EFF' | 有效的颜色值 |
-| checkbox-color | 复选框自定义颜色 | string | '' | 有效的颜色值 |
-| border-color | 边框自定义颜色 | string | '' | 有效的颜色值 |
-| hover-color | 鼠标悬停颜色 | string | '#409EFF' | 有效的颜色值 |
-| font-color | 自定义字体颜色 | string | '' | 有效的颜色值 |
+| 属性名                | 说明                       | 类型                         | 默认值    | 可选值                    |
+| --------------------- | -------------------------- | ---------------------------- | --------- | ------------------------- |
+| model-value / v-model | 绑定值                     | boolean                      | false     | true/false                |
+| label                 | 选中时的值                 | string/number/boolean/object | -         | -                         |
+| true-label            | 选中时的值                 | string/number                | -         | -                         |
+| false-label           | 未选中时的值               | string/number                | -         | -                         |
+| disabled              | 禁用状态                   | boolean                      | false     | true/false                |
+| border                | 是否显示边框               | boolean                      | false     | true/false                |
+| size                  | 尺寸                       | string                       | 'default' | 'large'/'default'/'small' |
+| name                  | 原生 name 属性             | string                       | -         | -                         |
+| checked               | 当前是否勾选               | boolean                      | false     | true/false                |
+| indeterminate         | 是否为 indeterminate 状态  | boolean                      | false     | true/false                |
+| before-change         | 点击前的钩子函数           | (val: boolean) => boolean    | -         | -                         |
+| min                   | 选中项数量最小值           | number                       | -         | -                         |
+| max                   | 选中项数量最大值           | number                       | -         | -                         |
+| controls              | 与原生 input 元素绑定的 id | string                       | -         | -                         |
+| highlight             | 是否启用点亮点功能         | boolean                      | false     | true/false                |
+| highlight-color       | 点亮点颜色                 | string                       | '#409EFF' | 有效的颜色值              |
+| checkbox-color        | 复选框自定义颜色           | string                       | ''        | 有效的颜色值              |
+| border-color          | 边框自定义颜色             | string                       | ''        | 有效的颜色值              |
+| hover-color           | 鼠标悬停颜色               | string                       | '#409EFF' | 有效的颜色值              |
+| font-color            | 自定义字体颜色             | string                       | ''        | 有效的颜色值              |
 
 ## 事件
 
-| 事件名 | 说明 | 回调参数 |
-|-------|-----|--------|
+| 事件名             | 说明             | 回调参数       |
+| ------------------ | ---------------- | -------------- |
 | update:model-value | 绑定值变化时触发 | value: boolean |
-| change | 绑定值变化时触发 | value: boolean |
+| change             | 绑定值变化时触发 | value: boolean |
 
 ## 方法
 
-| 方法名 | 说明 | 参数 | 返回值 |
-|-------|-----|------|-------|
-| toggle | 切换选中状态 | 无 | void |
-| toggleHighlight | 切换点亮点状态 | 无 | void |
+| 方法名          | 说明           | 参数 | 返回值 |
+| --------------- | -------------- | ---- | ------ |
+| toggle          | 切换选中状态   | 无   | void   |
+| toggleHighlight | 切换点亮点状态 | 无   | void   |
 
 ## 兼容性说明
 

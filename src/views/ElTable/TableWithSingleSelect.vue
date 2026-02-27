@@ -41,7 +41,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue"
-import { ElBasicTable } from "crystal-ui"
+import { ElBasicTable } from "crystalplus-ui"
 
 const tableData = ref([
   { id: 1, name: "张三", age: 20, address: "北京市" },

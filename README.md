@@ -1,15 +1,15 @@
-**VxAdmin**
+**BL Admin**
 
 项目git hub地址
 
 ```markdown
-https://github.com/hytql8/vue-vx-admin.git
+https://github.com/321424890/BL_Vue3_Admin
 ```
 
 克隆项目
 
 ```markdown
-git clone https://github.com/hytql8/vue-vx-admin.git
+git clone https://github.com/321424890/BL_Vue3_Admin
 ```
 
 拉取代码之后安装node_modules依赖
@@ -30,15 +30,11 @@ pnpm run dev
 pnpm run build
 ```
 
-代码部署/发布之前预览打包后的页面
+### 相关项目
 
-```markdown
-pnpm run preview
-```
-
-代码预览地址
-
-[预览](http://www.hytql8.top/)
+- **crystalplusui**：[在线文档地址](https://crystalui.cn)
+- **BL_Vue3_Admin**：[在线项目地址](http://admin.crystalui.cn)
+- **GitHub 仓库**：[项目仓库](https://github.com/321424890)
 
 vscode所需插件
 
@@ -46,7 +42,7 @@ vscode所需插件
 1. Chinese （vscode中文语言） 建议必装
 2. DotENV （.env环境变量高亮） 建议必装
 3. ESLint (eslint 代码检查提示插件) 建议必装
-4. GitLens （查看git提交记录） 
+4. GitLens （查看git提交记录）
 5. i18n Ally (国际化vscode内代码块翻译插件)
 6. Iconify IntelliSense （vscode内显示对应代码块为iconify图标）
 7. Prettier - Code formatter (代码格式化插件prettier) 建议必装
@@ -55,14 +51,3 @@ vscode所需插件
 ```
 
 vscode 配置 (见项目下的.vscode文件夹下的.settings.json)
-
-
-项目图片预览
-
-![](http://hytql8.top/vx-admin-preview.png)
-
-项目还在开发中🔨同时也是自己学习前端中✊后续会继续更新
-
-贡献代码有问题，联系作者
-vx： HY1711034994
-qq: 1711034994

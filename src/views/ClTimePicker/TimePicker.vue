@@ -187,7 +187,7 @@
 <script setup lang="ts">
 import { ref, reactive } from "vue"
 import { ElMessage } from "element-plus"
-import { CrystalTimePicker } from "crystal-ui"
+import { CrystalTimePicker } from "crystalplus-ui"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 const value7777 = ref<[Date, Date]>([new Date(2016, 9, 10, 8, 40), new Date(2016, 9, 10, 9, 40)])
 

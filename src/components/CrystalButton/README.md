@@ -19,7 +19,7 @@ CrystalButton 是基于 Element Plus 的 ElButton 组件封装的按钮组件，
 </template>
 
 <script setup>
-import { CrystalButton } from 'crystal-ui'
+import { CrystalButton } from "crystalplus-ui"
 </script>
 ```
 
@@ -29,18 +29,18 @@ import { CrystalButton } from 'crystal-ui'
 
 ### 常用属性
 
-| 属性名 | 类型 | 默认值 | 说明 |
-|--------|------|--------|------|
-| type | string | default | 按钮类型，可选值：primary/success/warning/danger/info |
-| size | string | default | 按钮尺寸，可选值：large/default/small |
-| plain | boolean | false | 是否为朴素按钮 |
-| round | boolean | false | 是否为圆角按钮 |
-| circle | boolean | false | 是否为圆形按钮 |
-| loading | boolean | false | 是否为加载中状态 |
-| disabled | boolean | false | 是否禁用状态 |
-| icon | string | - | 图标类名 |
-| autofocus | boolean | false | 是否默认聚焦 |
-| native-type | string | button | 原生 type 属性，可选值：button/submit/reset |
+| 属性名      | 类型    | 默认值  | 说明                                                  |
+| ----------- | ------- | ------- | ----------------------------------------------------- |
+| type        | string  | default | 按钮类型，可选值：primary/success/warning/danger/info |
+| size        | string  | default | 按钮尺寸，可选值：large/default/small                 |
+| plain       | boolean | false   | 是否为朴素按钮                                        |
+| round       | boolean | false   | 是否为圆角按钮                                        |
+| circle      | boolean | false   | 是否为圆形按钮                                        |
+| loading     | boolean | false   | 是否为加载中状态                                      |
+| disabled    | boolean | false   | 是否禁用状态                                          |
+| icon        | string  | -       | 图标类名                                              |
+| autofocus   | boolean | false   | 是否默认聚焦                                          |
+| native-type | string  | button  | 原生 type 属性，可选值：button/submit/reset           |
 
 ## 事件 (Events)
 
@@ -48,11 +48,11 @@ import { CrystalButton } from 'crystal-ui'
 
 ### 常用事件
 
-| 事件名 | 参数 | 说明 |
-|--------|------|------|
-| click | event: MouseEvent | 点击按钮时触发 |
-| focus | event: FocusEvent | 按钮获得焦点时触发 |
-| blur | event: FocusEvent | 按钮失去焦点时触发 |
+| 事件名 | 参数              | 说明               |
+| ------ | ----------------- | ------------------ |
+| click  | event: MouseEvent | 点击按钮时触发     |
+| focus  | event: FocusEvent | 按钮获得焦点时触发 |
+| blur   | event: FocusEvent | 按钮失去焦点时触发 |
 
 ## 插槽 (Slots)
 
@@ -98,7 +98,7 @@ import { CrystalButton } from 'crystal-ui'
 </template>
 
 <script setup>
-import { Search, Edit } from '@element-plus/icons-vue'
+import { Search, Edit } from "@element-plus/icons-vue"
 </script>
 ```
 
@@ -109,13 +109,13 @@ import { Search, Edit } from '@element-plus/icons-vue'
   <div>
     <crystal-button type="primary" :loading="true">加载中</crystal-button>
     <crystal-button type="primary" :loading="isLoading" @click="handleClick">
-      {{ isLoading ? '加载中...' : '点击加载' }}
+      {{ isLoading ? "加载中..." : "点击加载" }}
     </crystal-button>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref } from "vue"
 
 const isLoading = ref(false)
 
@@ -140,7 +140,7 @@ const handleClick = () => {
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref } from "vue"
 
 const canSubmit = ref(false)
 </script>
@@ -178,12 +178,12 @@ const canSubmit = ref(false)
 
 ```typescript
 // CrystalButton 组件继承 ElButton 的所有类型
-import type { ButtonProps } from 'element-plus'
+import type { ButtonProps } from "element-plus"
 
 // 使用示例
 const buttonProps: ButtonProps = {
-  type: 'primary',
-  size: 'large',
+  type: "primary",
+  size: "large",
   loading: false
 }
 ```

@@ -192,7 +192,7 @@
 <script setup lang="ts">
 import { ref, computed } from "vue"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
-import { CrystalDatePickerPane } from "crystal-ui"
+import { CrystalDatePickerPane } from "crystalplus-ui"
 console.log("CrystalDatePickerPane", CrystalDatePickerPane)
 
 // 绑定的值

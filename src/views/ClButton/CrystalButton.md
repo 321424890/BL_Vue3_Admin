@@ -42,15 +42,15 @@ import { CrystalButton } from "@/components/CrystalButton"
 ```ts
 // 全局注册
 import { createApp } from "vue"
-import CrystalUI from "crystal-ui"
-import "crystal-ui/dist/index.css"
+import CrystalUI from "crystalplus-ui"
+import "crystalplus-ui/dist/index.css"
 
 const app = createApp(App)
 app.use(CrystalUI)
 
 // 按需引入
-import { CrystalButton } from "crystal-ui"
-import "crystal-ui/dist/index.css"
+import { CrystalButton } from "crystalplus-ui"
+import "crystalplus-ui/dist/index.css"
 
 export default {
   components: {

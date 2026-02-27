@@ -146,7 +146,7 @@
 <script setup lang="ts">
 import { ref } from "vue"
 // import CrystalInputNumber from "@/components/CrystalInput/inputnumber/index.vue"
-import { CrystalInputNumber } from "crystal-ui"
+import { CrystalInputNumber } from "crystalplus-ui"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 
 // 属性表格数据

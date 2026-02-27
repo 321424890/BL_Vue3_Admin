@@ -31,38 +31,38 @@ const activities: {
   type?: "success" | "danger" | "primary" | "warning" | "info"
 }[] = [
   {
-    content: "hytql8 pushed to hytql8/VxAdmin",
+    content: "hytql8 pushed to hytql8/BL Admin",
     timestamp: "2024-03-17",
     type: "success"
   },
   {
-    content: "hytql8 closed pull request Dev in hytql8/VxAdmin",
+    content: "hytql8 closed pull request Dev in hytql8/BL Admin",
     timestamp: "2024-03-15",
     type: "danger"
   },
   {
-    content: "zhangsan pushed to hytql8/VxAdmin",
+    content: "zhangsan pushed to hytql8/BL Admin",
     timestamp: "2024-03-05",
     type: "primary"
   },
   {
-    content: "zhangsan pull request Dev in hytql8/VxAdmin",
+    content: "zhangsan pull request Dev in hytql8/BL Admin",
     timestamp: "2024-03-05"
   },
   {
-    content: "hytql8 pull request Dev in hytql8/VxAdmin",
+    content: "hytql8 pull request Dev in hytql8/BL Admin",
     timestamp: "2024-03-05"
   },
   {
-    content: "hytql8 pull request Dev in hytql8/VxAdmin",
+    content: "hytql8 pull request Dev in hytql8/BL Admin",
     timestamp: "2024-03-05"
   },
   {
-    content: "hytql8 pull request Dev in hytql8/VxAdmin",
+    content: "hytql8 pull request Dev in hytql8/BL Admin",
     timestamp: "2024-03-05"
   },
   {
-    content: "hytql8 pull request Dev in hytql8/VxAdmin",
+    content: "hytql8 pull request Dev in hytql8/BL Admin",
     timestamp: "2024-03-05"
   }
 ]
@@ -132,6 +132,12 @@ const member: {
       <div class="header-content">
         <h1 class="page-title">系统首页</h1>
         <p class="page-description">欢迎回来，系统管理员！</p>
+        <div class="header-links">
+          <a href="https://crystalui.cn" target="_blank" rel="noopener noreferrer" class="docs-link">
+            <VxIcon icon="ri:book-open-line" :size="16" />
+            <span>使用文档</span>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -200,6 +206,32 @@ const member: {
   color: #606266;
   font-size: 14px;
   margin: 0;
+  margin-bottom: 16px;
+}
+
+/* 头部链接样式 */
+.header-links {
+  margin-top: 16px;
+}
+
+.docs-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background-color: #f0f9ff;
+  color: #1890ff;
+  border: 1px solid #e6f7ff;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.docs-link:hover {
+  background-color: #e6f7ff;
+  border-color: #91d5ff;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.15);
 }
 
 /* 示例组样式 */

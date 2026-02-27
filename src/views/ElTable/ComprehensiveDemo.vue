@@ -92,7 +92,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from "vue"
-import { ElBasicTable } from "crystal-ui"
+import { ElBasicTable } from "crystalplus-ui"
 import { Plus, Delete, Edit, View } from "@element-plus/icons-vue"
 
 // 表格数据

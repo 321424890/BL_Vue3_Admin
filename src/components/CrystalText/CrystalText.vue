@@ -6,7 +6,7 @@
     :bold="bold"
     :italic="italic"
     :underline="underline"
-    :delete="delete"
+    :delete="strikethrough"
     :code="code"
     :copyable="{
       ...(props.copyable === true ? {} : props.copyable),
@@ -68,6 +68,8 @@ interface CrystalTextProps extends /* @vue-ignore */ ElTextProps {
   fontWeight?: string | number
   // 斜体
   fontStyle?: "normal" | "italic"
+  // 删除线
+  strikethrough?: boolean
 }
 
 const props = withDefaults(defineProps<CrystalTextProps>(), {
@@ -78,7 +80,7 @@ const props = withDefaults(defineProps<CrystalTextProps>(), {
   bold: false,
   italic: false,
   underline: false,
-  delete: false,
+  strikethrough: false,
   code: false,
   copyable: false,
   // 自定义属性的默认值

@@ -239,7 +239,7 @@
 <script setup>
 import { ref } from "vue"
 // import { CrystalText } from "@/components/CrystalText"
-import { CrystalText } from "crystal-ui"
+import { CrystalText } from "crystalplus-ui"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 
 // 响应式数据

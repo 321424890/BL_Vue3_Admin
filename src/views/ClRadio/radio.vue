@@ -171,7 +171,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue"
-import { CrystalRadio } from "crystal-ui"
+import { CrystalRadio } from "crystalplus-ui"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 
 // 绑定值定义

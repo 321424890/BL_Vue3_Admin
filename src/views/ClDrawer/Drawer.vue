@@ -187,7 +187,7 @@
 <script setup lang="ts">
 import { ref } from "vue"
 
-import { CrystalDrawer } from "crystal-ui"
+import { CrystalDrawer } from "crystalplus-ui"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 import { Management, Document, Setting, Message, Menu } from "@element-plus/icons-vue"
 

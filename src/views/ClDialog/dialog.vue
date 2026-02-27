@@ -140,7 +140,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue"
-import { CrystalDialog } from "crystal-ui"
+import { CrystalDialog } from "crystalplus-ui"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 import { MessageBox } from "@element-plus/icons-vue"
 

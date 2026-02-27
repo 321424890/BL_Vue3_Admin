@@ -181,7 +181,7 @@
 <script setup lang="ts">
 import { ref, reactive } from "vue"
 import { ElMessage } from "element-plus"
-import { CrystalCheckboxGroup } from "crystal-ui"
+import { CrystalCheckboxGroup } from "crystalplus-ui"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 
 // 基础示例数据

@@ -159,7 +159,7 @@
 
 <script setup lang="ts">
 import { ref, reactive } from "vue"
-import { CrystalCalendar } from "crystal-ui"
+import { CrystalCalendar } from "crystalplus-ui"
 import { ElTag, ElMessage, ElDialog, ElForm, ElFormItem, ElInput, ElSelect, ElOption, ElButton } from "element-plus"
 import BasicTable from "@/components/BasicTable/BasicTable.vue"
 
